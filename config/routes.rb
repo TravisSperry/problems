@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  match '/auth/:provider/callback', :to => 'sessions#callback'
+  root 'pages#home'
+
+  match '/auth/:provider/callback', :to => 'sessions#callback', :via => [:get]
+
+  resources :projects
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,37 @@
+<div class='container'>
+  <% if params[:search] %>
+  <!-- Render when search params present -->
+  <div class='row' style="margin-top: 5%">
+    <div class="two columns text-center">
+      <%= link_to root_path do %>
+        <%= image_tag('problems_icon_p.png', class: 'u-max-full-width', style: 'max-height:50px;') %>
+        <% end %>
+    </div>
+    <div class='eight columns text-center'>
+      <%= simple_form_for :search,
+                          :url => url_for(:action => 'home', :controller => 'pages'),
+                          :method => 'get' do |f| %>
+        <%= f.input :terms, label: false, input_html: { class: 'u-full-width', style: 'margin-top:10px' } %>
+    </div>
+    <div class='two columns text-center'>
+        <%= f.button :submit, 'Search', style: 'margin-top:10px' %>
+    </div>
+      <% end %>
+  </div>
+  <% else %>
+  <!-- Basic home view. -->
+  <div class="row" style="margin-top: 25%">
+    <div class="column text-center">
+        <%= image_tag('problems_icon.png', size: '100') %>
+      <h1>Problems</h1>
+      <p>The place to go when you want your mind blown.</p>
+        <%= simple_form_for :search,
+                            :url => url_for(:action => 'home', :controller => 'pages'),
+                            :method => 'get' do |f| %>
+        <%= f.input :terms, label: false, input_html: { class: "u-full-width" } %>
+        <%= f.button :submit, "Search" %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
