@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @coupon_codes }
+      format.json { render json: @projects }
     end
   end
 
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(coupon_code_params)
+    @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save

@@ -1,1 +1,3 @@
-//= require katex/katex
+//= require jquery
+//= require pages
+

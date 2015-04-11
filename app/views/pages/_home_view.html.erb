@@ -1,0 +1,36 @@
+<div class="row" style="margin-top: 25%;">
+  <div class="column text-center">
+      <%= image_tag('problems_icon.png', size: '100') %>
+    <h1>Problems</h1>
+    <p>The place to go when you want your mind blown.</p>
+      <%= simple_form_for :search,
+                          :url => url_for(:action => 'home', :controller => 'pages'),
+                          :method => 'get' do |f| %>
+      <%= f.input :terms, label: false, input_html: { class: "u-full-width" } %>
+      <%= f.button :submit, "Search" %>
+    <% end %>
+  </div>
+</div>
+<hr>
+<div class="row" style="margin-top: 10%;">
+  <div class='six columns text-center'>
+    <h1>Good...</h1>
+    <p>
+      This is an example of a problem that is right on the money :)
+    </p>
+  </div>
+  <div class='six columns text-center'>
+    <h1>No so good...</h1>
+    <p>
+      This is an example of a problem that wouldn't be a good fit for the problems index.
+    </p>
+  </div>
+</div>
+<hr>
+<div class="row" style="margin: 10%;">
+  <div class='twelve columns text-center'>
+    <h3>Want to Contribute?</h3>
+    <%= link_to "Add a Problem", new_project_path, class: 'button button-primary'  %>
+  </div>
+</div>
+<hr>
