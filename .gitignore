@@ -17,3 +17,4 @@
 
 # Ignore Solr data
 /solr/data
+/solr/development
