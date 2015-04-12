@@ -33,7 +33,6 @@ gem 'spring',      group: :development
 gem "devise"
 gem "jquery-rails"
 gem 'turbolinks'
-gem "omniauth"
 gem "haml", ">= 3.0.0"
 gem 'skeleton-rails'
 gem 'simple_form'
