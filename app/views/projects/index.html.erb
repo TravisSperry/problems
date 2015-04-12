@@ -1,7 +1,32 @@
-<div class="container">
+<div class="container" style="margin-top: 5%">
   <div class="row">
-    <div class="column text-center" style="margin-top: 25%">
+    <div class='offset-by-ten two columns'>
+      <%= link_to root_path do %>
+        <%= image_tag('problems_icon_p.png', class: 'u-max-full-width', style: 'max-height:50px;') %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column text-center">
       <h1>Existing Projects</h1>
+      <table align="center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Content</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @projects.each do |project| %>
+          <tr>
+            <td> <%= project.name %> </td>
+            <td> <%= project.content %> </td>
+            <td> <%= link_to 'SHOW', project %> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
