@@ -42,3 +42,4 @@ gem 'sunspot_solr'
 gem 'progress_bar'
 gem 'chosen-rails'
 gem 'pg', group: :production
+gem 'rails_12factor'

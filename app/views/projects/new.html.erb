@@ -14,14 +14,17 @@
   <div class="row">
     <div class="five columns">
       <%= simple_form_for @project do |f| %>
-        <%= f.input :name, label: 'Title', input_html: { class: 'u-full-width' } %>
-        <%= f.input :content, input_html: { class: 'u-full-width' } %>
+        <%= f.input :name, label: 'Name of Problem', input_html: { class: 'u-full-width' } %>
+        <%= f.input :author_name, label: 'Author Name', input_html: { class: 'u-full-width' } %>
+        <%= f.input :author_link, label: 'Author Link', input_html: { class: 'u-full-width' } %>
+        <%= f.input :problem_statement, label: 'Problem Statement', input_html: { class: 'u-full-width' } %>
+        <%= f.input :content, label: 'Hook', input_html: { class: 'u-full-width' } %>
         <%= f.input :type_id, collection: Type.all, input_html: { class: 'u-full-width' } %>
-        <%= f.input :why, input_html: { class: 'u-full-width' } %>
+        <%= f.input :why, label: 'Why we love it?', input_html: { class: 'u-full-width' } %>
         <%= f.input :duration, input_html: { class: 'u-full-width' } %>
         <%= f.input :launch_method, input_html: { class: 'u-full-width' } %>
         <%= f.input :teacher_moves, input_html: { class: 'u-full-width' } %>
-        <%= f.association :tags, input_html: { class: 'u-full-width chosen' } %>
+        <%= f.association :tags, input_html: { class: 'u-full-width chosen' } %><br>
         <%= f.button :submit, 'Create!' %>
       <% end %>
     </div>
