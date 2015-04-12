@@ -41,4 +41,4 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'progress_bar'
 gem 'chosen-rails'
-gem 'pg', group: :development
+gem 'pg', group: :production
