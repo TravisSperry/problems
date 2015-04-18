@@ -1,4 +1,5 @@
-<div class='container' style='margin-top: 5%'>
+<body style='background:#E4E5DD;'>
+<div class='container' style='margin-top:5%;'>
   <div class="row">
     <div class='offset-by-ten two columns'>
       <%= link_to root_path do %>
@@ -8,25 +9,59 @@
   </div>
   <div class="row">
     <div class="twelve columns">
-      <h1>Create a Project</h1>
+      <h1>Add A Problem</h1>
     </div>
   </div>
-  <div class="row">
-    <div class="five columns">
-      <%= simple_form_for @project do |f| %>
-        <%= f.input :name, label: 'Name of Problem', input_html: { class: 'u-full-width' } %>
-        <%= f.input :author_name, label: 'Author Name', input_html: { class: 'u-full-width' } %>
-        <%= f.input :author_link, label: 'Author Link', input_html: { class: 'u-full-width' } %>
-        <%= f.input :problem_statement, label: 'Problem Statement', input_html: { class: 'u-full-width' } %>
-        <%= f.input :content, label: 'Hook', input_html: { class: 'u-full-width' } %>
-        <%= f.input :type_id, collection: Type.all, input_html: { class: 'u-full-width' } %>
-        <%= f.input :why, label: 'Why we love it?', input_html: { class: 'u-full-width' } %>
-        <%= f.input :duration, input_html: { class: 'u-full-width' } %>
-        <%= f.input :launch_method, input_html: { class: 'u-full-width' } %>
-        <%= f.input :teacher_moves, input_html: { class: 'u-full-width' } %>
-        <%= f.association :tags, input_html: { class: 'u-full-width chosen' } %><br>
-        <%= f.button :submit, 'Create!' %>
-      <% end %>
-    </div>
-  </div>
+    <%= simple_form_for @project do |f| %>
+      <u><h5>The important stuff</h5></u>
+      <div class="row">
+        <div class="six columns">
+          <%= f.input :name, label: 'Name of Problem', input_html: { class: 'u-full-width' } %>
+        </div>
+        <div class="six columns">
+          <%= f.input :type_id, collection: @types, label: 'Type of problem', input_html: { class: 'u-full-width' } %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='twelve columns'>
+            <%= f.input :problem_statement, label: 'Problem Statement', placeholder: 'Give us the goods. What is the problem?', input_html: { class: 'u-full-width' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+            <%= f.input :author_name, label: 'Author Name', input_html: { class: 'u-full-width' } %>
+        </div>
+        <div class="six columns">
+            <%= f.input :author_link, label: 'Author Link', placeholder: 'Optional link to author\'s blog or webpage.', input_html: { class: 'u-full-width' } %>
+        </div>
+      </div>
+      <hr style="border-top:4px solid black;">
+      <u><h5>The details</h5></u>
+      <div class='row'>
+        <div class='six columns'>
+            <%= f.input :content, label: 'Hook', placeholder: 'What\'s the best way to get the audience on the edge of their seats?', input_html: { class: 'u-full-width' } %>
+        </div>
+        <div class='six columns'>
+            <%= f.input :why, label: 'Why we love it?', input_html: { class: 'u-full-width' } %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='six columns'>
+            <%= f.input :duration, input_html: { class: 'u-full-width' } %>
+        </div>
+        <div class='six columns'>
+            <%= f.association :tags, input_html: { class: 'u-full-width chosen' } %>
+        </div>
+      </div>
+      <hr style="border-top:4px solid black;">
+      <u><h5></h5></u>
+      <div class='row'>
+        <div class='twelve columns'>
+            <%= f.input :launch_method, input_html: { class: 'u-full-width' } %>
+            <%= f.input :teacher_moves, input_html: { class: 'u-full-width' } %>
+        </div>
+      </div>
+      <%= f.button :submit, 'Create!' %>
+    <% end %>
 </div>
+</body>
