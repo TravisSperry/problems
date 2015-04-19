@@ -1,6 +1,6 @@
 <div class='container' style='margin-top: 5%'>
   <div class="row">
-    <div class='offset-by-ten two columns'>
+    <div class='two columns'>
       <%= link_to root_path do %>
         <%= image_tag('problems_icon_p.png', class: 'u-max-full-width', style: 'max-height:50px;') %>
       <% end %>
@@ -9,18 +9,42 @@
   <div class="row" style="margin-top:10%">
     <div class="twelve columns">
       <h1 style="display:inline;"> <%= @project.name %> </h1>
-      <img class="u-pull-right" src="http://placehold.it/150x150">
+      <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
     </div>
   </div>
   <div class="row">
     <div class="twelve columns">
       <p>
-        Conent:<br/>
+        <b>Problem Statement:</b><br/>
+        <%= @project.problem_statement %>
+      </p>
+      <p>
+        <b>Hook:</b><br/>
         <%= @project.content %>
       </p>
       <p>
-        Hook:<br/>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+        <b>History:</b><br/>
+        <%= @project.history %>
+      </p>
+      <p>
+        <b>Pathways:</b><br/>
+        <%= @project.pathways %>
+      </p>
+      <p>
+        <b>Pitfalls:</b><br/>
+        <%= @project.pitfalls %>
+      </p>
+      <p>
+        <b>Extensions:</b><br/>
+        <%= @project.extensions %>
+      </p>
+      <p>
+        <b>Hints:</b><br/>
+        <%= @project.hints %>
+      </p>
+      <p>
+        <b>Teacher Moves:</b><br/>
+        <%= @project.teacher_moves %>
       </p>
     </div>
   </div>
