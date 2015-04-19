@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412225208) do
+ActiveRecord::Schema.define(version: 20150418122957) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20150412225208) do
     t.string   "author_name"
     t.string   "author_link"
     t.text     "problem_statement"
+    t.text     "history"
+    t.text     "pathways"
+    t.text     "pitfalls"
+    t.text     "extensions"
+    t.text     "hints"
   end
 
   create_table "projects_tags", id: false, force: true do |t|
