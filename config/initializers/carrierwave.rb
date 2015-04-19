@@ -14,7 +14,7 @@ CarrierWave.configure do |config|
     host:                  's3.example.com',             # optional, defaults to nil
     endpoint:              's3.amazonaws.com' # optional, defaults to nil
   }
-  config.fog_directory  = bucket
+  config.fog_directory  = ENV['AWS_PROBLEM_BUCKET']
   config.fog_public     = false                                        # optional, defaults to true
   config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
 end
