@@ -65,6 +65,14 @@
             <%= f.input :hints, input_html: { class: 'u-full-width' } %>
         </div>
       </div>
+      <hr style="border-top:4px solid black;">
+      <u><h5>Images and Resources</h5></u>
+      <div class='row'>
+        <div class='twelve columns'>
+          <%= f.input :featured_image, as: :file, label: "Featured Image" %>
+          <%= f.hidden_field :featured_image_cache %>
+        </div>
+      </div>
       <%= f.button :submit, 'Create!' %>
     <% end %>
 </div>
