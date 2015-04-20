@@ -36,3 +36,16 @@ input[type="checkbox"]{
     background-color: #fff;
     background-image: none;
   }
+
+a.logo:hover {
+   background-color: transparent;
+   text-decoration: none;
+}
+
+.top-basic{
+  margin-top:10%;
+}
+
+.eight.columns.text-center{
+  margin-left: 0;
+}

@@ -1,7 +1,7 @@
 <div class='row' style="margin-top: 5%;">
   <div class="two columns text-center">
     <%= link_to root_path do %>
-      <%= image_tag('problems_icon_p.png', class: 'u-max-full-width', style: 'max-height:50px;') %>
+      <%= image_tag('problems_icon_p.png', class: 'u-max-full-width text-center', style: 'max-height:50px;') %>
       <% end %>
   </div>
   <div class='eight columns text-center'>
@@ -10,10 +10,10 @@
                         :method => 'get' do |f| %>
       <%= f.input :terms, label: false, input_html: { class: 'u-full-width', style: 'margin-top:10px' } %>
   </div>
-  <div class='two columns text-center'>
+  <div class='one column text-center'>
       <%= f.button :submit, 'Search', style: 'margin-top:10px' %>
+      <% end %>
   </div>
-    <% end %>
 </div>
 <hr>
 <div class="row">
