@@ -7,5 +7,9 @@ class Project < ActiveRecord::Base
 
   searchable do
     text :name, :content, :statement, :author_name, :history, :extensions
+
+    text :tags do
+      tags.map { |tag| tag.name }
+    end
   end
 end
