@@ -46,6 +46,6 @@ a.logo:hover {
   margin-top:10%;
 }
 
-.eight.columns.text-center{
-  margin-left: 0;
+.clear-margin-left{
+  margin-left: 5px;
 }
