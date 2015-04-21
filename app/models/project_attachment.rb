@@ -4,8 +4,6 @@ class ProjectAttachment < ActiveRecord::Base
 
   before_create :default_name
 
-
-
   def default_name
     self.file_name = File.basename(resource.file.path, '.*').gsub("_", " ")
   end

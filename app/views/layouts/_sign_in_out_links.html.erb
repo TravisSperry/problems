@@ -1,0 +1,2 @@
+<%= link_to 'Sign In', new_user_session_path, class: 'u-pull-right' unless current_user %>
+<%= link_to 'Sign Out', destroy_user_session_path, class: 'u-pull-right' if current_user %>

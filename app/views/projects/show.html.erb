@@ -1,57 +1,79 @@
 <div class='container'>
   <div class="row" style="margin-top:10%">
     <div class="twelve columns">
-      <h1 style="display:inline;"> <%= @project.name %> </h1>
-      <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
+      <div class="project-header" style="background-image: url(<%= @project.featured_image_url %>) ;">
+        <div class="layer">
+        </div>
+      </div>
+      <div class="project-header-content">
+        <h1 style="display:inline;"> <%= @project.name %> </h1>
+        <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
+        <p>
+          <b>Contributor:</b> <br />
+          <%= link_to @project.author_name, @project.author_link if @project.author_link %>
+          <%= link_to @project.author_name, @project.author_link unless @project.author_link %>
+        </p>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="twelve columns">
-      <p>
-        <b>Problem Statement:</b><br/>
-        <%= @project.problem_statement %>
-      </p>
-      <p>
-        <b>Hook:</b><br/>
-        <%= @project.content %>
-      </p>
-      <p>
-        <b>History:</b><br/>
-        <%= @project.history %>
-      </p>
-      <p>
-        <b>Pathways:</b><br/>
-        <%= @project.pathways %>
-      </p>
-      <p>
-        <b>Pitfalls:</b><br/>
-        <%= @project.pitfalls %>
-      </p>
-      <p>
-        <b>Extensions:</b><br/>
-        <%= @project.extensions %>
-      </p>
-      <p>
-        <b>Hints:</b><br/>
-        <%= @project.hints %>
-      </p>
-      <p>
-        <b>Teacher Moves:</b><br/>
-        <%= @project.teacher_moves %>
-      </p>
-      <p>
-        <b>Resources:</b><br/>
-        <div class='row resources'>
-          <% @project.project_attachments.each do |pa| %>
-            <div class='three columns text-center'>
-              <%= link_to pa.resource_url do %>
-                <%= image_tag pa.resource_url(:thumb), class: 'image-frame' %>
-              <% end %><br/>
-              <span><%= pa.file_name %></span>
-            </div>
+  <hr style='margin-bottom:0;'>
+  <div class="project-body">
+    <div class="row">
+      <div class="nine columns">
+        <p>
+          <b>Problem Statement:</b><br/>
+          <%= @project.problem_statement %>
+        </p>
+        <p>
+          <b>Hook:</b><br/>
+          <%= @project.content %>
+        </p>
+        <p>
+          <b>History:</b><br/>
+          <%= @project.history %>
+        </p>
+        <p>
+          <b>Pathways:</b><br/>
+          <%= @project.pathways %>
+        </p>
+        <p>
+          <b>Pitfalls:</b><br/>
+          <%= @project.pitfalls %>
+        </p>
+        <p>
+          <b>Extensions:</b><br/>
+          <%= @project.extensions %>
+        </p>
+        <p>
+          <b>Hints:</b><br/>
+          <%= @project.hints %>
+        </p>
+        <p>
+          <b>Teacher Moves:</b><br/>
+          <%= @project.teacher_moves %>
+        </p>
+      </div>
+      <div class='three columns' style='padding:0 0 0 20px; border-left:solid 1px black;'>
+        <p><b>Tags:</b></p>
+        <ul class='tags-list'>
+          <% @project.tags.each do |tag| %>
+            <li class="tag text-center"><%= tag.name %></li>
           <% end %>
+        </ul>
+        <p style><b>Resources:</b></p>
+        <div>
+          <ul>
+            <% @project.project_attachments.each do |pa| %>
+                <li class="resource text-center">
+                <%= link_to pa.resource_url do %>
+                  <%= image_tag pa.resource_url(:thumb), class: 'image-frame' %>
+                <% end %><br/>
+                <span><%= pa.file_name %></span>
+                </li>
+            <% end %>
+          </ul>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
   has_one :type
   has_and_belongs_to_many :tags
-  has_many :project_attachments
+  has_many :project_attachments, dependent: :destroy
   accepts_nested_attributes_for :project_attachments
 
   mount_uploader :featured_image, FeaturedImageUploader
