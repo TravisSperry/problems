@@ -41,11 +41,16 @@
       </p>
       <p>
         <b>Resources:</b><br/>
-        <% @project.project_attachments.each do |pa| %>
-          <%= link_to pa.resource_url do %>
-          <%= image_tag pa.resource_url(:thumb) %>
+        <div class='row resources'>
+          <% @project.project_attachments.each do |pa| %>
+            <div class='three columns text-center'>
+              <%= link_to pa.resource_url do %>
+                <%= image_tag pa.resource_url(:thumb), class: 'image-frame' %>
+              <% end %><br/>
+              <span><%= pa.file_name %></span>
+            </div>
           <% end %>
-        <% end %>
+        </div>
       </p>
     </div>
   </div>

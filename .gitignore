@@ -15,6 +15,8 @@
 /log/*.log
 /tmp
 
+/pub/uploads
+
 # Ignore Solr data
 /solr/data
 /solr/development

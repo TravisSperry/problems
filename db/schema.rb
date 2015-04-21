@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420193653) do
+ActiveRecord::Schema.define(version: 20150421003348) do
 
   create_table "project_attachments", force: true do |t|
     t.integer  "project_id"
     t.string   "resource"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file_name"
   end
 
   create_table "projects", force: true do |t|
