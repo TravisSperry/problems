@@ -39,6 +39,14 @@
         <b>Teacher Moves:</b><br/>
         <%= @project.teacher_moves %>
       </p>
+      <p>
+        <b>Resources:</b><br/>
+        <% @project.project_attachments.each do |pa| %>
+          <%= link_to pa.resource_url do %>
+          <%= image_tag pa.resource_url(:thumb) %>
+          <% end %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>

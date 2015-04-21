@@ -1,9 +1,9 @@
 # encoding: utf-8
 
-class FeaturedImageUploader < CarrierWave::Uploader::Base
+class ResourceUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -16,8 +16,18 @@ class FeaturedImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fill: [200,200]
+    process :thumbnail_pdf
   end
+
+  def thumbnail_pdf
+    manipulate! do |img|
+      img.format("png", 1)
+      img.resize("150x150")
+      img = yield(img) if block_given?
+      img
+    end
+  end
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -41,14 +51,18 @@ class FeaturedImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_white_list
-    %w(jpg jpeg gif png)
-  end
+  # def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
-  # end
+  # # end
 
+  protected
+    def image?(new_file)
+      new_file.content_type.start_with? 'image'
+    end
 end

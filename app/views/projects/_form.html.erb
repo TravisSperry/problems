@@ -1,4 +1,4 @@
-<%= simple_form_for @project do |f| %>
+<%= simple_form_for @project, :html => { :multipart => true } do |f| %>
   <u><h5>The important stuff</h5></u>
   <div class="row">
     <div class="six columns">
@@ -57,6 +57,14 @@
     <div class='six columns form-box'>
       <%= f.input :featured_image, as: :file, label: "Featured Image" %>
       <%= f.hidden_field :featured_image_cache %>
+    </div>
+    <div class='six columns form-box'>
+      <%= f.fields_for :project_attachments do |p| %>
+        <label>Add Resources</label>
+         <div class="field">
+           <%= p.file_field :resource, :multiple => true, name: "project_attachments[resource][]" %>
+         </div>
+       <% end %>
     </div>
   </div>
   <%= f.button :submit, 'Create!' %>

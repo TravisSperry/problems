@@ -45,4 +45,5 @@ gem 'pg', group: :production
 gem 'rails_12factor'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rmagick'
 gem 'fog'

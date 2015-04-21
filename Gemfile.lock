@@ -211,6 +211,7 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rmagick (2.13.4)
     rsolr (1.0.12)
       builder (>= 2.1.2)
     sass (3.2.19)
@@ -276,6 +277,7 @@ DEPENDENCIES
   progress_bar
   rails (= 4.1.6)
   rails_12factor
+  rmagick
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form
