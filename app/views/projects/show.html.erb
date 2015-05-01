@@ -1,4 +1,8 @@
 <div class='container'>
+  <% if current_user && (current_user == @project.user || current_user.admin?) %>
+    <%= link_to 'edit', edit_project_path(@project), class: 'button u-pull-right' %>
+  <% end %>
+
   <div class="row" style="margin-top:10%">
     <div class="twelve columns">
       <div class="project-header" style="background-image: url(<%= @project.featured_image_url %>) ;">

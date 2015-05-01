@@ -1,0 +1,11 @@
+<div class='container' style='margin-top:5%;'>
+  <h1>Add A User</h1>
+
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+      <%= f.input :password, as: :hidden, input_html: { value: @generated_password } %>
+    <%= f.button :submit, 'Create User' %>
+  <% end %>
+</div>

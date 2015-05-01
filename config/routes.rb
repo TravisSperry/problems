@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   resources :types
 
+  resources :devise
+
   devise_for :users
+
+  resources :users
 
   root 'pages#home'
 

@@ -1,8 +1,15 @@
 <%= simple_form_for @project, :html => { :multipart => true } do |f| %>
   <u><h5>The important stuff</h5></u>
+
+  <div class='row'>
+    <div class='twelve columns'>
+        <%= f.input :status, label: 'Status', collection: Project::STATUSES.zip((0..2).to_a), input_html: { class: 'u-full-width' } %>
+    </div>
+  </div>
   <div class="row">
     <div class="six columns">
       <%= f.input :name, label: 'Name of Problem', input_html: { class: 'u-full-width' } %>
+      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} unless @edit %>
     </div>
     <div class="six columns">
       <%= f.input :type_id, collection: @types, label: 'Type of problem', input_html: { class: 'u-full-width' } %>

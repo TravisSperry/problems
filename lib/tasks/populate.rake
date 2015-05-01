@@ -1,8 +1,11 @@
 namespace :db do
   desc "Fill the database up with goodness."
   task populate: :environment do
-    make_types
-    make_tags
+    # make_types
+    # make_tags
+    if Rails.env.development?
+      make_admin
+    end
   end
 end
 
@@ -21,4 +24,13 @@ def make_tags
   Tag.create!(name: 'Extreme Cases')
   Tag.create!(name: 'Wishful Thinking')
   Tag.create!(name: 'CCSS.Math.Content.5.NF.A.1')
+end
+
+def make_admin
+  user = User.create!(first_name:        'Travis',
+                      last_name:         'Sperry',
+                      email:             'travissperry1@gmail.com',
+                      password:          'password')
+  user.toggle(:admin)
+  user.save!
 end

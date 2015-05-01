@@ -1,0 +1,29 @@
+<div class='container' style='margin-top:5%;'>
+  <div class='row'>
+    <div class='twelve columns'>
+      <h2 style='display:inline;'> <%= @user.full_name %> </h2>
+      <%= link_to 'Contribute A Problem', new_project_path, class: 'button u-pull-right' %>
+    </div>
+  </div>
+  <hr>
+  <div class='row'>
+    <div class='six columns text-center'>
+      <h2> Drafts </h2>
+      <hr>
+      <ul>
+        <% @user.projects_drafted.each do |project| %>
+          <li><%= link_to project.name, project %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class='six columns text-center'>
+      <h2> Published </h2>
+      <hr>
+      <ul>
+        <% @user.projects_published.each do |project| %>
+          <li><%= link_to project.name, project %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

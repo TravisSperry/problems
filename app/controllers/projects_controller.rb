@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @edit = true
     @project = Project.find(params[:id])
   end
 
@@ -46,9 +47,13 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        params[:project_attachments][:resource].each do |r|
-          @project_attachment = @project.project_attachments.create!(:resource => r, :project_id => @project.id)
+        if params[:project_attachments]
+          params[:project_attachments][:resource].each do |r|
+            @project_attachment = @project.project_attachments.create!(:resource => r,
+                                                                       :project_id => @project.id)
+          end
         end
+
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -92,6 +97,6 @@ class ProjectsController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def project_params
-      params.require(:project).permit(:name, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :featured_image_cache, {project_attachments: []})
+      params.require(:project).permit(:name, :status, :user_id, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :featured_image_cache, {project_attachments: []})
     end
 end
