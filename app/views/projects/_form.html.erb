@@ -61,18 +61,35 @@
   <hr style="border-top:4px solid black;">
   <u><h5>Images and Resources</h5></u>
   <div class='row'>
-    <div class='six columns form-box'>
-      <%= f.input :featured_image, as: :file, label: "Featured Image" %>
-      <%= f.hidden_field :featured_image_cache %>
-    </div>
-    <div class='six columns form-box'>
-      <%= f.fields_for :project_attachments do |p| %>
-        <label>Add Resources</label>
-         <div class="field">
-           <%= p.file_field :resource, :multiple => true, name: "project_attachments[resource][]" %>
-         </div>
-       <% end %>
-    </div>
+    <%  if @project.featured_image_url %>
+      <div class='six columns form-box'>
+        <div class='text-center'>
+        <%= image_tag(@project.featured_image_url, size: '200x200') %>
+        </div>
+        <%= f.input :remove_featured_image, as: :boolean, label: 'Remove Featured Image' %>
+      </div>
+    <% else %>
+      <div class='six columns form-box'>
+        <%= f.input :featured_image, as: :file, label: "Featured Image" %>
+        <%= f.hidden_field :featured_image_cache %>
+      </div>
+    <% end %>
+    <% if !@project.project_attachments.empty? %>
+      <div class='six columns form-box'>
+        <ul>
+          <% @project.project_attachments.each do |attachment| %>
+            <li class="resource text-center"><%= image_tag attachment.resource_url(:thumb) %></li>
+          <% end %>
+        </ul>
+        <%= f.fields_for :project_attachments do |p| %>
+          <label>Add Resources</label>
+           <div class="field">
+             <%= p.file_field :resource, :multiple => true, name: "project_attachments[resource][]" %>
+           </div>
+         <% end %>
+      </div>
+    <% end %>
   </div>
-  <%= f.button :submit, 'Create!' %>
+  <%= f.button :submit, 'Create!', class: 'button button-primary' unless @edit %>
+  <%= f.button :submit, 'Update!', class: 'button button-primary' if @edit %>
 <% end %>

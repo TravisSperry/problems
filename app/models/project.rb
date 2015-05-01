@@ -8,11 +8,17 @@ class Project < ActiveRecord::Base
 
   mount_uploader :featured_image, FeaturedImageUploader
 
-  searchable do
-    text :name, :content, :author_name, :history, :extensions
+  if Rails.env.development?
+    searchable do
+      text :name, :content, :author_name, :history, :extensions
 
-    text :tags do
-      tags.map { |tag| tag.name }
+      text :tags do
+        tags.map { |tag| tag.name }
+      end
+    end
+  else
+    def search
+
     end
   end
 

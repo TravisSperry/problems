@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
   def edit
     @edit = true
     @project = Project.find(params[:id])
+    @project_attachment = @project.project_attachments.build
   end
 
   # POST /projects
@@ -48,12 +49,8 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         if params[:project_attachments]
-          params[:project_attachments][:resource].each do |r|
-            @project_attachment = @project.project_attachments.create!(:resource => r,
-                                                                       :project_id => @project.id)
-          end
+          create_attachments
         end
-
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -70,6 +67,9 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(project_params)
+        if params[:project_attachments]
+          create_attachments
+        end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
@@ -92,6 +92,12 @@ class ProjectsController < ApplicationController
   end
 
   private
+    def create_attachments
+      params[:project_attachments][:resource].each do |r|
+        @project_attachment = @project.project_attachments.create!(:resource => r,
+                                                                   :project_id => @project.id)
+      end
+    end
 
     # Use this method to whitelist the permissible parameters. Example:
     # params.require(:person).permit(:name, :age)

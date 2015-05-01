@@ -1,2 +1,15 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class='container' style='margin-top:5%;'>
+  <div class='row'>
+    <div class='four columns'>
+      <h1>Edit your profile</h1>
+
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :first_name, input_html: { class: 'u-full-width'} %>
+        <%= f.input :last_name, input_html: { class: 'u-full-width'} %>
+        <%= f.input :email, input_html: { class: 'u-full-width'} %>
+
+        <%= f.button :submit, 'Update!' unless @edit %>
+      <% end %>
+    </div>
+  </div>
+</div>

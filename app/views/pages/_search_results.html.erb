@@ -1,10 +1,14 @@
 <div style='margin-top:5%;'>
   <h2 style='display:inline;'>Results...</h2><%= link_to 'back', root_url, class: 'button button-primary u-pull-right' %>
   <hr>
-  <div class='  row'>
-    <% @projects.each do |project| %>
-      <%= link_to project.name, project %>
-      <hr>
+  <div class=' row'>
+    <% if Rails.env.production? %>
+      <h1 style="color:red;">Searching is currently disabled.</h1>
+    <% else %>
+      <% @projects.each do |project| %>
+        <%= link_to project.name, project %>
+        <hr>
+      <% end %>
     <% end %>
   </div>
 </div>

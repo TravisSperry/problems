@@ -37,10 +37,38 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+
+    redirect_to root_url, alert: 'You can only edit your page.' unless user_admin_auth
+  end
+
+  # PUT /users/1
+  # PUT /users/1.json
+  def update
+    @user = User.find(params[:id])
+
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
+    respond_to do |format|
+      if @user.update_attributes(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password)
+    end
+
+    def user_admin_auth
+      current_user && (current_user == @user || current_user.admin?)
     end
 end
