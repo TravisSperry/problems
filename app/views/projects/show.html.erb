@@ -71,12 +71,11 @@
         <p style><b>Resources:</b></p>
         <div>
           <ul>
-            <% @project.project_attachments.each do |pa| %>
+            <% @project.project_attachments.each_with_index do |pa, i| %>
                 <li class="resource text-center">
                 <%= link_to pa.resource_url do %>
-                  <%= image_tag pa.resource_url(:thumb), class: 'image-frame' %>
-                <% end %><br/>
-                <span><%= pa.file_name %></span>
+                  <%= "Resource #{i+1}" %>
+                <% end %>
                 </li>
             <% end %>
           </ul>
