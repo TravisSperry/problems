@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
 
-    redirect_to root_url, alert: 'You can only edit your page.' unless user_admin_auth
+    redirect_to root_url, alert: 'You can only edit your page.' unless user_admin_auth ||current_user == @user
   end
 
   # PUT /users/1
