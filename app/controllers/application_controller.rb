@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
   def authorize_admin
     redirect_to root_path, alert: 'Access Denied' unless current_user && current_user.admin?
   end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) { |u|
+      u.permit(:password, :password_confirmation, :current_password)
+    }
+  end
 end

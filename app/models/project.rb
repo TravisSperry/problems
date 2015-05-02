@@ -8,6 +8,9 @@ class Project < ActiveRecord::Base
 
   mount_uploader :featured_image, FeaturedImageUploader
 
+  scope :publications, -> { where(status: STATUSES.index('Published')) }
+  scope :drafts, -> { where(status: STATUSES.index('Draft')) }
+
   if Rails.env.development?
     searchable do
       text :name, :content, :author_name, :history, :extensions

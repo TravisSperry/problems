@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   resources :types
 
-  resources :devise
-
-  devise_for :users
+  devise_for :users, :skip => [:registrations]
+    as :user do
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+      put 'users/:id' => 'devise/registrations#update', :as => 'user_registration'
+    end
 
   resources :users
 
