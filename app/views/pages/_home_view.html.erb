@@ -1,6 +1,8 @@
 <div class="row" style="margin-top: 25%;">
   <div class="column text-center">
+    <%= link_to(projects_path) do %>
       <%= image_tag('problems_icon.png', size: '100') %>
+    <% end %>
     <h1>Problems</h1>
     <p>The place to go when you want your mind blown.</p>
       <%= simple_form_for :search,
