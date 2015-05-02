@@ -74,21 +74,21 @@
         <%= f.hidden_field :featured_image_cache %>
       </div>
     <% end %>
-    <% if !@project.project_attachments.empty? %>
-      <div class='six columns form-box'>
+    <div class='six columns form-box'>
+    <% if @project.project_attachments.first && !@project.project_attachments.first.id.nil? %>
         <ul>
           <% @project.project_attachments.each do |attachment| %>
             <li class="resource text-center"><%= image_tag attachment.resource_url(:thumb) %></li>
           <% end %>
         </ul>
-        <%= f.fields_for :project_attachments do |p| %>
-          <label>Add Resources</label>
-           <div class="field">
-             <%= p.file_field :resource, :multiple => true, name: "project_attachments[resource][]" %>
-           </div>
-         <% end %>
-      </div>
     <% end %>
+      <%= f.fields_for :project_attachments do |p| %>
+        <label>Add Resources</label>
+         <div class="field">
+           <%= p.file_field :resource, :multiple => true, name: "project_attachments[resource][]" %>
+         </div>
+       <% end %>
+      </div>
   </div>
   <%= f.button :submit, 'Create!', class: 'button button-primary' unless @edit %>
   <%= f.button :submit, 'Update!', class: 'button button-primary' if @edit %>

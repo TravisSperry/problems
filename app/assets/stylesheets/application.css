@@ -49,3 +49,65 @@ a.logo:hover {
 .clear-margin-left{
   margin-left: 5px;
 }
+
+/* flash message styling */
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-bottom: 4px solid transparent;
+}
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.alert .alert-link {
+  font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+.alert > p + p {
+  margin-top: 5px;
+}
+.alert-success {
+  color: #33CC66;
+  border-color: #00F051;
+}
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.alert-success .alert-link {
+  color: #2b542c;
+}
+.alert-info {
+  color: #33C3F0;
+  border-color: #33C3F0;
+}
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+.alert-info .alert-link {
+  color: #245269;
+}
+.alert-warning {
+  color: #FFB400;
+  border-color: #FFB400;
+}
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+.alert-warning .alert-link {
+  color: #66512c;
+}
+.alert-danger {
+  color: #FF2800;
+  border-color: #FF2800;
+}
+.alert-danger hr {
+  border-top-color: #FF2800;
+}
+.alert-danger .alert-link {
+  color: #990000;
+}

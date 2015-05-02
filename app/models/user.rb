@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable,
+         :trackable, :validatable
+
+  validates_confirmation_of :password
 
   has_many :projects
 

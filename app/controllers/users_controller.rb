@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, flash: { success: 'User was successfully created.' } }
         format.js
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
 
-    redirect_to root_url, alert: 'You can only edit your page.' unless user_admin_auth ||current_user == @user
+    redirect_to root_url, error: 'You can only edit your page.' unless user_admin_auth ||current_user == @user
   end
 
   # PUT /users/1
@@ -53,12 +53,16 @@ class UsersController < ApplicationController
     end
 
     respond_to do |format|
-      if @user.update_attributes(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+      unless params[:user][:password] && params[:user][:password] != params[:user][:password_confirmation]
+        if @user.update_attributes(user_params)
+          format.html { redirect_to @user, flash: { success: 'User was successfully updated.' } }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { redirect_to edit_user_path(@user), flash: { error: 'Your password does not match the password confirmation.' } }
       end
     end
   end
