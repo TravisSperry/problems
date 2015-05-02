@@ -3,16 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  # def after_sign_in_path_for(resource)
-  #   user_path(current_user)
-  # end
+  def after_sign_in_path_for(resource)
+    user_path(current_user)
+  end
 
   # def after_sign_out_path_for(resource_or_scope)
   #   root_path
   # end
 
-  def authorize_admin
-    redirect_to root_path, alert: 'Access Denied' unless current_user && current_user.admin?
+  def authorize_admin!
+    unless current_user && current_user.admin?
+      redirect_to root_path, alert: 'Access Denied'
+    end
   end
 
   def configure_permitted_parameters

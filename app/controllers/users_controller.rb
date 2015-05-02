@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authorize_admin, except: :show
+  before_filter :authorize_admin!, except: :show
   before_filter :authenticate_user!
 
   def index
