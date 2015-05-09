@@ -23,7 +23,6 @@ gem 'spring',      group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
 gem "devise"
 gem "jquery-rails"
 gem 'turbolinks'
@@ -42,3 +41,4 @@ gem 'mini_magick'
 gem 'rmagick'
 gem 'fog'
 gem 'mathjax-rails'
+gem "letter_opener", group: :development
