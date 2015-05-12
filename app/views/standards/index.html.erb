@@ -15,7 +15,6 @@
         <% if current_user.admin? %>
           <th></th>
           <th></th>
-          <th></th>
         <% end %>
       </tr>
     </thead>
@@ -29,7 +28,6 @@
           <% if current_user.admin? %>
             <td><%= link_to 'Show', standard %></td>
             <td><%= link_to 'Edit', edit_standard_path(standard) %></td>
-            <td><%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
