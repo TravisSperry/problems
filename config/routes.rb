@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :standards do
+    collection { post :import }
+  end
+
   resources :project_attachments
 
   resources :tags

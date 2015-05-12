@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501165552) do
+ActiveRecord::Schema.define(version: 20150512174452) do
 
   create_table "project_attachments", force: true do |t|
     t.integer  "project_id"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 20150501165552) do
 
   add_index "projects_tags", ["project_id", "tag_id"], name: "index_projects_tags_on_project_id_and_tag_id"
   add_index "projects_tags", ["tag_id", "project_id"], name: "index_projects_tags_on_tag_id_and_project_id"
+
+  create_table "standards", force: true do |t|
+    t.string   "code"
+    t.string   "category"
+    t.string   "subcategory"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tags", force: true do |t|
     t.string   "name"
