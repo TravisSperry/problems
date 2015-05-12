@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512174452) do
+ActiveRecord::Schema.define(version: 20150512182403) do
 
   create_table "project_attachments", force: true do |t|
     t.integer  "project_id"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20150512174452) do
     t.integer  "status",            default: 0
     t.integer  "user_id"
   end
+
+  create_table "projects_standards", id: false, force: true do |t|
+    t.integer "project_id",  null: false
+    t.integer "standard_id", null: false
+  end
+
+  add_index "projects_standards", ["project_id", "standard_id"], name: "index_projects_standards_on_project_id_and_standard_id"
+  add_index "projects_standards", ["standard_id", "project_id"], name: "index_projects_standards_on_standard_id_and_project_id"
 
   create_table "projects_tags", id: false, force: true do |t|
     t.integer "project_id", null: false

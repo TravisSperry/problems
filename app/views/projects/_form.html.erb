@@ -46,6 +46,14 @@
         <%= f.association :tags, input_html: { class: 'u-full-width chosen' } %>
     </div>
   </div>
+  <div class='row'>
+    <div class='six columns'>
+        <%= f.association :standards, label_method: :code_and_category, input_html: { class: 'u-full-width chosen' } %>
+    </div>
+    <div class='six columns'>
+
+    </div>
+  </div>
   <hr style="border-top:4px solid black;">
   <u><h5>The other stuff</h5></u>
   <div class='row'>

@@ -1,5 +1,10 @@
 class Standard < ActiveRecord::Base
 
+  has_and_belongs_to_many :projects
+
+  def code_and_category
+    "#{code} - #{category}"
+  end
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
