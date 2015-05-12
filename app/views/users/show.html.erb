@@ -31,4 +31,15 @@
       </ul>
     </div>
   </div>
+  <div class='row'>
+    <div class='six columns text-center'>
+      <h2> Pending Review </h2>
+      <hr>
+      <ul>
+        <% @user.projects_pending_review.each do |project| %>
+          <li><%= link_to project.name, project %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>

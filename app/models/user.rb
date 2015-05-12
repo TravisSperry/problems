@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def projects_published
     projects.where(status: 2)
   end
+
+  def projects_pending_review
+    projects.where(status: 1)
+  end
 end
