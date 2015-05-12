@@ -8,6 +8,18 @@
       <% if current_user && current_user == @user %>
         <%= link_to "Edit Account Info", edit_user_path, class: 'button button-primary u-pull-right u-full-width' %>
       <% end %>
+      <!-- dropdown container -->
+      <div class="dropdown">
+
+          <!-- trigger button -->
+          <button class='u-full-width' style='margin-bottom:0;'>Other Stuff</button>
+
+          <!-- dropdown menu -->
+          <ul class="dropdown-menu">
+              <li><%= link_to 'Standards', standards_path %></li>
+              <li><%= link_to 'Problem Types', types_path %></li>
+          </ul>
+      </div>
     </div>
   </div>
   <hr>

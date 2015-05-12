@@ -1,5 +1,7 @@
 class StandardsController < ApplicationController
-  before_filter :authorize_admin!, except: [:show]
+
+  before_filter :authenticate_user!
+  before_filter :authorize_admin!, except: [:show, :index]
 
   before_action :set_standard, only: [:show, :edit, :update, :destroy]
 

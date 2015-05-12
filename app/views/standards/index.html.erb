@@ -1,20 +1,22 @@
 <div class='container'>
   <h1>Common Core State Standards</h1>
-
-      <p>
-        Download:
-        <%= link_to "CSV", standards_path(format: "csv") %>
-      </p>
-
+  <% if current_user.admin? %>
+    <p>
+      Download:
+      <%= link_to "CSV", standards_path(format: "csv") %>
+    </p>
+  <% end %>
   <table>
     <thead>
       <tr>
         <th>Code</th>
         <th>Category</th>
         <th>Subcategory</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <% if current_user.admin? %>
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
 
@@ -24,18 +26,22 @@
           <td><%= standard.code %></td>
           <td><%= standard.category %></td>
           <td><%= standard.subcategory %></td>
-          <td><%= link_to 'Show', standard %></td>
-          <td><%= link_to 'Edit', edit_standard_path(standard) %></td>
-          <td><%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Show', standard %></td>
+            <td><%= link_to 'Edit', edit_standard_path(standard) %></td>
+            <td><%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <p>
-    <h3> Import Camp Offerings</h3>
-    <%= form_tag import_standards_path, multipart: true do %>
-      <%= file_field_tag :file %><br />
-      <%= submit_tag "Import", class: 'btn btn-sm btn-default' %>
-    <% end %>
-  </p>
+  <% if current_user.admin? %>
+    <p>
+      <h3> Import Camp Offerings</h3>
+      <%= form_tag import_standards_path, multipart: true do %>
+        <%= file_field_tag :file %><br />
+        <%= submit_tag "Import", class: 'btn btn-sm btn-default' %>
+      <% end %>
+    </p>
+  <% end %>
 </div>

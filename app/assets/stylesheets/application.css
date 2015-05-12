@@ -111,3 +111,67 @@ a.logo:hover {
 .alert-danger .alert-link {
   color: #990000;
 }
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.dropdown button {
+  width: 100%;
+}
+
+.dropdown .dropdown-menu {
+  position: absolute;
+  display: none;
+  top: 100%;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+.dropdown a {
+  display: block;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  background: #FFFFFF;
+}
+
+.dropdown:hover .dropdown-menu {
+  /** Show dropdown menu */
+  display: block;
+  width: 209px;
+  background: #FFFFFF;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dropdown:hover button {
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dropdown-menu:hover .dropdown{
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dropdown a:hover {
+    background: #BBBBBB;
+}
