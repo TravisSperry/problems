@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512182403) do
+ActiveRecord::Schema.define(version: 20150512184601) do
 
   create_table "project_attachments", force: true do |t|
     t.integer  "project_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150512182403) do
   create_table "standards", force: true do |t|
     t.string   "code"
     t.string   "category"
-    t.string   "subcategory"
+    t.text     "subcategory"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
