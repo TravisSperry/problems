@@ -49,13 +49,27 @@
   <hr style="border-top:4px solid black;">
   <u><h5>The other stuff</h5></u>
   <div class='row'>
-    <div class='twelve columns'>
-        <%= f.input :launch_method, input_html: { class: 'u-full-width' } %>
-        <%= f.input :teacher_moves, input_html: { class: 'u-full-width' } %>
-        <%= f.input :history, input_html: { class: 'u-full-width' } %>
-        <%= f.input :pathways, input_html: { class: 'u-full-width' } %>
-        <%= f.input :extensions, input_html: { class: 'u-full-width' } %>
-        <%= f.input :hints, input_html: { class: 'u-full-width' } %>
+    <div class='six columns'>
+        <%= f.input :launch_method, input_html: { class: 'textarea u-full-width', rows: 8 } %>
+    </div>
+    <div class='six columns'>
+        <%= f.input :teacher_moves, input_html: { class: 'textarea u-full-width', rows: 8 } %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='six columns'>
+        <%= f.input :history, input_html: { class: 'textarea u-full-width', rows: 8 } %>
+    </div>
+    <div class='six columns'>
+        <%= f.input :pathways, input_html: { class: 'textarea u-full-width', rows: 8 } %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='six columns'>
+        <%= f.input :extensions, as: :text, input_html: { class: 'textarea u-full-width', rows: 8 } %>
+    </div>
+    <div class='six columns'>
+        <%= f.input :hints, input_html: { class: 'textarea u-full-width', rows: 8 } %>
     </div>
   </div>
   <hr style="border-top:4px solid black;">
