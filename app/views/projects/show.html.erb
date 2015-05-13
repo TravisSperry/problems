@@ -73,6 +73,7 @@
           <ul>
             <% @project.project_attachments.each_with_index do |pa, i| %>
                 <li class="resource text-center">
+                <%= pa.project_attachment_type.name %>:
                 <%= link_to pa.resource_url do %>
                   <%= "Resource #{i+1}" %>
                 <% end %>

@@ -1,6 +1,8 @@
 class ProjectAttachment < ActiveRecord::Base
   mount_uploader :resource, ResourceUploader
+
   belongs_to :project
+  belongs_to :project_attachment_type
 
   before_create :default_name
 

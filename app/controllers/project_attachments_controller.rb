@@ -42,6 +42,6 @@ class ProjectAttachmentsController < ApplicationController
     end
 
     def project_attachment_params
-      params.require(:project_attachment).permit(:project_id, :resource)
+      params.require(:project_attachment).permit(:project_id, :resource, :resource_type)
     end
 end

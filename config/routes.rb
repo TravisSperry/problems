@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :project_attachment_types
+
   resources :standards do
     collection { post :import }
   end

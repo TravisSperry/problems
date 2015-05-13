@@ -104,10 +104,11 @@
           <% end %>
         </ul>
     <% end %>
-      <%= f.fields_for :project_attachments do |p| %>
-        <label>Add Resources</label>
+      <label>Add Resources</label>
+      <%= f.simple_fields_for :project_attachments do |p| %>
          <div class="field">
-           <%= p.file_field :resource, :multiple => true, name: "project_attachments[resource][]" %>
+           <%= p.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
+           <%= p.input :resource, as: :file %>
          </div>
        <% end %>
       </div>

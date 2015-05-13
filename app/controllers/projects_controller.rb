@@ -94,9 +94,11 @@ class ProjectsController < ApplicationController
 
   private
     def create_attachments
-      params[:project_attachments][:resource].each do |r|
-        @project_attachment = @project.project_attachments.create!(:resource => r,
-                                                                   :project_id => @project.id)
+      params[:project_attachments_attributes].each do |project_attachment_attributes|
+        @project_attachment = @project.project_attachments.create!(
+                                    :resource => project_attachment_attributes[:resource],
+                                    :project_attachment_type_id => project_attachment_attributes[:project_attachment_type_id].to_i,
+                                    :project_id => @project.id)
       end
     end
 
@@ -104,6 +106,6 @@ class ProjectsController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def project_params
-      params.require(:project).permit(:name, :status, :user_id, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :featured_image_cache, {project_attachments: []})
+      params.require(:project).permit(:name, :status, :user_id, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, {standard_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :featured_image_cache, {project_attachments_attributes: [:project_attachment_type_id, :resource]})
     end
 end

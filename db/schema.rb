@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512184601) do
+ActiveRecord::Schema.define(version: 20150513003109) do
+
+  create_table "project_attachment_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "project_attachments", force: true do |t|
     t.integer  "project_id"
@@ -19,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150512184601) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file_name"
+    t.integer  "project_attachment_type_id"
   end
 
   create_table "projects", force: true do |t|
