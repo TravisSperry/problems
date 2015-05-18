@@ -6,10 +6,15 @@
   <%= javascript_include_tag 'application' %>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-     tex2jax: {
+      tex2jax: {
        inlineMath: [ ['$','$'] ],
        processEscapes: true
-     }
+      },
+      "HTML-CSS": {
+        linebreaks: {
+          automatic: false
+        }
+      }
     });
 </script>
 <%= mathjax_tag %>
