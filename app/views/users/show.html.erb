@@ -48,7 +48,7 @@
       <h2> Pending Review </h2>
       <hr>
       <ul>
-        <% @user.projects_pending_review.each do |project| %>
+        <% Project.projects_pending_review.each do |project| %>
           <li><%= link_to project.name, project %></li>
         <% end %>
       </ul>
