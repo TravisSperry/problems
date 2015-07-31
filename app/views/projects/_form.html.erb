@@ -105,12 +105,14 @@
         </ul>
     <% end %>
       <label>Add Resources</label>
-      <%= f.simple_fields_for :project_attachments do |p| %>
-         <div class="field">
-           <%= p.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
-           <%= p.input :resource, as: :file %>
-         </div>
-       <% end %>
+      <%= f.simple_fields_for :project_attachments do |ff| %>
+        <%= ff.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
+        <%= ff.input :resource, as: :file %>
+        <% if ff.object.persisted? %>
+          <%= ff.check_box :_destroy %>
+          <%= ff.label :_destroy, "Destroy" %>
+        <% end %>
+      <% end %>
       </div>
   </div>
   <%= f.button :submit, 'Create!', class: 'button button-primary' unless @edit %>

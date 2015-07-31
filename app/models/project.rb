@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :standards
   has_many :project_attachments, dependent: :destroy
-  accepts_nested_attributes_for :project_attachments
+  accepts_nested_attributes_for :project_attachments, allow_destroy: true, reject_if: :all_blank
   belongs_to :user
 
   mount_uploader :featured_image, FeaturedImageUploader
