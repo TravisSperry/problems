@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
 
   scope :publications, -> { where(status: STATUSES.index('Published')) }
   scope :drafts, -> { where(status: STATUSES.index('Draft')) }
+  scope :pending_review, -> { where(status: STATUSES.index('Pending Review')) }
+
 
   if Rails.env.development?
     searchable do

@@ -7,7 +7,7 @@
     <div class="twelve columns">
       <div class="project-header"
       <% if @project.featured_image_url %>
-      style="background-image: url(<%= @project.featured_image_url %>);"
+        style="background-image: url(<%= @project.featured_image_url %>);"
       <% end %>
       >
         <div class="layer">
@@ -29,8 +29,10 @@
     <div class="row">
       <div class="nine columns">
         <p>
-          <b>Problem Statement:</b><br/>
-          <%= @project.problem_statement %>
+          <b>Problem Statement:</b>
+          <div class='text-format'>
+            <%= @project.problem_statement %>
+          </div>
         </p>
         <p>
           <b>Hook:</b><br/>
@@ -61,22 +63,22 @@
           <%= @project.teacher_moves %>
         </p>
       </div>
-      <div class='three columns' style='padding:0 0 0 20px; border-left:solid 1px black;'>
-        <p><b>Tags:</b></p>
+      <div class='three columns' style='padding:0 0 0 20px;'>
+        <p style="margin-bottom:10px"><b>Tags:</b></p>
         <ul class='tags-list'>
           <% @project.tags.each do |tag| %>
             <li class="tag text-center"><%= tag.name %></li>
           <% end %>
         </ul>
-        <p style><b>Resources:</b></p>
-        <div>
+        <p  style="margin-bottom:10px"><b>Resources:</b></p>
+        <div class="resource-list">
           <ul>
             <% @project.project_attachments.each_with_index do |pa, i| %>
                 <li class="resource text-center">
                 <% if pa.project_attachment_type %>
                   <%= pa.project_attachment_type.name %>:
                 <% end %>
-                <%= link_to pa.resource_url do %>
+                <%= link_to pa.resource_url, target: "_blank" do %>
                   <%= "Resource #{i+1}" %>
                 <% end %>
                 </li>
