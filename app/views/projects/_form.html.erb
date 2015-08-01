@@ -109,23 +109,42 @@
     <div class='six columns form-box'>
       <label>Add Attachments</label>
       <%= f.simple_fields_for :project_attachments do |builder| %>
-        <%= builder.input :title %>
-        <%= builder.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
-        <%= image_tag builder.object.resource_url(:thumb) if builder.object.resource_url %>
-        <% if builder.object.resource_url %>
-          <br>
-        <% else %>
-          <%= builder.input :resource, as: :file %>
-        <% end %>
-        <% if builder.object.persisted? %>
-          <%= builder.check_box :_destroy %>
-          <%= builder.label :_destroy, "Destroy" %>
-        <% end %>
+        <div class="attachment-fields">
+          <%= builder.input :title %>
+          <%= builder.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
+          <%= image_tag builder.object.resource_url(:thumb) if builder.object.resource_url %>
+          <% if builder.object.resource_url %>
+            <br>
+          <% else %>
+            <%= builder.input :resource, as: :file %>
+          <% end %>
+          <% if builder.object.persisted? %>
+            <%= builder.check_box :_destroy %>
+            <%= builder.label :_destroy, "Destroy" %>
+          <% end %>
+        </div>
         <hr style='border-color:black;margin-right:15px'>
       <% end %>
       <p><%= link_to_add_fields "Add Attachment", f, :project_attachments %></p>
     </div>
   </div>
-  <%= f.button :submit, 'Create!', class: 'button button-primary' unless @edit %>
-  <%= f.button :submit, 'Update!', class: 'button button-primary' if @edit %>
+  <%= f.button :submit, 'Create!', class: 'button button-primary', id: 'project-button' unless @edit %>
+  <%= f.button :submit, 'Update!', class: 'button button-primary', id: 'project-button' if @edit %>
 <% end %>
+
+<!-- Static Modal -->
+<div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="http://www.travislayne.com/images/loading.gif" class="icon" />
+                    <h4>Beaming up... </h4>
+                    <p style="color:red;">
+                      Depending on the file size this may take a minute.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

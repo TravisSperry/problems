@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require chosen-jquery
 //= require project_attachments
+//= require modal
+//= require projects
 
 jQuery ->
   $('.chosen').chosen
