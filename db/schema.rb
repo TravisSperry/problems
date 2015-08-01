@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513003109) do
+ActiveRecord::Schema.define(version: 20150801110443) do
 
   create_table "project_attachment_types", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150513003109) do
     t.datetime "updated_at"
     t.string   "file_name"
     t.integer  "project_attachment_type_id"
+    t.string   "title",                      default: ""
   end
 
   create_table "projects", force: true do |t|

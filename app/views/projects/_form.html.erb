@@ -1,4 +1,14 @@
 <%= simple_form_for @project, :html => { :multipart => true } do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <u><h5>The important stuff</h5></u>
 
   <div class='row'>
@@ -12,7 +22,7 @@
       <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} unless @edit %>
     </div>
     <div class="six columns">
-      <%= f.input :type_id, collection: @types, label: 'Type of problem', input_html: { class: 'u-full-width' } %>
+      <%= f.association :type, label: 'Type of problem', input_html: { class: 'u-full-width' } %>
     </div>
   </div>
   <div class='row'>
@@ -97,23 +107,24 @@
       </div>
     <% end %>
     <div class='six columns form-box'>
-    <% if @project.project_attachments.first && !@project.project_attachments.first.id.nil? %>
-        <ul>
-          <% @project.project_attachments.each do |attachment| %>
-            <li class="resource text-center"><%= image_tag attachment.resource_url(:thumb) %></li>
-          <% end %>
-        </ul>
-    <% end %>
-      <label>Add Resources</label>
-      <%= f.simple_fields_for :project_attachments do |ff| %>
-        <%= ff.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
-        <%= ff.input :resource, as: :file %>
-        <% if ff.object.persisted? %>
-          <%= ff.check_box :_destroy %>
-          <%= ff.label :_destroy, "Destroy" %>
+      <label>Add Attachments</label>
+      <%= f.simple_fields_for :project_attachments do |builder| %>
+        <%= builder.input :title %>
+        <%= builder.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
+        <%= image_tag builder.object.resource_url(:thumb) if builder.object.resource_url %>
+        <% if builder.object.resource_url %>
+          <br>
+        <% else %>
+          <%= builder.input :resource, as: :file %>
         <% end %>
+        <% if builder.object.persisted? %>
+          <%= builder.check_box :_destroy %>
+          <%= builder.label :_destroy, "Destroy" %>
+        <% end %>
+        <hr style='border-color:black;margin-right:15px'>
       <% end %>
-      </div>
+      <p><%= link_to_add_fields "Add Attachment", f, :project_attachments %></p>
+    </div>
   </div>
   <%= f.button :submit, 'Create!', class: 'button button-primary' unless @edit %>
   <%= f.button :submit, 'Update!', class: 'button button-primary' if @edit %>

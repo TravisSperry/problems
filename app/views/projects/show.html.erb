@@ -28,46 +28,58 @@
   <div class="project-body">
     <div class="row">
       <div class="nine columns">
-        <p>
-          <b>Problem Statement:</b>
-          <div class='text-format'>
-            <%= @project.problem_statement %>
-          </div>
-        </p>
-        <p>
+        <b>Problem Statement:</b><br/>
+        <%= simple_format(@project.problem_statement, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+        <br/>
+
+        <% if @project.content %>
           <b>Hook:</b><br/>
-          <%= @project.content %>
-        </p>
-        <p>
+          <%= simple_format(@project.content, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
+        <% if @project.history %>
           <b>History:</b><br/>
-          <%= @project.history %>
-        </p>
-        <p>
+          <%= simple_format(@project.history, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
+        <% if @project.pathways %>
           <b>Pathways:</b><br/>
-          <%= @project.pathways %>
-        </p>
-        <p>
+          <%= simple_format(@project.pathways, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
+        <% if @project.pitfalls %>
           <b>Pitfalls:</b><br/>
-          <%= @project.pitfalls %>
-        </p>
-        <p>
+          <%= simple_format(@project.pitfalls, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
+        <% if @project.extensions %>
           <b>Extensions:</b><br/>
-          <%= @project.extensions %>
-        </p>
-        <p>
+          <%= simple_format(@project.extensions, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
+        <% if @project.hints %>
           <b>Hints:</b><br/>
-          <%= @project.hints %>
-        </p>
-        <p>
+          <%= simple_format(@project.hints, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
+        <% if @project.teacher_moves %>
           <b>Teacher Moves:</b><br/>
-          <%= @project.teacher_moves %>
-        </p>
+          <%= simple_format(@project.teacher_moves, {class: "simple_format"}, wrapper_tag: "div", sanitize: false) %>
+          <br/>
+        <% end %>
+
       </div>
       <div class='three columns' style='padding:0 0 0 20px;'>
         <p style="margin-bottom:10px"><b>Tags:</b></p>
         <ul class='tags-list'>
           <% @project.tags.each do |tag| %>
-            <li class="tag text-center"><%= tag.name %></li>
+            <li class="tag text-center title='<%= tag.name %>'"><%= tag.name %></li>
           <% end %>
         </ul>
         <p  style="margin-bottom:10px"><b>Resources:</b></p>
@@ -76,7 +88,8 @@
             <% @project.project_attachments.each_with_index do |pa, i| %>
                 <li class="resource text-center">
                 <% if pa.project_attachment_type %>
-                  <%= pa.project_attachment_type.name %>:
+                  <div style="maring-bottom:5px;"><%= pa.project_attachment_type.name %>:</div>
+                  <br>
                 <% end %>
                 <%= link_to pa.resource_url, target: "_blank" do %>
                   <%= "Resource #{i+1}" %>

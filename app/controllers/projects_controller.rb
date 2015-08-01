@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @edit = true
-    @project = Project.find(params[:id])
+    @project = Project.includes(:project_attachments).find(params[:id])
     @project_attachment = @project.project_attachments.build
   end
 
@@ -106,6 +106,6 @@ class ProjectsController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def project_params
-      params.require(:project).permit(:name, :status, :user_id, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, {standard_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :featured_image_cache, {project_attachments_attributes: [:project_attachment_type_id, :resource]})
+      params.require(:project).permit(:name, :status, :user_id, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, {standard_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :remove_featured_image, :featured_image_cache, {project_attachments_attributes: [:project_attachment_type_id, :resource, :_delete, :id, :title]})
     end
 end

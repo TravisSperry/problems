@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
-//= require pages
+//= require project_attachments
 
 jQuery ->
   $('.chosen').chosen
@@ -23,4 +23,3 @@ jQuery ->
   $(".alert").bind 'click', (ev) =>
     slideFade($(".alert"))
   setTimeout flashCallback, 3000
-
