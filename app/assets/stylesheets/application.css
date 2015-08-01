@@ -14,6 +14,59 @@
  *= require_self
  */
 
+ /* Begin Navigation Bar Styling */
+.nav {
+  width: 100%;
+  height: 55px;
+  padding: 10px 0 0 20px;
+  border-bottom: solid 1px #CCCCCC;
+  margin-bottom: 30px;
+ }
+
+.logo {
+  float: left;
+  display: inline;
+  color: rgb(135, 135, 135);
+ }
+
+ .logo h1 {
+   margin-bottom: 0;
+ }
+
+.menu-items{
+  padding: 0;
+  margin: 12px 30px 0 0;
+  list-style: none;
+  float:right;
+}
+
+.nav ul li{
+  display: inline;
+}
+
+.menu-items li a {
+   padding: 8px 15px;
+   text-decoration: none;
+   font-weight: bold;
+   color: black;
+ }
+.nav li a:hover {
+   color: #0FA0CE;
+ }
+
+/* End navigation bar styling. */
+
+/* This is just styling for this specific page. */
+
+.wrap {
+   width: 750px;
+   margin: 0 auto;
+   background-color: #fff; }
+
+.content {
+   padding: 0 50px 50px;
+ }
+
 .text-center {
   text-align: center;
 }
@@ -54,6 +107,7 @@ a.logo:hover {
 
 .alert {
   padding: 15px;
+  margin-top: -30px;
   margin-bottom: 20px;
   border-bottom: 4px solid transparent;
 }
