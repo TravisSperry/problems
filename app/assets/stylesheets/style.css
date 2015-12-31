@@ -81,8 +81,8 @@ textarea{
     background-color:#FFA81F;
     color:#FFF;
 }
-.btn-orange.btn:hover, 
-.btn-orange.btn:focus, 
+.btn-orange.btn:hover,
+.btn-orange.btn:focus,
 .btn-orange.btn:visited{
     color:#FFf;
 }
@@ -90,8 +90,8 @@ textarea{
     background-color:#89939F;
     color:#FFF;
 }
-.btn-grey.btn:hover, 
-.btn-grey.btn:focus, 
+.btn-grey.btn:hover,
+.btn-grey.btn:focus,
 .btn-grey.btn:visited{
     color:#FFf;
 }
@@ -452,7 +452,7 @@ h4, .h4 {
     display:table;
     width:25px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
     margin-right: 10px;
 }
 .panel-green .panel-title-container .panel-icon i{
@@ -531,7 +531,7 @@ h4, .h4 {
     display:table;
     width:25px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
     margin-right: 10px;
 }
 .panel-blue .panel-title-container .drag-icon,
@@ -603,7 +603,7 @@ h4, .h4 {
     display:table;
     width:25px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
     margin-right: 10px;
 }
 .panel-grey .panel-title-container .drag-icon{
@@ -665,7 +665,6 @@ h4, .h4 {
 .listing-page{
     float:left;
     width:100%;
-    padding:0 12%;
 }
 .listing-page .page-title{
     float:left;
@@ -701,7 +700,7 @@ h4, .h4 {
 .listing-panel .problems-list .problem{
     float:left;
     width:100%;
-    padding:0 10%;   
+    padding:0 10%;
 }
 .problem{
     margin-bottom: 15px;
