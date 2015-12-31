@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Problem</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Google Fonts - Raleway-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600,700,500' rel='stylesheet' type='text/css'>
+        <!--Bootstrap CSS-->
+        <link href="js/bootstrap-3.3.5/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <!--Font Awesome-->
+        <link href="css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>        
+        <!--Custom CSS-->
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="header-wrapper wrapper">
+            <div class="container">
+                <div class="header">
+                    <a href="#" class="brand">Problems</a>
+                    <div class="header-navigation">
+                        <div class="user-profile">
+                            <span><i class="fa fa-user"></i></span>
+                        </div>
+                        <ul>
+                            <li><a href="#">My Page</a></li>
+                            <li>
+                                <a href="#">The List</a>
+                                <ul>
+                                    <li><a href="#">PUBLISHED PROBLEMS</a></li>
+                                    <li><a href="#">PROBLEM DRAFTS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Sign Out</a></li>
+                        </ul>
+                        <button type="button" class="mobile-menu-toggle btn btn-primary hidden-lg hidden-md hidden-sm" data-toggle="collapse" data-target="#bs-navbar-collapse" >
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <!--Mobile Navigation-->
+                    <div class="collapse mobile-navigation hidden-sm hidden-md hidden-lg" id="bs-navbar-collapse">
+                        <ul>
+                            <li><a href="#">My Page</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >The List <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">PUBLISHED PROBLEMS</a></li>
+                                    <li><a href="#">PROBLEM DRAFTS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Sign Out</a></li>
+                        </ul>
+                    </div>
+                    <!--/.Mobile Navigation-->
+                </div>
+            </div>
+        </div>
+        <!--/.Header-->
+        <!--Breadcrumb-->
+        <div class="breadcrumb-wrapper wrapper">
+            <div class="container">
+                <div class="breadcrumb-container">
+                    <a href="#"><i class="fa fa-home"></i> DASHBOARD</a>
+                    <span>/</span>
+                    <a href="#">ADD A PROBLEM</a>
+                </div>
+            </div>
+        </div>
+        <!--/.Breadcrumb-->
+        <!--Main Content-->
+        <div class="content-wrapper content-wrapper-grey wrapper">
+            <div class="container">
+                <div class="content">
+                    <!--Sidebar - Left-->
+                    <div class="sidebar-left">
+                        <!--Box Status-->
+                        <div class="box-status">
+                            <form action="#">
+                                <div class="form-group">
+                                    <select name="#" id="#" class="form-control input-sm">
+                                        <option value="">STATUS</option>
+                                        <option value="">STATUS</option>
+                                        <option value="">STATUS</option>
+                                    </select>
+                                    <button type="button" class="btn btn-primary">SAVE</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--/.Box Status-->
+                        <!--Box - Resource-->
+                        <div class="box-resources">
+                            <div class="title-container">
+                                <div class="title-icon"><i class="fa fa-file-text-o"></i></div>
+                                <div class="title-caption">Resources</div>
+                            </div>
+                            <!-- data-url attribute used to set ajax file upload path -->
+                            <div id="resources-upload" data-url="upload.php" class="resource-drag-upload">
+                                <a href="javascript:void(0);" class="upload-trigger">
+                                    <span></span>
+                                </a>
+                                <input type="file" name="upl" multiple  class="hidden"  />
+                            </div>
+                            <div class="resource-items">
+                                <div class="resource-items-title">Or choose a ﬁle...</div>
+                                <div class="resource-item">
+                                    <span class="resource-item-caption">Resource 1</span>
+                                    <a href="#" class="resource-item-close"><i class="fa fa-times-circle"></i></a>
+                                </div>
+                                <div class="resource-item">
+                                    <span class="resource-item-caption">Resource 2</span>
+                                    <a href="#" class="resource-item-close"><i class="fa fa-times-circle"></i></a>
+                                </div>
+                                <div class="resource-item">
+                                    <span class="resource-item-caption">Resource 3</span>
+                                    <a href="#" class="resource-item-close"><i class="fa fa-times-circle"></i></a>
+                                </div>
+                                <div class="resource-item">
+                                    <span class="resource-item-caption">Resource 4</span>
+                                    <a href="#" class="resource-item-close"><i class="fa fa-times-circle"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.Box - Resource-->
+                        <!--Box - Tags-->
+                        <div class="box-tags">
+                            <div class="title-container">
+                                <div class="title-icon"><i class="fa fa-file-text-o"></i></div>
+                                <div class="title-caption">Tags</div>
+                            </div>
+                            <div class="tags-container">
+                                <div class="box-tags-caption">TAGS</div>
+                                <div class="tag-items">
+                                    <div class="tag-item">
+                                        <span class="tag-caption">This is a Tag...</span>
+                                        <a href="#" class="tag-close"><i class="fa fa-times-circle"></i></a>
+                                    </div>
+                                    <div class="tag-item">
+                                        <span class="tag-caption">This is a Tag...</span>
+                                        <a href="#" class="tag-close"><i class="fa fa-times-circle"></i></a>
+                                    </div>
+                                    <div class="tag-item">
+                                        <span class="tag-caption">This is a Tag...</span>
+                                        <a href="#" class="tag-close"><i class="fa fa-times-circle"></i></a>
+                                    </div>
+                                    <div class="tag-item">
+                                        <span class="tag-caption">This is a Tag...</span>
+                                        <a href="#" class="tag-close"><i class="fa fa-times-circle"></i></a>
+                                    </div>
+                                    <div class="tag-item">
+                                        <span class="tag-caption">This is a Tag...</span>
+                                        <a href="#" class="tag-close"><i class="fa fa-times-circle"></i></a>
+                                    </div>
+                                </div>
+
+                                <form action="#" class="add-tag">
+                                    <input type="text" class="form-control" />
+                                    <button class="btn btn-primary">Add Tag</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <!--/.Box - Tags-->
+                    </div>
+                    <!--Sidebar - Left -->
+
+                    <!--Panel Content-->
+                    <div class="panel-content">
+                        <!--Panel - Green-->
+                        <div class="panel-green" id="important-stuff">
+                            <div class="panel-title-container">
+                                <div class="panel-icon"><i class="fa fa-star-o"></i></div>
+                                <div class="panel-title">The Important Stuff</div>
+                            </div>
+                            <div class="image-content">
+                                <div class="image-content-caption">FEATURED IMAGE</div>
+                                <!-- data-url attribute used to set ajax file upload path -->
+                                <div class="image-container" id="important-stuff-upload" data-url="upload.php">
+                                    <input type="file" name="upl" multiple  class="hidden"  />
+                                </div>
+                                <div class="image-options">
+                                    <div class="row">
+                                        <div class="col-xs-6 text-left">Filename. ext</div>
+                                        <div class="col-xs-6 text-right action-links">
+                                            <a href="javascript:void(0);" class="upload-trigger"><i class="fa fa-cloud-upload"></i></a>
+                                            <a href="#"><i class="fa fa-pencil"></i></a>
+                                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-content form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-6  form-field">
+                                        <label >NAME OF PROBLEM</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  form-field">
+                                        <label >TYPE OF PROBLEM</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  form-field">
+                                        <label >CONTRIBUTOR NAME</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  form-field">
+                                        <label >LINK TO AUTHOR’S PAGE</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  form-field">
+                                        <label >PROBLEM STATEMENT</label>
+                                        <textarea name="name" id="id" rows="3" class="form-control"></textarea>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6  form-field">
+                                        <label >HOOK</label>
+                                        <textarea name="name" id="id" rows="3" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.Panel - Green-->
+                        <div class="draggable-panel panel-sortable">
+                            <!--Panel - Blue-->
+                            <div class="panel-blue">
+                                <div class="panel-title-container">
+                                    <div class="panel-icon"><i class="fa fa-file-text-o"></i></div>
+                                    <div class="panel-title">The Details</div>
+                                    <div class="drag-icon"><i class="fa fa-arrows"></i></div>
+                                </div>
+                                <div class="form-content form-horizontal">
+                                    <div class="form-group draggable-form-fields">
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">HISTORY</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">DURATION</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">WHY WILL WE LOVE IT?</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">STANDARDS</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">NEW TOPIC</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                            <a href="javascript:void(0);" class="add-topic text-right"><i class="fa fa-plus-circle"></i> ADD TOPIC</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.Panel - Blue-->
+                            <!--Panel - Yellow-->
+                            <div class="panel-yellow">
+                                <div class="panel-title-container">
+                                    <div class="panel-icon"><i class="fa fa-file-text-o"></i></div>
+                                    <div class="panel-title">The Other Stuff</div>
+                                    <div class="drag-icon"><i class="fa fa-arrows"></i></div>
+                                </div>
+                                <div class="form-content form-horizontal">
+                                    <div class="form-group draggable-form-fields">
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">LAUNCH METHOD</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">HISTORY</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">EXTENSIONS</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label >
+                                                <span contenteditable="true">TEACHER MOVES</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label>
+                                                <span contenteditable="true">PATH</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 form-field">
+                                            <label >
+                                                <span contenteditable="true">HINTS</span>
+                                                <span class="inline-edit">
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>
+                                                </span>
+                                            </label>
+                                            <textarea name="name" id="id" rows="1" class="form-control"></textarea>
+                                            <a href="javascript:void(0);" class="add-topic text-right"><i class="fa fa-plus-circle"></i> ADD TOPIC</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.Panel - Yellow-->
+                        </div>
+                        <!--Panel - Grey-->
+                        <div class="panel-grey">
+                            <div class="panel-title-container">
+                                <div class="panel-icon"><i class="fa fa-file-text-o"></i></div>
+                                <div class="panel-title">The Slider</div>
+                                <div class="drag-icon"><i class="fa fa-arrows"></i></div>
+                            </div>
+                            <div class="form-content form-horizontal">
+                                <div class="slide-item">
+                                    <div class="slide-image-caption">SLIDE 01</div>
+                                    <!-- data-url attribute used to set ajax file upload path -->
+                                    <div class="slide-image slide-upload"  data-url="upload.php">
+                                        <input type="file" name="upl"  class="hidden"  />
+                                    </div>
+                                    <div class="slide-caption-text">CAPTION</div>
+                                    <div class="slide-caption-input">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="slide-item">
+                                    <div class="slide-image-caption">SLIDE 02</div>
+                                    <!-- data-url attribute used to set ajax file upload path -->
+                                    <div class="slide-image slide-upload"  data-url="upload.php">
+                                        <input type="file" name="upl"  class="hidden"  />
+                                    </div>
+                                    <div class="slide-caption-text">CAPTION</div>
+                                    <div class="slide-caption-input">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="slide-item">
+                                    <div class="slide-image-caption">SLIDE 03</div>
+                                    <!-- data-url attribute used to set ajax file upload path -->
+                                    <div class="slide-image slide-upload"  data-url="upload.php">
+                                        <input type="file" name="upl"  class="hidden"  />
+                                    </div>
+                                    <div class="slide-caption-text">CAPTION</div>
+                                    <div class="slide-caption-input">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="slide-item">
+                                    <div class="slide-image-caption">SLIDE 04</div>
+                                    <!-- data-url attribute used to set ajax file upload path -->
+                                    <div class="slide-image slide-upload"  data-url="upload.php">
+                                        <input type="file" name="upl"  class="hidden"  />
+                                    </div>
+                                    <div class="slide-caption-text">CAPTION</div>
+                                    <div class="slide-caption-input">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="slide-item">
+                                    <div class="slide-image-caption">SLIDE 05</div>
+                                    <!-- data-url attribute used to set ajax file upload path -->
+                                    <div class="slide-image slide-upload"  data-url="upload.php">
+                                        <input type="file" name="upl"  class="hidden"  />
+                                    </div>
+                                    <div class="slide-caption-text">CAPTION</div>
+                                    <div class="slide-caption-input">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/.Panel - Grey-->
+                    </div>
+                    <!--/.Panel Content-->
+                </div>
+            </div>
+        </div>
+        <!--/.Main Content-->
+
+        <!--BEGIN JavaScript-->
+
+        <!--jQuery-->
+        <script src="js/jQuery/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <!--Bootstrap-->
+        <script src="js/bootstrap-3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+        <!--jQuery File upload plugin-->
+        <script src="js/jQuery.fileupload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+        <script src="js/jQuery.fileupload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+        <script src="js/jQuery.fileupload/js/jquery.fileupload.js" type="text/javascript"></script>
+        <!--HTML5 Sortable Plugin-->
+        <script src="js/jQuery.html5sortable/dist/html.sortable.min.js" type="text/javascript"></script>
+        <!--Custom Scripts-->
+        <script src="js/custom-scripts/custom-scripts.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /**  Resources section - Fileupload Plugin Initialization**/
+                $('#resources-upload .upload-trigger').on("click", function () {
+                    $('#resources-upload input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
+                });
+
+                $("#resources-upload").fileupload({
+                    url: $(this).attr('data-url'), // set server side upload file path
+                    dropZone: $('#resources-upload'), // This element will accept file drag/drop uploading
+                    add: function (e, data) {
+                        var jqXHR = data.submit();  // Automatically upload the file once it is added to the queue
+                    },
+                    done: function (e, data) {
+                        alert("File uploaded successfully");  // Callback for successful upload requests
+                    },
+                    fail: function (e, data) {
+                        alert("Error in file upload");  // Callback for successful upload requests
+                    }
+                });
+
+                /** Important Stuff section - Fileupload Plugin Initialization**/
+                $('#important-stuff .upload-trigger').on("click", function () {
+                    $('#important-stuff-upload input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
+                });
+
+                $("#important-stuff-upload").fileupload({
+                    url: $(this).attr('data-url'), // set server side upload file path
+                    dropZone: $('#important-stuff-upload'), // This element will accept file drag/drop uploading
+                    add: function (e, data) {
+                        var jqXHR = data.submit();  // Automatically upload the file once it is added to the queue
+                    },
+                    done: function (e, data) {
+                        alert("File uploaded successfully");  // Callback for successful upload requests
+                    },
+                    fail: function (e, data) {
+                        alert("Error in file upload");  // Callback for successful upload requests
+                    }
+                });
+
+                /** The Slider section - Fileupload Plugin Initialization**/
+                $('.slide-upload').on("click", function (e) {
+                    if ($(e.target).is('.slide-upload')) {
+                        $(this).children('input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
+                    }
+                });
+                $(".slide-upload").each(function (index, value) {
+                    $(".slide-upload:eq(" + index + ")").fileupload({
+                        url: $(this).attr('data-url'), // set server side upload file path
+                        dropZone: $(this), // This element will accept file drag/drop uploading
+                        add: function (e, data) {
+                            var jqXHR = data.submit();  // Automatically upload the file once it is added to the queue
+                        },
+                        done: function (e, data) {
+                            alert("File uploaded successfully");  // Callback for successful upload requests
+                        },
+                        fail: function (e, data) {
+                            alert("Error in file upload");  // Callback for successful upload requests
+                        }
+                    });
+                });
+
+                // Prevent the default action when a file is dropped on the window
+                $(document).on('drop dragover', function (e) {
+                    e.preventDefault();
+                });
+
+
+                /** Sortable (or) movable  Plugin Initialization **/
+                $('.panel-sortable').sortable({
+                    items: ':not(.sort-disabled)', //  to specifiy which items inside the element should be sortable:
+                    placeholderClass: 'placeholde-class',
+                    forcePlaceholderSize: true,
+                    hoverClass: 'is-hovered' // Defaults to false
+                            //handle: '.drag-icon' //to restrict drag start to the specified element:
+                });
+
+                draggableFormFields();
+                function draggableFormFields() {
+                    $('.draggable-form-fields').sortable({
+                        forcePlaceholderSize: true,
+                        items: ':not(.sort-disabled)', //  to specifiy which items inside the element should be sortable:
+                        placeholderClass: 'placeholde-class',
+                        hoverClass: 'is-hovered' // Defaults to false
+                                //handle: '.drag-icon-inner' //to restrict drag start to the specified element:
+                    });
+                }
+
+                /** Add Dynamiv Formfield **/
+                var formTemplate = '<div class="col-xs-12 col-md-4 form-field">'
+                        + '<label>'
+                        + '<span contenteditable="true">NEW TOPIC</span>'
+                        + '<span class="inline-edit">'
+                        + '<a href="#"><i class="fa fa-pencil"></i></a>'
+                        + '<a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a>'
+                        + '</span>'
+                        + '</label>'
+                        + '<textarea name="name" id="id" rows="1" class="form-control"></textarea>'
+                        + '<a href="javascript:void(0);" class="add-topic text-right"><i class="fa fa-plus-circle"></i> ADD TOPIC</a>'
+                        + '</div>';
+
+                $('body').on('click', 'a.add-topic', function () {
+                    $(this).parent().after(formTemplate);
+                    $(this).remove();
+                    draggableFormFields(); // re-initialize draggable formfields
+                });
+            });
+        </script>
+        <!--/.END JavaScript-->
+    </body>
+</html>

@@ -1,0 +1,190 @@
+/*!
+* Style - Responsive - Media Queries (Desktop First Method)
+* Major View Ports - 320, 480, 640, 768, 1024 & 1366
+*/
+
+/*** Desktop Version - 1200px and Above Viewport ***/
+@media all and (min-width:1200px)
+{
+    /* General */
+    .container {
+        width: 1200px;
+    }
+}
+
+/*** Desktop Version - Between 992px - 1199px Viewport  ***/
+@media all and (min-width:992px) and (max-width:1199px)
+{
+    /** Problem View Page **/
+    .view-page-content {
+        padding: 0 50px;
+    }
+
+    /** Problem List Page **/
+    .listing-page {
+        padding: 0 5%;
+    }
+
+    /** Problem Add Page **/
+    .panel-content {
+        padding-left: 50px;
+    }
+}
+
+/*** Tablet  Version - Between 768px-991px Viewport ***/
+@media all and (min-width:0px) and (max-width:991px)
+{
+
+}
+@media all and (min-width:768px) and (max-width:991px)
+{
+    /** Problem View Page **/
+    .view-page-content {
+        padding: 0 25px;
+    }
+    .box-problem-slideshow .problem-slideshow {
+        height: auto;
+    }
+    .box-problem-slideshow {
+        padding: 0 5%;
+    }
+    /** Problem List Page **/
+    .listing-page {
+        padding: 0 5%;
+    }
+
+    /** Problem Add Page **/
+    .panel-content {
+        padding-left: 50px;
+    }
+    .panel-green .image-content {
+        padding-right: 10px;
+        padding-left:10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .panel-green .form-content {
+        width: 100%;
+    }
+}
+/*** Mobile  Version - Between 0-767px Viewport ***/
+@media all and (min-width:0px) and (max-width:767px)
+{
+    /** Header **/
+    .header .header-navigation ul {
+        display: none;
+    }
+    /** Problem View Page **/
+    .view-page-content .box-problem-information .image-box {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .view-page-content {
+        padding: 0;
+    }
+    .view-page-content .box-problem-information .content-box {
+        width: calc(100% - 0px);
+        width: -moz-calc(100% - 0px);
+        width: -webkit-calc(100% - 0px);
+    }
+    .box-problem-slideshow .problem-slideshow {
+        height: auto;
+    }
+    .problem-slideshow .problem-slide .image-panel {
+        width: 100%;
+        margin-bottom:10px;
+    }
+    .problem-slideshow .problem-slide .content-panel {
+        height: auto;
+        padding-left: 0;
+        width: 100%;
+    }
+    .problem-description .problem-description-content .image-panel {
+        width: 100%;
+        margin-bottom:5px;
+    }
+    .box-problem-description .problem-description .problem-description-caption, 
+    .problem-description .problem-description-content .content-panel {
+        padding-right: 0;
+        width: 100%;
+    }
+    /** Problem List Page **/
+    .listing-page {
+        padding: 0 5%;
+    }
+
+    /** Problem Add Page **/
+    .panel-content {
+        padding-left: 0;
+        width: calc(100% - 0px);
+        width: -moz-calc(100% - 0px);
+        width: -webkit-calc(100% - 0px);
+    }
+    .panel-green .image-content {
+        padding-right: 10px;
+        padding-left:10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .panel-green .form-content {
+        width: 100%;
+    }
+    .panel-grey .slide-item {
+        margin-right: 12px;
+        width: calc(48% - 10px);
+        width: -moz-calc(48% - 10px);
+        width: -webkit-calc(48% - 10px);
+    }
+}
+/*** Mobile  Version - Between 0px-479px Viewport  ***/
+@media all and (min-width:0px) and (max-width:479px)
+{
+    /** Problem View Page **/
+    .box-problem-information .tags-box,
+    .box-problem-information .resource-box{
+        padding-right: 0;
+        width: 100%;
+    }
+
+    /** Problem List Page **/
+    .problem .media-left{
+        float:left;
+        width:100%;
+        margin-bottom:10px;
+    }
+    .problem .media-body{
+        float:left;
+        width:100%;
+        padding-right:0;
+    }
+    .problem .media-right {
+        float:left;
+        margin-top:10px;
+        padding-left:0;
+        widht:100%;
+    }
+}
+
+/*** Small Devices Version - upto 319px Viewport  ***/
+@media all and (min-width:0px) and (max-width:319px)
+{
+
+}
+
+/*** Mobile  Version - Between 640px-767px Viewport  ***/
+@media all and (min-width:640px) and (max-width:767px)
+{
+
+}
+
+/*** Miscellaneous Viewport - Custom, Retina and Others ***/
+@media all and (min-width:0px) and (max-width:240px) 
+{
+}
+
+
+
+
+
+

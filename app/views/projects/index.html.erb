@@ -1,48 +1,135 @@
-<div class="row">
-  <div class="column text-center">
-    <h1>Published Projects</h1>
-    <table align="center">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Content</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @projects.publications.each do |project| %>
-        <tr>
-          <td> <%= project.name %> </td>
-          <td> <%= project.content %> </td>
-          <td> <%= link_to 'VIEW', project %> </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div class="header-wrapper wrapper">
+  <div class="container">
+    <div class="header">
+      <a href="#" class="brand">Problems</a>
+      <div class="header-navigation">
+        <div class="user-profile">
+          <span><i class="fa fa-user"></i></span>
+        </div>
+        <ul>
+          <li><a href="#">My Page</a></li>
+          <li>
+            <a href="#">The List</a>
+            <ul>
+              <li><a href="#">PUBLISHED PROBLEMS</a></li>
+              <li><a href="#">PROBLEM DRAFTS</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Sign Out</a></li>
+        </ul>
+        <button type="button" class="mobile-menu-toggle btn btn-primary hidden-lg hidden-md hidden-sm" data-toggle="collapse" data-target="#bs-navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+
+      <!--Mobile Navigation-->
+      <div class="collapse mobile-navigation hidden-sm hidden-md hidden-lg" id="bs-navbar-collapse">
+        <ul>
+          <li><a href="#">My Page</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">The List <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">PUBLISHED PROBLEMS</a></li>
+              <li><a href="#">PROBLEM DRAFTS</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Sign Out</a></li>
+        </ul>
+      </div>
+      <!--/.Mobile Navigation-->
+    </div>
   </div>
 </div>
-<% if current_user %>
-  <div class="row" style='margin-top:5%;'>
-    <div class="column text-center">
-      <h1>Project Drafts</h1>
-      <table align="center">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Content</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @projects.drafts.each do |project| %>
-          <tr>
-            <td> <%= project.name %> </td>
-            <td> <%= project.content %> </td>
-            <td> <%= link_to 'SHOW', project %> </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+<!--/.Header-->
+<!--Breadcrumb-->
+<div class="breadcrumb-wrapper wrapper">
+  <div class="container">
+    <div class="breadcrumb-container">
+      <a href="#"><i class="fa fa-home"></i> DASHBOARD</a>
+      <span>/</span>
+      <a href="#">LIST PROBLEM</a>
     </div>
-  <% end %>
+  </div>
+</div>
+<!--/.Breadcrumb-->
+<!--Main Content-->
+<div class="content-wrapper content-wrapper-white wrapper">
+  <div class="container">
+    <div class="content listing-page-content">
+      <!--Search box-->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="search-box">
+            <form action="#">
+              <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="inputValidation" placeholder="Search" />
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--/.Search box-->
+      <!--Panel Content-->
+      <div class="listing-page">
+        <h1 class="page-title">The List</h1>
+        <!--Published Problems-->
+        <div class="listing-panel listing-panel-green">
+          <div class="title-container">Published Problems</div>
+          <div class="problems-list">
+            <!--Problem-->
+            <% @projects.publications.each do |project| %>
+              <div class="problem">
+                <div class="media">
+                  <div class="media-left">
+                    <%= image_tag(project.featured_image_url) %>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">
+                      <%= link_to project.name, project %>
+                    </h4>
+                    <p>project.content</p>
+                  </div>
+                  <div class="media-right media-middle">
+                    <a href="#" class="btn btn-sm btn-orange">NEW</a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <a href="#" class="down-arrow"></a>
+          </div>
+        </div>
+        <!--/.Published Problems-->
+
+        <!--Problems Draft-->
+        <div class="listing-panel listing-panel-blue">
+          <div class="title-container">Problem Drafts</div>
+          <div class="problems-list">
+            <!--Problem-->
+            <% @projects.drafts.each do |project| %>
+              <div class="problem">
+                <div class="media">
+                  <div class="media-left">
+                    <%= image_tag(project.featured_image_url) %>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">
+                      <%= link_to project.name, project %>
+                    </h4>
+                    <p>project.content</p>
+                  </div>
+                  <div class="media-right media-middle">
+                    <a href="#" class="btn btn-sm btn-orange">NEW</a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <a href="#" class="down-arrow"></a>
+          </div>
+        </div>
+        <!--/.Problems Draft-->
+      </div>
+      <!--/.Panel Content-->
+    </div>
+  </div>
 </div>
