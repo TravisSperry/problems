@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802115650) do
+ActiveRecord::Schema.define(version: 20151231155721) do
 
   create_table "login_events", force: true do |t|
     t.integer  "user_id"
@@ -35,25 +35,24 @@ ActiveRecord::Schema.define(version: 20150802115650) do
     t.string   "title",                      default: ""
   end
 
+  create_table "project_fields", force: true do |t|
+    t.integer "type_id"
+    t.integer "project_id"
+    t.string  "name"
+    t.text    "content"
+    t.integer "position"
+  end
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "type_id"
-    t.text     "why"
-    t.string   "duration"
-    t.text     "launch_method"
-    t.text     "teacher_moves"
     t.text     "solution"
     t.string   "author_name"
     t.string   "author_link"
     t.text     "problem_statement"
-    t.text     "history"
-    t.text     "pathways"
-    t.text     "pitfalls"
-    t.text     "extensions"
-    t.text     "hints"
     t.string   "featured_image"
     t.integer  "status",            default: 0
     t.integer  "user_id"
