@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    @new_nav = true;
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @new_nav = true;
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,6 +30,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project_attachment = @project.project_attachments.build
     @types = Type.all
+    @new_nav = true;
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +40,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @new_nav = true;
     @edit = true
     @project = Project.includes(:project_attachments).find(params[:id])
     @project_attachment = @project.project_attachments.build
@@ -45,6 +49,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    @new_nav = true;
     @project = Project.new(project_params)
 
     respond_to do |format|
@@ -73,6 +78,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /coupon_codes/1
   # PATCH/PUT /coupon_codes/1.json
   def update
+    @new_nav = true;
     @project = Project.find(params[:id])
 
     respond_to do |format|
@@ -100,6 +106,7 @@ class ProjectsController < ApplicationController
   # DELETE /coupon_codes/1
   # DELETE /coupon_codes/1.json
   def destroy
+    @new_nav = true;
     @project = Project.find(params[:id])
     @project.destroy
 
