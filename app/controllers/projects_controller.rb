@@ -56,6 +56,11 @@ class ProjectsController < ApplicationController
         if params[:project_fields]
           create_fields
         end
+
+        if params[:slider_objects]
+          create_slider_objects
+        end
+
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -78,6 +83,10 @@ class ProjectsController < ApplicationController
 
         if params[:project_fields]
           create_fields
+        end
+
+        if params[:slider_objects]
+          create_slider_objects
         end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
@@ -111,9 +120,17 @@ class ProjectsController < ApplicationController
     end
 
     def create_fields
-      params[:project_fields_attributes].each do |project_fields_attributes|
+      params[:project_fields_attributes].each do |project_field_attributes|
         @project_attachment = @project.project_attachments.create!(
-                                    :type_id => project_fields_attributes[:type_id].to_i,
+                                    :type_id => project_field_attributes[:type_id].to_i,
+                                    :project_id => @project.id)
+      end
+    end
+
+    def create_slider_objects
+      params[:slider_objects_attributes].each do |slider_object_attributes|
+        @project_attachment = @project.project_attachments.create!(
+                                    :resource => slider_object_attributes[:resource],
                                     :project_id => @project.id)
       end
     end
@@ -142,7 +159,9 @@ class ProjectsController < ApplicationController
       { project_attachments_attributes:
         [:project_attachment_type_id, :resource, :_delete, :id, :title]},
       { project_fields_attributes:
-        [:name, :position, :type_id, :content, :id, :_delete]}
+        [:name, :position, :type_id, :content, :id, :_delete]},
+      { slider_object_attributes:
+        [:description, :resource, :id, :d_delete]}
       )
     end
 end

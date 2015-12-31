@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231163721) do
+ActiveRecord::Schema.define(version: 20151231172106) do
 
   create_table "login_events", force: true do |t|
     t.integer  "user_id"
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 20151231163721) do
 
   add_index "projects_tags", ["project_id", "tag_id"], name: "index_projects_tags_on_project_id_and_tag_id"
   add_index "projects_tags", ["tag_id", "project_id"], name: "index_projects_tags_on_tag_id_and_project_id"
+
+  create_table "slider_objects", force: true do |t|
+    t.text     "description"
+    t.string   "file_name"
+    t.integer  "project_id"
+    t.string   "resource"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "standards", force: true do |t|
     t.string   "code"
