@@ -52,6 +52,10 @@ class ProjectsController < ApplicationController
         if params[:project_attachments]
           create_attachments
         end
+
+        if params[:project_fields]
+          create_fields
+        end
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -70,6 +74,10 @@ class ProjectsController < ApplicationController
       if @project.update_attributes(project_params)
         if params[:project_attachments]
           create_attachments
+        end
+
+        if params[:project_fields]
+          create_fields
         end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
@@ -102,10 +110,39 @@ class ProjectsController < ApplicationController
       end
     end
 
+    def create_fields
+      params[:project_fields_attributes].each do |project_fields_attributes|
+        @project_attachment = @project.project_attachments.create!(
+                                    :type_id => project_fields_attributes[:type_id].to_i,
+                                    :project_id => @project.id)
+      end
+    end
+
     # Use this method to whitelist the permissible parameters. Example:
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def project_params
-      params.require(:project).permit(:name, :status, :user_id, :content, :type_id, :why, :duration, :launch_method, :teacher_moves, :solution,  :problem_statement, :author_name, :author_link, {tag_ids: []}, {standard_ids: []}, :history, :pathways, :extensions, :hints, :featured_image, :remove_featured_image, :featured_image_cache, {project_attachments_attributes: [:project_attachment_type_id, :resource, :_delete, :id, :title]})
+      params.require(:project).permit(
+      :name,
+      :status,
+      :user_id,
+      :content,
+      :type_id,
+      :solution,
+      :problem_statement,
+      :author_name,
+      :author_link,
+      { tag_ids:
+        []},
+      { standard_ids:
+        []},
+      :featured_image,
+      :remove_featured_image,
+      :featured_image_cache,
+      { project_attachments_attributes:
+        [:project_attachment_type_id, :resource, :_delete, :id, :title]},
+      { project_fields_attributes:
+        [:name, :position, :type_id, :content, :id, :_delete]}
+      )
     end
 end
