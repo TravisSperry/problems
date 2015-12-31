@@ -6,6 +6,8 @@ class CreateProjectFields < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.integer :position
+
+      t.timestamps
     end
   end
 end
