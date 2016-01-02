@@ -18,10 +18,11 @@ class Project < ActiveRecord::Base
   scope :drafts, -> { where(status: STATUSES.index('Draft')) }
   scope :pending_review, -> { where(status: STATUSES.index('Pending Review')) }
 
+  STATUSES = ['Draft', 'Pending Review', 'Published']
 
   if Rails.env.development?
     searchable do
-      text :name, :content, :author_name, :history, :extensions
+      text :name, :content, :author_name
 
       text :tags do
         tags.map { |tag| tag.name }
@@ -33,5 +34,4 @@ class Project < ActiveRecord::Base
     end
   end
 
-  STATUSES = ['Draft', 'Pending Review', 'Published']
 end

@@ -1,59 +1,4 @@
-<div class="header-wrapper wrapper">
-  <div class="container">
-    <div class="header">
-      <a href="#" class="brand">Problems</a>
-      <div class="header-navigation">
-        <div class="user-profile">
-          <span><i class="fa fa-user"></i></span>
-        </div>
-        <ul>
-          <li><a href="#">My Page</a></li>
-          <li>
-            <a href="#">The List</a>
-            <ul>
-              <li><a href="#">PUBLISHED PROBLEMS</a></li>
-              <li><a href="#">PROBLEM DRAFTS</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sign Out</a></li>
-        </ul>
-        <button type="button" class="mobile-menu-toggle btn btn-primary hidden-lg hidden-md hidden-sm" data-toggle="collapse" data-target="#bs-navbar-collapse">
-          <i class="fa fa-bars"></i>
-        </button>
-      </div>
 
-      <!--Mobile Navigation-->
-      <div class="collapse mobile-navigation hidden-sm hidden-md hidden-lg" id="bs-navbar-collapse">
-        <ul>
-          <li><a href="#">My Page</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">The List <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">PUBLISHED PROBLEMS</a></li>
-              <li><a href="#">PROBLEM DRAFTS</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sign Out</a></li>
-        </ul>
-      </div>
-      <!--/.Mobile Navigation-->
-    </div>
-  </div>
-</div>
-<!--/.Header-->
-<!--Breadcrumb-->
-<div class="breadcrumb-wrapper wrapper">
-  <div class="container">
-    <div class="breadcrumb-container">
-      <%= link_to user_path(current_user) do %>
-        <i class="fa fa-home"></i>DASHBOARD
-      <% end %>
-      <span>/</span>
-      <a href="#">VIEW PROBLEM</a>
-    </div>
-  </div>
-</div>
-<!--/.Breadcrumb-->
 <!--Main Content-->
 <div class="content-wrapper content-wrapper-white wrapper">
   <div class="container">
@@ -62,10 +7,10 @@
       <!--Box - Problem Info-->
       <div class="box-problem-information">
         <div class="image-box">
-          <%= image_tag(@project.featured_image_url, class: 'image-responsive' %>
+          <%= image_tag(@project.featured_image_url, class: 'image-responsive') %>
         </div>
         <div class="content-box">
-          <h2 class="problem-caption"><%= @project.name %> [<% Project.STATUSES[@project.status] %>]</h2>
+          <h2 class="problem-caption"><%= @project.name %> [<% @project.status %>]</h2>
           <div class="problem-contributor">
             <span>CONTRIBUTOR:</span>
             <span><%= link_to @project.author_name, @project.author_link if @project.author_link %></span>
@@ -99,7 +44,7 @@
       <div class="box-problem-slideshow">
         <div class="problem-slideshow">
           <!--SLIDE LOOP-->
-          <% @slider_objects.each do |slider_object| %>
+          <% @project.slider_objects.each do |slider_object| %>
             <div class="problem-slide">
               <div class="image-panel">
                 <%= image_tag(slider_object.file_name) %>
@@ -138,12 +83,12 @@
       </div>
       <!--/.Box - Problem Description-->
       <!--Box - DETAILS-->
-      <% if @project.feature_order.chars[0] == '0' %>
-        <%= render 'details' , local: { :project => @project %>
-        <%= render 'other' , local: { :project => @project %>
+      <% if @project.form_order.chars[0] == '0' %>
+        <%= render 'details' , local: { :project => @project } %>
+        <%= render 'other' , local: { :project => @project } %>
       <% else %>
-        <%= render 'other' , local: { :project => @project %>
-        <%= render 'details' , local: { :project => @project %>
+        <%= render 'other' , local: { :project => @project } %>
+        <%= render 'details' , local: { :project => @project } %>
       <% end %>
       <!--/.Box - Problem Description-->
     </div>
