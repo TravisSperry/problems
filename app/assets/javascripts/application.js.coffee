@@ -9,6 +9,8 @@
 //= require jquery.iframe-transport
 //= require bootstrap.min
 //= require html.sortable.min
+//= require jquery.cycle2.min
+//= require jquery.cycle2.swipe.min
 //= require add
 
 jQuery ->
