@@ -23,12 +23,12 @@
           <div class="title-caption">Resources</div>
         </div>
         <!-- data-url attribute used to set ajax file upload path -->
-        <div class="resource-drag-upload" data-url="upload.php" id="resources-upload">
+        <div class="resource-drag-upload" id="resources-upload">
           <a class="upload-trigger" href="javascript:void(0);">
-            <span></span>
+            <span id="attachment-holder"></span>
           </a>
+          <%= builder.input :resource, as: :file , label: false, input_html: {class: "hidden" }%>
         </div>
-        <%= builder.input :resource, as: :file , class: "hidden" %>
         <div class="resource-items">
           <div class="resource-items-title">Or choose a ﬁle...</div>
           <div class="resource-item">
@@ -127,7 +127,7 @@
           <div class="image-content-caption">FEATURED IMAGE</div>
           <!-- data-url attribute used to set ajax file upload path -->
           <div class="image-container" id="important-stuff-upload">
-            <%= f.input :featured_image, as: :file, label: false %>
+            <%= f.input :featured_image, as: :file, label: false, input_html: { class: 'hidden' } %>
           </div>
           <div class="image-options">
             <div class="row">
@@ -273,8 +273,8 @@
             <div class="slide-image-caption">SLIDE
               <%= i + 1 %></div>
             <!-- data-url attribute used to set ajax file upload path -->
-            <div class="slide-image slide-upload" data-url="upload.php">
-              <%= builder.input :resource, as: :file, class: "hidden" %>
+            <div class="slide-image slide-upload">
+              <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
             </div>
             <div class="slide-caption-text">CAPTION</div>
             <div class="slide-caption-input">

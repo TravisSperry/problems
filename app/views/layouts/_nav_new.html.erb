@@ -7,9 +7,12 @@
           <span><i class="fa fa-user"></i></span>
         </div>
         <ul>
-          <li><a href="#">My Page</a></li>
-          <li><a href="#">The List</a></li>
-          <li><a href="#">Sign Out</a></li>
+          <li><%= link_to "The List", projects_url %></li>
+          <li><%= link_to 'Sign In', new_user_session_path unless current_user %></li>
+          <% if current_user %>
+          <li><%= link_to 'My Page', user_path(current_user) %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <% end %>
         </ul>
         <button type="button" class="mobile-menu-toggle btn btn-primary hidden-lg hidden-md hidden-sm" data-toggle="collapse" data-target="#bs-navbar-collapse">
           <i class="fa fa-bars"></i>
@@ -20,14 +23,12 @@
       <div class="collapse mobile-navigation hidden-sm hidden-md hidden-lg" id="bs-navbar-collapse">
         <ul>
           <li><a href="#">My Page</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">The List <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">PUBLISHED PROBLEMS</a></li>
-              <li><a href="#">PROBLEM DRAFTS</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sign Out</a></li>
+          <li><%= link_to "The List", projects_url %></li>
+          <li><%= link_to 'Sign In', new_user_session_path unless current_user %></li>
+          <% if current_user %>
+          <li><%= link_to 'My Page', user_path(current_user) %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <% end %>
         </ul>
       </div>
       <!--/.Mobile Navigation-->
