@@ -1,8 +1,25 @@
-<div class="attachment_fields">
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "Cancel", "#", style: "float:right;margin-right:15px", class: "remove_fields" %>
-  <%= f.input :title %>
-  <%= f.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
-  <%= f.input :resource, as: :file %>
-  <hr style='border-color:black;margin-right:15px'>
+<div aria-grabbed="false" class="col-xs-12 col-md-4 form-field" data-item-sortable-id="2" draggable="true" role="option">
+  <label>
+    <span contenteditable="true">NEW TOPIC</span>
+    <span class="inline-edit">
+      <a href="#">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a class="drag-icon-inner" href="javascript:void(0);">
+        <i class="fa fa-arrows"></i>
+      </a>
+    </span>
+  </label>
+  <div class="input hidden project_project_fields_position">
+    <input class="hidden position" id="project_project_fields_attributes_1_position" name="project[project_fields_attributes][1][position]" type="hidden">
+  </div>
+  <div class="input hidden project_project_fields_type_id">
+    <input class="hidden" id="project_project_fields_attributes_1_type_id" name="project[project_fields_attributes][1][type_id]" type="hidden">
+  </div>
+  <div class="input text optional project_project_fields_content">
+    <textarea class="text optional form-control" id="project_project_fields_attributes_1_content" name="project[project_fields_attributes][1][content]"></textarea>
+  </div>
+  <a class="add-topic text-right" href="javascript:void(0);">
+    <i class="fa fa-plus-circle"></i>
+    ADD TOPIC</a>
 </div>

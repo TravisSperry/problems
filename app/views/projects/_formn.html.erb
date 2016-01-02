@@ -7,6 +7,7 @@
       <div class="box-status">
         <form action="#">
           <div class="form-group">
+            <%= f.input :form_order, as: :hidden, input_html: {id: "form-order"} %>
             <%= f.input :status, label: 'Status', collection: Project::STATUSES.zip((0..2).to_a), input_html: { class: 'form-control input-sm' } %>
             <%= f.button :submit, 'SAVE', class: 'btn btn-primary', id: 'project-button' unless @edit %>
           </div>
@@ -131,7 +132,7 @@
           </div>
           <div class="image-options">
             <div class="row">
-              <div class="col-xs-6 text-left">Filename. ext</div>
+              <div id="filename" class="col-xs-6 text-left">Filename. ext</div>
               <div class="col-xs-6 text-right action-links">
                 <a class="upload-trigger" href="javascript:void(0);">
                   <i class="fa fa-cloud-upload"></i>
@@ -178,7 +179,7 @@
       <!--/.Panel - Green-->
       <div class="draggable-panel panel-sortable">
         <!--Panel - Blue-->
-        <div class="panel-blue">
+        <div class="panel-blue" data-moveid="0">
           <div class="panel-title-container">
             <div class="panel-icon">
               <i class="fa fa-file-text-o"></i>
@@ -203,10 +204,10 @@
                       </a>
                     </span>
                   </label>
-                  <%= builder.input :position, as: :hidden, value: 0 %>
-                  <%= builder.input :type_id, as: :hidden, value: 0 %>
+                  <%= builder.input :position, as: :hidden,input_html: { class: 'position' } %>
+                  <%= f.input :type_id, as: :hidden, input_html: {value: 0} %>
                   <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
-                  <a class="add-topic text-right" href="javascript:void(0);">
+                  <a sectionID="0" class="add-topic text-right" href="javascript:void(0);">
                     <i class="fa fa-plus-circle"></i>
                     ADD TOPIC</a>
                 </div>
@@ -216,7 +217,7 @@
         </div>
         <!--/.Panel - Blue-->
         <!--Panel - Yellow-->
-        <div class="panel-yellow">
+        <div class="panel-yellow" data-moveid="1">
           <div class="panel-title-container">
             <div class="panel-icon">
               <i class="fa fa-file-text-o"></i>
@@ -241,10 +242,10 @@
                       </a>
                     </span>
                   </label>
-                  <%= builder.input :position, as: :hidden, value: 0 %>
-                  <%= builder.input :type_id, as: :hidden, value: 1 %>
+                  <%= builder.input :position, as: :hidden, input_html: { class: 'position' }%>
+                  <%= f.input :type_id, as: :hidden, input_html: {value: 1} %>
                   <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
-                  <a class="add-topic text-right" href="javascript:void(0);">
+                  <a sectionID="1" class="add-topic text-right" href="javascript:void(0);">
                     <i class="fa fa-plus-circle"></i>
                     ADD TOPIC</a>
                 </div>
