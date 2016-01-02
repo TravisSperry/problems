@@ -136,12 +136,12 @@
       '    <input class="hidden position" id="project_project_fields_attributes_' + number +'_position" ' + 'name="project[project_fields_attributes][' + number + '][position]" type="hidden">' +
       '  </div>' +
       '  <div class="input hidden project_project_fields_type_id">' +
-      '    <input value = ' + sectionID + 'class="hidden" id="project_project_fields_attributes_' + number +'_type_id"' + 'name="project[project_fields_attributes][' + number + '][type_id]" type="hidden">' +
+      '    <input value = "' + sectionID + '" class="hidden type-' + sectionID +  '" id="project_project_fields_attributes_' + number +'_type_id"' + 'name="project[project_fields_attributes][' + number + '][type_id]" type="hidden">' +
       '  </div>' +
       '  <div class="input text optional project_project_fields_content">' +
       '    <textarea class="text optional form-control"' +  ' id="project_project_fields_attributes_' + number +'_content" ' + 'name="project[project_fields_attributes][' + number + '][content]"></textarea>' +
       '  </div>' +
-      '  <a sectionID=' + sectionID + 'class="add-topic text-right" href="javascript:void(0);">' +
+      '  <a sectionID="' + sectionID + '" class="add-topic text-right" href="javascript:void(0);">' +
       '    <i class="fa fa-plus-circle"></i>' +
       '    ADD TOPIC</a>' +
       '</div>'
@@ -151,7 +151,8 @@
 
     $('body').on('click', 'a.add-topic', function () {
       var sectionID = $(this).attr('sectionID');
-      $(this).parent().after(formTemplate(3));
+      var count = $(".type-" + sectionID).length + 1
+      $(this).parent().after(formTemplate(count, sectionID));
       $(this).remove();
       draggableFormFields(); // re-initialize draggable formfields
     });
