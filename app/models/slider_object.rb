@@ -2,6 +2,7 @@ class SliderObject < ActiveRecord::Base
   mount_uploader :resource, ResourceUploader
 
   belongs_to :project
+
   before_save :default_name
 
   def default_name
@@ -13,5 +14,4 @@ class SliderObject < ActiveRecord::Base
       mark_for_destruction
     end
   end
-
 end
