@@ -937,6 +937,7 @@ h4, .h4 {
     float:left;
     width:100%;
     height: 100%;
+    overflow-y: hidden;
 }
 .problem-slideshow .problem-slide .image-panel{
     float:left;
@@ -983,12 +984,4 @@ h4, .h4 {
 #problem-slideshow-pager span:hover,
 #problem-slideshow-pager span.cycle-pager-active{
     background: #89939f;
-}
-
-.form-field:last-of-type .add-topic {
-  display: block;
-}
-
-.form-field .add-topic {
-  display: none;
 }

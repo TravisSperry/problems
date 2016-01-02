@@ -17,7 +17,7 @@
           </div>
           <div class="problem-type">
             <span>TYPE:</span>
-            <span>@project.type.name</span>
+            <span><%= Type.where(project_id: @project.id).name %></span>
           </div>
           <% if current_user && (current_user == @project.user || current_user.admin?) %>
             <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-sm btn-grey' %>
@@ -47,7 +47,7 @@
           <% @project.slider_objects.each do |slider_object| %>
             <div class="problem-slide">
               <div class="image-panel">
-                <%= image_tag(slider_object.file_name) %>
+                <%= image_tag(slider_object.resource_url) %>
               </div>
               <div class="content-panel">
                 <div>
@@ -95,23 +95,3 @@
     <!--/.Panel Content-->
   </div>
 </div>
-<!--/.Main Content-->
-<!--BEGIN JavaScript-->
-<!--jQuery-->
-<script type="text/javascript">
-  $(document).ready(function() {
-    /** Problem Slidshow Initialization **/
-    $('.problem-slideshow').cycle({
-      slides: '> div',
-      swipe: true,
-      fx: 'scrollHorz', //  fade, fadeout, none, and scrollHorz.
-      timeout: 5000,
-      speed: 500,
-      log: false,
-      pager: '#problem-slideshow-pager',
-      'pager-template': '<span></span>'
-    });
-
-    $('.problem-slideshow').cycle('stop'); // stop auto slideshow
-  });
-</script>

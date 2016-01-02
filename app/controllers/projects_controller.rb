@@ -131,7 +131,7 @@ class ProjectsController < ApplicationController
 
     def create_fields
       params[:project_fields_attributes].each do |project_field_attributes|
-        @project_attachment = @project.project_attachments.create!(
+        @project_field = @project.project_fields.create!(
                                     :type_id => project_field_attributes[:type_id].to_i,
                                     :project_id => @project.id)
       end
@@ -139,7 +139,7 @@ class ProjectsController < ApplicationController
 
     def create_slider_objects
       params[:slider_objects_attributes].each do |slider_object_attributes|
-        @project_attachment = @project.project_attachments.create!(
+        @slider_object = @project.slider_objects.create!(
                                     :resource => slider_object_attributes[:resource],
                                     :project_id => @project.id)
       end
@@ -170,8 +170,8 @@ class ProjectsController < ApplicationController
         [:project_attachment_type_id, :resource, :_delete, :id, :title]},
       { project_fields_attributes:
         [:name, :position, :type_id, :content, :id, :_delete]},
-      { slider_object_attributes:
-        [:description, :resource, :id, :d_delete]}
+      { slider_objects_attributes:
+        [:description, :resource, :id, :_delete]}
       )
     end
 end
