@@ -1,64 +1,57 @@
 
   $(document).ready(function () {
-    /**  Resources section - Fileupload Plugin Initialization**/
-    $('#resources-upload .upload-trigger').on("click", function () {
-      $('#resources-upload input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
-    });
 
-    $("#resources-upload").fileupload({
-      url: $(this).attr('data-url'), // set server side upload file path
-      dropZone: $('#resources-upload'), // This element will accept file drag/drop uploading
-      add: function (e, data) {
-        var jqXHR = data.submit(); // Automatically upload the file once it is added to the queue
-      },
-      done: function (e, data) {
-        alert("File uploaded successfully"); // Callback for successful upload requests
-      },
-      fail: function (e, data) {
-        alert("Error in file upload"); // Callback for successful upload requests
-      }
-    });
+    var Uploader = function(triggerSelector, inputSelector, holder) {
+      var trigger = $(triggerSelector);
+      var input = $(inputSelector);
 
-    /** Important Stuff section - Fileupload Plugin Initialization**/
-    $('#important-stuff .upload-trigger').on("click", function () {
-      $('#important-stuff-upload input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
-    });
+      $(trigger).on("click", function () {
+          console.log("hi");
+          input.click();
+      });
 
-    $("#important-stuff-upload").fileupload({
-      url: $(this).attr('data-url'), // set server side upload file path
-      dropZone: $('#important-stuff-upload'), // This element will accept file drag/drop uploading
-      add: function (e, data) {
-        var jqXHR = data.submit(); // Automatically upload the file once it is added to the queue
-      },
-      done: function (e, data) {
-        alert("File uploaded successfully"); // Callback for successful upload requests
-      },
-      fail: function (e, data) {
-        alert("Error in file upload"); // Callback for successful upload requests
-      }
-    });
+      input.change(function() {
+        if (this.files && this.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            var url = "url(" + event.target.result + ")"
+            $(holder).css("background-image", url);
+          }
+          reader.readAsDataURL(this.files[0]);
+        }
+      });
+    }
+
+    // project attachment uploader
+    Uploader('#resources-upload .upload-trigger'
+    ,'#resources-upload input[type="file"]'
+    ,"#attachment-holder");
+
+    // feature image uploader
+    Uploader('#important-stuff .upload-trigger',
+    '#important-stuff-upload input[type="file"]',
+    '#important-stuff-upload');
 
     /** The Slider section - Fileupload Plugin Initialization**/
     $('.slide-upload').on("click", function (e) {
       if ($(e.target).is('.slide-upload')) {
-        $(this).children('input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
-      }
+        var input = $(this).find('input[type="file"]');
+        input.click(); // Simulate a click on the file input button to show the file browser dialog
+
+        input.change(function() {
+          if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+              var url = "url(" + event.target.result + ")"
+              input.parent().parent().css("background-image", url);
+            }
+            reader.readAsDataURL(this.files[0]);
+          }
+        });
+
+      } else console.log("wrong")
     });
-    $(".slide-upload").each(function (index, value) {
-      $(".slide-upload:eq(" + index + ")").fileupload({
-        url: $(this).attr('data-url'), // set server side upload file path
-        dropZone: $(this), // This element will accept file drag/drop uploading
-        add: function (e, data) {
-          var jqXHR = data.submit(); // Automatically upload the file once it is added to the queue
-        },
-        done: function (e, data) {
-          alert("File uploaded successfully"); // Callback for successful upload requests
-        },
-        fail: function (e, data) {
-          alert("Error in file upload"); // Callback for successful upload requests
-        }
-      });
-    });
+
 
     // Prevent the default action when a file is dropped on the window
     $(document).on('drop dragover', function (e) {
