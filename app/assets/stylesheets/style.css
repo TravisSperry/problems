@@ -978,3 +978,11 @@ h4, .h4 {
 #problem-slideshow-pager span.cycle-pager-active{
     background: #89939f;
 }
+
+.form-field:last-of-type .add-topic {
+  display: block;
+}
+
+.form-field .add-topic {
+  display: none;
+}
