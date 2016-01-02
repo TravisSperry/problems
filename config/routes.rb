@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :project_attachments
 
+  resources :slider_objects
+
   resources :tags
 
   resources :types
