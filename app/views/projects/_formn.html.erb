@@ -126,8 +126,8 @@
         <div class="image-content">
           <div class="image-content-caption">FEATURED IMAGE</div>
           <!-- data-url attribute used to set ajax file upload path -->
-          <div class="image-container" data-url="upload.php" id="important-stuff-upload">
-            <%= f.input :featured_image, as: :file, label: false, class: "hidden" %>
+          <div class="image-container" id="important-stuff-upload">
+            <%= f.input :featured_image, as: :file, label: false %>
           </div>
           <div class="image-options">
             <div class="row">
@@ -150,7 +150,6 @@
           <div class="form-group">
             <div class="col-xs-12 col-sm-6  form-field">
               <label>NAME OF PROBLEM</label>
-              <input class="form-control" type="text"/>
               <%= f.input :name, label: false, input_html: { class: 'form-control' } %>
             </div>
             <div class="col-xs-12 col-sm-6  form-field">
@@ -191,39 +190,27 @@
           </div>
           <div class="form-content form-horizontal">
             <div class="form-group draggable-form-fields">
-              <!-- Loop for details -->
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">HISTORY</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-              </div>
-              <!-- end loop -->
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">NEW TOPIC</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-                <a class="add-topic text-right" href="javascript:void(0);">
-                  <i class="fa fa-plus-circle"></i>
-                  ADD TOPIC</a>
-              </div>
+              <%= f.simple_fields_for :project_fields do |builder| %>
+                <div class="col-xs-12 col-md-4 form-field">
+                  <label>
+                    <span contenteditable="true">NEW TOPIC</span>
+                    <span class="inline-edit">
+                      <a href="#">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <a class="drag-icon-inner" href="javascript:void(0);">
+                        <i class="fa fa-arrows"></i>
+                      </a>
+                    </span>
+                  </label>
+                  <%= builder.input :position, as: :hidden, value: 0 %>
+                  <%= builder.input :type_id, as: :hidden, value: 0 %>
+                  <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
+                  <a class="add-topic text-right" href="javascript:void(0);">
+                    <i class="fa fa-plus-circle"></i>
+                    ADD TOPIC</a>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -241,93 +228,27 @@
           </div>
           <div class="form-content form-horizontal">
             <div class="form-group draggable-form-fields">
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">LAUNCH METHOD</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-              </div>
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">HISTORY</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-              </div>
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">EXTENSIONS</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-              </div>
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">TEACHER MOVES</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-              </div>
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">PATH</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-              </div>
-              <div class="col-xs-12 col-md-4 form-field">
-                <label>
-                  <span contenteditable="true">HINTS</span>
-                  <span class="inline-edit">
-                    <a href="#">
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="drag-icon-inner" href="javascript:void(0);">
-                      <i class="fa fa-arrows"></i>
-                    </a>
-                  </span>
-                </label>
-                <textarea class="form-control" id="id" name="name" rows="1"></textarea>
-                <a class="add-topic text-right" href="javascript:void(0);">
-                  <i class="fa fa-plus-circle"></i>
-                  ADD TOPIC</a>
-              </div>
+              <%= f.simple_fields_for :project_fields do |builder| %>
+                <div class="col-xs-12 col-md-4 form-field">
+                  <label>
+                    <span contenteditable="true">NEW TOPIC</span>
+                    <span class="inline-edit">
+                      <a href="#">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <a class="drag-icon-inner" href="javascript:void(0);">
+                        <i class="fa fa-arrows"></i>
+                      </a>
+                    </span>
+                  </label>
+                  <%= builder.input :position, as: :hidden, value: 0 %>
+                  <%= builder.input :type_id, as: :hidden, value: 1 %>
+                  <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
+                  <a class="add-topic text-right" href="javascript:void(0);">
+                    <i class="fa fa-plus-circle"></i>
+                    ADD TOPIC</a>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -346,7 +267,7 @@
         </div>
         <div class="form-content form-horizontal">
           <% 5.times do |i| %>
-          <% f.simple_fields_for :slider_object do |builder| %>
+          <%= f.simple_fields_for :slider_objects do |builder| %>
           <div class="slide-item">
             <%= builder.input :resource, as: :hidden  %>
             <div class="slide-image-caption">SLIDE
@@ -357,7 +278,6 @@
             </div>
             <div class="slide-caption-text">CAPTION</div>
             <div class="slide-caption-input">
-              <input class="form-control" type="text"/>
               <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
             </div>
           </div>
@@ -371,101 +291,3 @@
   </div>
 </div>
 <% end %>
-<script type="text/javascript">
-  $(document).ready(function () {
-    /**  Resources section - Fileupload Plugin Initialization**/
-    $('#resources-upload .upload-trigger').on("click", function () {
-      $('#resources-upload input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
-    });
-
-    $("#resources-upload").fileupload({
-      url: $(this).attr('data-url'), // set server side upload file path
-      dropZone: $('#resources-upload'), // This element will accept file drag/drop uploading
-      add: function (e, data) {
-        var jqXHR = data.submit(); // Automatically upload the file once it is added to the queue
-      },
-      done: function (e, data) {
-        alert("File uploaded successfully"); // Callback for successful upload requests
-      },
-      fail: function (e, data) {
-        alert("Error in file upload"); // Callback for successful upload requests
-      }
-    });
-
-    /** Important Stuff section - Fileupload Plugin Initialization**/
-    $('#important-stuff .upload-trigger').on("click", function () {
-      $('#important-stuff-upload input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
-    });
-
-    $("#important-stuff-upload").fileupload({
-      url: $(this).attr('data-url'), // set server side upload file path
-      dropZone: $('#important-stuff-upload'), // This element will accept file drag/drop uploading
-      add: function (e, data) {
-        var jqXHR = data.submit(); // Automatically upload the file once it is added to the queue
-      },
-      done: function (e, data) {
-        alert("File uploaded successfully"); // Callback for successful upload requests
-      },
-      fail: function (e, data) {
-        alert("Error in file upload"); // Callback for successful upload requests
-      }
-    });
-
-    /** The Slider section - Fileupload Plugin Initialization**/
-    $('.slide-upload').on("click", function (e) {
-      if ($(e.target).is('.slide-upload')) {
-        $(this).children('input[type="file"]').click(); // Simulate a click on the file input button to show the file browser dialog
-      }
-    });
-    $(".slide-upload").each(function (index, value) {
-      $(".slide-upload:eq(" + index + ")").fileupload({
-        url: $(this).attr('data-url'), // set server side upload file path
-        dropZone: $(this), // This element will accept file drag/drop uploading
-        add: function (e, data) {
-          var jqXHR = data.submit(); // Automatically upload the file once it is added to the queue
-        },
-        done: function (e, data) {
-          alert("File uploaded successfully"); // Callback for successful upload requests
-        },
-        fail: function (e, data) {
-          alert("Error in file upload"); // Callback for successful upload requests
-        }
-      });
-    });
-
-    // Prevent the default action when a file is dropped on the window
-    $(document).on('drop dragover', function (e) {
-      e.preventDefault();
-    });
-
-    /** Sortable (or) movable  Plugin Initialization **/
-    $('.panel-sortable').sortable({
-      items: ':not(.sort-disabled)', //  to specifiy which items inside the element should be sortable:
-      placeholderClass: 'placeholde-class',
-      forcePlaceholderSize: true,
-      hoverClass: 'is-hovered' // Defaults to false
-      //handle: '.drag-icon' //to restrict drag start to the specified element:
-    });
-
-    draggableFormFields();
-
-    function draggableFormFields() {
-      $('.draggable-form-fields').sortable({
-        forcePlaceholderSize: true, items: ':not(.sort-disabled)', //  to specifiy which items inside the element should be sortable:
-        placeholderClass: 'placeholde-class',
-        hoverClass: 'is-hovered' // Defaults to false
-        //handle: '.drag-icon-inner' //to restrict drag start to the specified element:
-      });
-    }
-
-    /** Add Dynamiv Formfield **/
-    var formTemplate = '<div class="col-xs-12 col-md-4 form-field"><label><span contenteditable="true">NEW TOPIC</span><span class="inline-edit"><a href="#"><i class="fa fa-pencil"></i></a><a href="javascript:void(0);" class="drag-icon-inner"><i class="fa fa-arrows"></i></a' +
-        '></span></label><textarea name="name" id="id" rows="1" class="form-control"></textarea><a href="javascript:void(0);" class="add-topic text-right"><i class="fa fa-plus-circle"></i> ADD TOPIC</a></div>';
-
-    $('body').on('click', 'a.add-topic', function () {
-      $(this).parent().after(formTemplate);
-      $(this).remove();
-      draggableFormFields(); // re-initialize draggable formfields
-    });
-  });
-</script>

@@ -4,7 +4,7 @@
     <h2 class="title-text">The Other Stuff</h2>
   </div>
   <div class="problem-description">
-    <% @project.project_fields.select { |x| x.type = "OTHER" }.each do |field| %>
+    <% @project.project_fields.select { |x| x.type_id = 1 }.each do |field| %>
     <div class="problem-description-content">
       <h3 class="problem-description-caption"><% = field.name %></h3>
       <div class="image-panel"></div>
