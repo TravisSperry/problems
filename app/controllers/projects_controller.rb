@@ -29,7 +29,9 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project_attachment = @project.project_attachments.build
-    SliderObjects.new
+    @slider_object = @project.slider_objects.build
+    @project_field = @project.project_fields.build
+
     @types = Type.all
     @new_nav = true;
 

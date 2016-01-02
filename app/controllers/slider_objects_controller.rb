@@ -1,8 +1,6 @@
 class SliderObjectsController < ApplicationController
   before_action :set_slider_object, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     @slider_objects = SliderObject.all
     respond_with(@slider_objects)
@@ -22,6 +20,7 @@ class SliderObjectsController < ApplicationController
 
   def create
     @slider_object = SliderObject.new(slider_object_params)
+    @slider_object.save
     respond_with(@slider_object)
   end
 
@@ -43,11 +42,6 @@ class SliderObjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slider_object_params
-      params.require(:slider_object).permit(
-      :project_id,
-      :description,
-      :file_name,
-      :resource,
-      :position)
+      params[:slider_object]
     end
 end
