@@ -4,6 +4,14 @@
 //= require project_attachments
 //= require modal
 //= require projects
+//= require jquery.ui.widget
+//= require jquery.fileupload
+//= require jquery.iframe-transport
+//= require bootstrap.min
+//= require html.sortable.min
+//= require jquery.cycle2.min
+//= require jquery.cycle2.swipe.min
+//= require add
 
 jQuery ->
   $('.chosen').chosen

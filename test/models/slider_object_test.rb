@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProjectFieldsTest < ActiveSupport::TestCase
+class SliderObjectTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

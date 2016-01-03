@@ -1,0 +1,28 @@
+<% if @project.project_fields.length > 0 %>
+<div class="box-problem-description box-blue">
+  <div class="title-container">
+    <span class="title-icon"><i class="fa fa-file-text-o"></i></span>
+    <h2 class="title-text">The Details</h2>
+  </div>
+  <div class="problem-description">
+    <div class="problem-description-content">
+      <h3 class="problem-description-caption">Standards</h3>
+      <div class="image-panel"></div>
+      <div class="content-panel">
+        <% @project.standards.each do |standard| %>
+        <%= simple_format(standard.code_and_category(), wrapper_tag: "p") %>
+        <% end %>
+      </div>
+    </div>
+    <% @project.project_fields.each do |field| %>
+    <div class="problem-description-content">
+      <h3 class="problem-description-caption"><%= field.name %></h3>
+      <div class="image-panel"></div>
+      <div class="content-panel">
+        <%= simple_format(field.content, wrapper_tag: "p", sanitize: false) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

@@ -3,7 +3,7 @@
 <head>
   <title>Problems</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -23,17 +23,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="nav">
-    <span class="logo"><h3 style="margin:0 0 0 0;"><a href="<%= root_url %>" style="color:black;text-decoration:none;">Problems</a></h3></span>
-    <ul class="menu-items">
-      <li><%= link_to "The List", projects_url %></li>
-      <li><%= link_to 'Sign In', new_user_session_path unless current_user %></li>
-      <% if current_user %>
-      <li><%= link_to 'My Page', user_path(current_user) %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-      <% end %>
-    </ul>
-  </div>
+
+  <% if @new_nav %>
+    <%= render 'layouts/nav_new' %>
+  <% else %>
+    <div class="nav">
+      <span class="logo"><h3 style="margin:0 0 0 0;"><a href="<%= root_url %>" style="color:black;text-decoration:none;">Problems</a></h3></span>
+      <ul class="menu-items">
+        <li><%= link_to "The List", projects_url %></li>
+        <li><%= link_to 'Sign In', new_user_session_path unless current_user %></li>
+        <% if current_user %>
+        <li><%= link_to 'My Page', user_path(current_user) %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 
   <% flash.each do |type, message| %>
     <div class="alert <%= alert_class_for(type) %> ">
@@ -51,10 +57,9 @@
     </div>
   <% end %>
 
+  <%= javascript_include_tag 'application' %>
 </body>
 <footer>
-
   <%= render 'layouts/footer' %>
-
 </footer>
 </html>

@@ -1,8 +1,10 @@
 <div class="attachment_fields">
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "Cancel", "#", style: "float:right;margin-right:15px", class: "remove_fields" %>
-  <%= f.input :title %>
-  <%= f.input :project_attachment_type_id, label: 'Type', collection: ProjectAttachmentType.all %>
-  <%= f.input :resource, as: :file %>
-  <hr style='border-color:black;margin-right:15px'>
+  <div class="resource-item">
+    <span class="resource-item-caption">Resource</span>
+    <%= link_to '#', class: "remove_fields resource-item-close" do %>
+      <i class="fa fa-times-circle"></i>
+    <% end %>
+    </a>
+    <%= f.input :resource, as: :file %>
+  </div>
 </div>
