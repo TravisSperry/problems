@@ -10,7 +10,7 @@
           <%= image_tag(@project.featured_image_url, class: 'image-responsive') %>
         </div>
         <div class="content-box">
-          <h2 class="problem-caption"><%= @project.name %> [<% @project.status %>]</h2>
+          <h2 class="problem-caption"><%= @project.name %> [<%= Project::STATUSES[@project.status] %>]</h2>
           <div class="problem-contributor">
             <span>CONTRIBUTOR:</span>
             <span><%= link_to @project.author_name, @project.author_link if @project.author_link %></span>
@@ -41,6 +41,7 @@
       </div>
       <!--/.Box - Problem Info-->
       <!--Box - Problem Slideshow-->
+      <% if @project.slider_objects.length > 0 %>
       <div class="box-problem-slideshow">
         <div class="problem-slideshow">
           <!--SLIDE LOOP-->
@@ -63,6 +64,7 @@
         </div>
         <!--Slideshow Pager-->
       </div>
+      <% end %>
       <!--/.Box - Problem Slideshow-->
       <!--Box - Problem Description-->
       <div class="box-problem-description box-green">

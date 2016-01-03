@@ -125,37 +125,6 @@
       });
     }
 
-    function formTemplate(number, sectionID) {
-      var formTemplate =
-      '<div aria-grabbed="false" class="col-xs-12 col-md-4 form-field" data-item-sortable-id="2" draggable="true" role="option">' +
-      '  <label>' +
-      '    <span class="field-name" contenteditable="true">NEW TOPIC<div class="input hidden project_project_fields_name"><input class="hidden hidden" id="project_project_fields_attributes_'+ number +'_name" name="project[project_fields_attributes][' + number +'][name]" type="hidden"></div></span>' +
-      '    <span class="inline-edit">' +
-      '      <a href="#">' +
-      '        <i class="fa fa-pencil"></i>' +
-      '      </a>' +
-      '      <a class="drag-icon-inner" href="javascript:void(0);">' +
-      '        <i class="fa fa-arrows"></i>' +
-      '      </a>' +
-      '    </span>' +
-      '  </label>' +
-      '  <div class="input hidden project_project_fields_position">' +
-      '    <input class="hidden position" id="project_project_fields_attributes_' + number +'_position" ' + 'name="project[project_fields_attributes][' + number + '][position]" type="hidden">' +
-      '  </div>' +
-      '  <div class="input hidden project_project_fields_type_id">' +
-      '    <input value = "' + sectionID + '" class="hidden type-' + sectionID +  '" id="project_project_fields_attributes_' + number +'_type_id"' + 'name="project[project_fields_attributes][' + number + '][type_id]" type="hidden">' +
-      '  </div>' +
-      '  <div class="input text optional project_project_fields_content">' +
-      '    <textarea class="text optional form-control"' +  ' id="project_project_fields_attributes_' + number +'_content" ' + 'name="project[project_fields_attributes][' + number + '][content]"></textarea>' +
-      '  </div>' +
-      '  <a sectionID="' + sectionID + '" class="add-topic text-right" href="javascript:void(0);">' +
-      '    <i class="fa fa-plus-circle"></i>' +
-      '    ADD TOPIC</a>' +
-      '</div>'
-
-      return formTemplate;
-    }
-
     $('body').on('click', 'a.add-proj-field', function (e) {
       var time = new Date().getTime()
       var regexp = new RegExp($(this).data('id'), 'g')
