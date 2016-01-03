@@ -5,11 +5,13 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :standards
   has_many :project_attachments, dependent: :destroy
   has_many :project_fields, dependent: :destroy
+  has_many :project_other_fields, dependent: :destroy
   has_many :slider_objects, dependent: :destroy
   belongs_to :user
 
   accepts_nested_attributes_for :project_attachments, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :project_fields, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :project_other_fields, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :slider_objects, allow_destroy: true, reject_if: :all_blank
 
   mount_uploader :featured_image, FeaturedImageUploader

@@ -15,7 +15,6 @@
       </div>
       <!--/.Box Status-->
       <!--Box - Resource-->
-      <%= f.simple_fields_for :project_attachments do |builder| %>
       <div class="box-resources">
         <div class="title-container">
           <div class="title-icon">
@@ -23,16 +22,18 @@
           </div>
           <div class="title-caption">Resources</div>
         </div>
-        <!-- data-url attribute used to set ajax file upload path -->
+        <%= f.simple_fields_for :project_attachments do |builder| %>
+        <%= builder.input :resource, as: :file , label: false, input_html: {class: "hidden" }%>
+        <% end %>
         <div class="resource-drag-upload" id="resources-upload">
           <a class="upload-trigger" href="javascript:void(0);">
             <span id="attachment-holder"></span>
           </a>
-          <%= builder.input :resource, as: :file , label: false, input_html: {class: "hidden" }%>
         </div>
         <div class="resource-items">
-          <div class="resource-items-title">Or choose a ﬁle...</div>
-          <div class="resource-item">
+          <div class="resource-items-title"><%= link_to_add_fields "Add Resource", f, :project_attachments %></div>
+
+          <!-- <div class="resource-item">
             <span class="resource-item-caption">Resource 1</span>
             <a class="resource-item-close" href="#">
               <i class="fa fa-times-circle"></i>
@@ -55,10 +56,10 @@
             <a class="resource-item-close" href="#">
               <i class="fa fa-times-circle"></i>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
-      <% end %>
+
       <!--/.Box - Resource-->
       <!--Box - Tags-->
       <div class="box-tags">
@@ -132,7 +133,7 @@
           </div>
           <div class="image-options">
             <div class="row">
-              <div id="filename" class="col-xs-6 text-left">Filename. ext</div>
+              <div id="filename" class="col-xs-6 text-left">Filename.ext</div>
               <div class="col-xs-6 text-right action-links">
                 <a class="upload-trigger" href="javascript:void(0);">
                   <i class="fa fa-cloud-upload"></i>
@@ -194,7 +195,7 @@
               <%= f.simple_fields_for :project_fields do |builder| %>
                 <div class="col-xs-12 col-md-4 form-field">
                   <label>
-                    <span class="field-name" contenteditable="true">NEW TOPIC<%= builder.input :name, as: :hidden,input_html: { class: 'hidden' } %></span>
+                    <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden,input_html: { class: 'hidden' } %></span>
                     <span class="inline-edit">
                       <a href="#">
                         <i class="fa fa-pencil"></i>
@@ -205,11 +206,8 @@
                     </span>
                   </label>
                   <%= builder.input :position, as: :hidden,input_html: { class: 'position' } %>
-                  <%= builder.input :type_id, as: :hidden, input_html: {value: 0, class: 'type-0'} %>
                   <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
-                  <a sectionID="0" class="add-topic text-right" href="javascript:void(0);">
-                    <i class="fa fa-plus-circle"></i>
-                    ADD TOPIC</a>
+                  <i class="fa fa-plus-circle"></i><%= link_to_add_project_fields "ADD TOPIC", f, :project_fields %></a>
                 </div>
               <% end %>
             </div>
@@ -229,10 +227,10 @@
           </div>
           <div class="form-content form-horizontal">
             <div class="form-group draggable-form-fields">
-              <%= f.simple_fields_for :project_fields do |builder| %>
+              <%= f.simple_fields_for :project_other_fields do |builder| %>
                 <div class="col-xs-12 col-md-4 form-field">
                   <label>
-                    <span contenteditable="true">NEW TOPIC</span>
+                    <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden, input_html: { class: 'hidden' } %></span>
                     <span class="inline-edit">
                       <a href="#">
                         <i class="fa fa-pencil"></i>
@@ -243,11 +241,8 @@
                     </span>
                   </label>
                   <%= builder.input :position, as: :hidden, input_html: { class: 'position' }%>
-                  <%= builder.input :type_id, as: :hidden, input_html: {value: 1, class: 'type-1'} %>
                   <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
-                  <a sectionID="1" class="add-topic text-right" href="javascript:void(0);">
-                    <i class="fa fa-plus-circle"></i>
-                    ADD TOPIC</a>
+                  <i class="fa fa-plus-circle"></i><%= link_to_add_project_fields "ADD TOPIC", f, :project_other_fields %></a>
                 </div>
               <% end %>
             </div>

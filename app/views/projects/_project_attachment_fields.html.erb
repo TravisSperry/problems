@@ -1,25 +1,10 @@
-<div aria-grabbed="false" class="col-xs-12 col-md-4 form-field" data-item-sortable-id="2" draggable="true" role="option">
-  <label>
-    <span contenteditable="true">NEW TOPIC</span>
-    <span class="inline-edit">
-      <a href="#">
-        <i class="fa fa-pencil"></i>
-      </a>
-      <a class="drag-icon-inner" href="javascript:void(0);">
-        <i class="fa fa-arrows"></i>
-      </a>
-    </span>
-  </label>
-  <div class="input hidden project_project_fields_position">
-    <input class="hidden position" id="project_project_fields_attributes_1_position" name="project[project_fields_attributes][1][position]" type="hidden">
+<div class="attachment_fields">
+  <div class="resource-item">
+    <span class="resource-item-caption">Resource</span>
+    <%= link_to '#', class: "remove_fields resource-item-close" do %>
+      <i class="fa fa-times-circle"></i>
+    <% end %>
+    </a>
+    <%= f.input :resource, as: :file %>
   </div>
-  <div class="input hidden project_project_fields_type_id">
-    <input class="hidden" id="project_project_fields_attributes_1_type_id" name="project[project_fields_attributes][1][type_id]" type="hidden">
-  </div>
-  <div class="input text optional project_project_fields_content">
-    <textarea class="text optional form-control" id="project_project_fields_attributes_1_content" name="project[project_fields_attributes][1][content]"></textarea>
-  </div>
-  <a class="add-topic text-right" href="javascript:void(0);">
-    <i class="fa fa-plus-circle"></i>
-    ADD TOPIC</a>
 </div>

@@ -6,7 +6,6 @@
       var input = $(inputSelector);
 
       $(trigger).on("click", function () {
-          console.log("hi");
           input.click();
       });
 
@@ -46,7 +45,7 @@
 
     // project attachment uploader
     ResourceUploader('#resources-upload .upload-trigger'
-    ,'#resources-upload input[type="file"]'
+    ,'.project_project_attachments_resource input[type="file"]'
     ,"#attachment-holder");
 
     // feature image uploader
@@ -157,13 +156,16 @@
       return formTemplate;
     }
 
-    $('body').on('click', 'a.add-topic', function () {
-      var sectionID = $(this).attr('sectionID');
-      var count = $(".type-" + sectionID).length + 1
-      $(this).parent().after(formTemplate(count, sectionID));
-      $(this).remove();
+    $('body').on('click', 'a.add-proj-field', function (e) {
+      var time = new Date().getTime()
+      var regexp = new RegExp($(this).data('id'), 'g')
+      $(this).parent().before($(this).data('fields').replace(regexp, time));
+      e.preventDefault()
       draggableFormFields(); // re-initialize draggable formfields
     });
+
+
+
     /** Problem Slidshow Initialization **/
     $('.problem-slideshow').cycle({
       slides: '> div',
@@ -178,5 +180,9 @@
 
     $('.problem-slideshow').cycle('stop'); // stop auto slideshow
 
+    $('.resource-item').on('click', function() {
+      console.log("boom");
+      $(this).find('input').click();
+    })
 
   });

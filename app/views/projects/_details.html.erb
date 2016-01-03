@@ -13,7 +13,7 @@
         <% end %>
       </div>
     </div>
-    <% @project.project_fields.select { |x| x.type_id == 0 }.each do |field| %>
+    <% @project.project_fields.each do |field| %>
     <div class="problem-description-content">
       <h3 class="problem-description-caption"><%= field.name %></h3>
       <div class="image-panel"></div>

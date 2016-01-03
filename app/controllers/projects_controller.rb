@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
     @project_attachment = @project.project_attachments.build
     @slider_object = @project.slider_objects.build
     @project_field = @project.project_fields.build
+    @project_other_field = @project.project_other_fields.build
 
     @types = Type.all
     @new_nav = true;
@@ -47,6 +48,9 @@ class ProjectsController < ApplicationController
     @edit = true
     @project = Project.includes(:project_attachments).find(params[:id])
     @project_attachment = @project.project_attachments.build
+    @slider_object = @project.slider_objects.build
+    @project_field = @project.project_fields.build
+
   end
 
   # POST /projects
@@ -169,7 +173,9 @@ class ProjectsController < ApplicationController
       { project_attachments_attributes:
         [:project_attachment_type_id, :resource, :_delete, :id, :title]},
       { project_fields_attributes:
-        [:name, :position, :type_id, :content, :id, :_delete]},
+        [:name, :position, :content, :id, :_delete]},
+      { project_other_fields_attributes:
+        [:name, :position, :content, :id, :_delete]},
       { slider_objects_attributes:
         [:description, :resource, :id, :_delete]}
       )
