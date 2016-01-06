@@ -85,7 +85,7 @@
       </div>
       <!--/.Box - Problem Description-->
       <!--Box - DETAILS-->
-      <% if @project.form_order.chars[0] == '0' %>
+      <% if @project.form_order && @project.form_order.chars[0] == '0' %>
         <%= render 'details' , local: { :project => @project } %>
         <%= render 'other' , local: { :project => @project } %>
       <% else %>
