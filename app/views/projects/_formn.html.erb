@@ -9,6 +9,7 @@
           <div class="form-group">
             <%= f.input :form_order, as: :hidden, input_html: {id: "form-order", value: f.object.form_order || "01"} %>
             <%= f.input :status, label: 'Status', collection: Project::STATUSES.zip((0..2).to_a), input_html: { class: 'form-control input-sm' } %>
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} unless @edit %>
             <%= f.button :submit, 'SAVE', class: 'btn btn-primary', id: 'project-button' unless @edit %>
           </div>
         </form>
