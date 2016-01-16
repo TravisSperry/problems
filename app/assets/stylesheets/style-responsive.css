@@ -9,7 +9,6 @@
     /* General */
     .container {
         width: 1200px;
-        clear: both;
     }
 }
 
@@ -67,6 +66,14 @@
     .panel-green .form-content {
         width: 100%;
     }
+
+    /** Home **/
+    .home-content{
+        padding:0 5%;
+    }
+    .home-content .box-search-problems {
+        padding: 0 5%;
+    }
 }
 /*** Mobile  Version - Between 0-767px Viewport ***/
 @media all and (min-width:0px) and (max-width:767px)
@@ -76,18 +83,20 @@
         display: none;
     }
     /** Problem View Page **/
-    .view-page-content .box-problem-information .image-box {
+    .view-page-content .box-problem-information .image-box,
+    .profile-page .box-profile-information .image-box{
         width: 100%;
-        text-align: center;
+        text-align: left;
         margin-bottom: 15px;
     }
-    .view-page-content {
-        padding: 0;
-    }
-    .view-page-content .box-problem-information .content-box {
+    .view-page-content .box-problem-information .content-box,
+    .profile-page .box-profile-information .content-box{
         width: calc(100% - 0px);
         width: -moz-calc(100% - 0px);
         width: -webkit-calc(100% - 0px);
+    }
+    .view-page-content {
+        padding: 0;
     }
     .box-problem-slideshow .problem-slideshow {
         height: auto;
@@ -136,6 +145,18 @@
         width: calc(48% - 10px);
         width: -moz-calc(48% - 10px);
         width: -webkit-calc(48% - 10px);
+    }
+    /** Home **/
+    .home-content{
+        padding:0;
+    }
+    .home-content .box-search-problems {
+        padding: 0 0;
+    }
+    .home-content .box-good,
+    .home-content .box-not-so-good{
+        padding: 0;
+        width: 100%;
     }
 }
 /*** Mobile  Version - Between 0px-479px Viewport  ***/
