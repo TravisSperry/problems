@@ -107,12 +107,12 @@ label{
     box-shadow: none;
 }
 .btn-primary:hover,
-.btn-primary:focus, 
+.btn-primary:focus,
 .btn-primary.focus{
     background-color: #3AA7EC;
     color: #fff;
 }
-.btn-primary:active, 
+.btn-primary:active,
 .btn-primary.active{
     background-color: transparent;
     border:solid 1px #3AA7EC;
@@ -121,15 +121,15 @@ label{
     box-shadow: none;
 }
 .open > .dropdown-toggle.btn-primary {
-    
+
 }
-.btn-primary:active:hover, 
-.btn-primary.active:hover, 
-.open > .dropdown-toggle.btn-primary:hover, 
-.btn-primary:active:focus, .btn-primary.active:focus, 
-.open > .dropdown-toggle.btn-primary:focus, 
-.btn-primary.focus:active, 
-.btn-primary.active.focus, 
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus, .btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary.focus:active,
+.btn-primary.active.focus,
 .open > .dropdown-toggle.btn-primary.focus{
     background-color: #3AA7EC;
     color: #fff;
@@ -148,8 +148,8 @@ textarea{
     background-color:#FFA81F;
     color:#FFF;
 }
-.btn-orange.btn:hover, 
-.btn-orange.btn:focus, 
+.btn-orange.btn:hover,
+.btn-orange.btn:focus,
 .btn-orange.btn:visited{
     color:#FFf;
 }
@@ -157,8 +157,8 @@ textarea{
     background-color:#89939F;
     color:#FFF;
 }
-.btn-grey.btn:hover, 
-.btn-grey.btn:focus, 
+.btn-grey.btn:hover,
+.btn-grey.btn:focus,
 .btn-grey.btn:visited{
     color:#FFf;
 }
@@ -521,7 +521,7 @@ textarea{
     display:table;
     width:25px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
     margin-right: 10px;
 }
 .panel-green .panel-title-container .panel-icon i{
@@ -600,7 +600,7 @@ textarea{
     display:table;
     width:25px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
     margin-right: 10px;
 }
 .panel-blue .panel-title-container .drag-icon,
@@ -672,7 +672,7 @@ textarea{
     display:table;
     width:25px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
     margin-right: 10px;
 }
 .panel-grey .panel-title-container .drag-icon{
@@ -771,7 +771,7 @@ textarea{
 .listing-panel .problems-list .problem{
     float:left;
     width:100%;
-    padding:0 10%;   
+    padding:0 10%;
 }
 .problem{
     margin-bottom: 15px;
@@ -1075,7 +1075,7 @@ textarea{
     margin-bottom: 20px;
 }
 .page-content .back-navigation{
-    float:right;    
+    float:right;
 }
 .page-content .page-title-divider{
     margin-bottom: 25px;
