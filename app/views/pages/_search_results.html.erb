@@ -1,14 +1,21 @@
-<div style='margin-top:5%;'>
-  <h2 style='display:inline;'>Results...</h2><%= link_to 'back', root_url, class: 'button button-primary u-pull-right' %>
-  <hr>
-  <div class=' row'>
-    <% if Rails.env.production? %>
-      <h1 style="color:red;">Searching is currently disabled.</h1>
-    <% else %>
+<div class="content">
+  <!--Panel Content-->
+  <div class="page-content">
+    <div class="back-navigation">
+      <%= link_to 'back', root_url, class: 'btn btn-warning' %>
+    </div>
+    <h1 class="page-title">Results...</h1>
+    <div class="horizontal-divider page-title-divider"></div>
+    <div class="search-result-panel">
+      <% if Rails.env.production? %>
+      <p class="no-result">Searching is currently disabled.</p>
+      <% else %>
       <% @projects.each do |project| %>
-        <%= link_to project.name, project %>
-        <hr>
+      <%= link_to project.name, project %>
+      <hr>
       <% end %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+  <!--/.Panel Content-->
 </div>
