@@ -8,14 +8,18 @@
       </div>
       <h1 class="search-caption">Problems</h1>
       <h4 class="search-sub-caption">The Place to go when you want a good challange.</h4>
-      <form action="#" class="form">
+
+      <%= simple_form_for :search,
+                          :class => 'form',
+                          :url => url_for(:action => 'home', :controller => 'pages'),
+                          :method => 'get' do |f| %>
         <div class="form-group">
-          <input class="form-control" type="text" value=""/>
+          <%= f.input :terms, label: false, input_html: { class: "form-control" } %>
         </div>
         <div class="form-group search-button">
-          <button class="btn btn-primary">SEARCH</button>
+          <%= f.button :submit, "SEARCH", input_html: {class: "btn btn-primary"} %>
         </div>
-      </form>
+      <% end %>
     </section>
     <hr>
     <section class="problem-category">
