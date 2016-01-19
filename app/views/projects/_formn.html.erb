@@ -1,0 +1,288 @@
+<%= simple_form_for @project, :html => { :multipart => true } do |f| %>
+<div class="content-wrapper content-wrapper-grey wrapper">
+  <div class="content">
+    <!--Sidebar - Left-->
+    <div class="sidebar-left">
+      <!--Box Status-->
+      <div class="box-status">
+          <div class="form-group">
+            <%= f.input :form_order, as: :hidden, input_html: {id: "form-order", value: f.object.form_order || "01"} %>
+            <%= f.input :status, label: 'Status', collection: Project::STATUSES.zip((0..2).to_a), input_html: { class: 'form-control input-sm' } %>
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} unless @edit %>
+            <%= f.button :submit, 'SAVE', class: 'btn btn-primary', id: 'project-button' unless @edit %>
+          </div>
+      </div>
+      <!--/.Box Status-->
+      <!--Box - Resource-->
+      <div class="box-resources">
+        <div class="title-container">
+          <div class="title-icon">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+          <div class="title-caption">Resources</div>
+        </div>
+        <%= f.simple_fields_for :project_attachments do |builder| %>
+        <%= builder.input :resource, as: :file , label: false, input_html: {class: "hidden" }%>
+        <% end %>
+        <div class="resource-drag-upload" id="resources-upload">
+          <a class="upload-trigger" href="javascript:void(0);">
+            <span id="attachment-holder"></span>
+          </a>
+        </div>
+        <div class="resource-items">
+          <div class="resource-items-title"><%= link_to_add_fields "Add Resource", f, :project_attachments %></div>
+
+          <!-- <div class="resource-item">
+            <span class="resource-item-caption">Resource 1</span>
+            <a class="resource-item-close" href="#">
+              <i class="fa fa-times-circle"></i>
+            </a>
+          </div>
+          <div class="resource-item">
+            <span class="resource-item-caption">Resource 2</span>
+            <a class="resource-item-close" href="#">
+              <i class="fa fa-times-circle"></i>
+            </a>
+          </div>
+          <div class="resource-item">
+            <span class="resource-item-caption">Resource 3</span>
+            <a class="resource-item-close" href="#">
+              <i class="fa fa-times-circle"></i>
+            </a>
+          </div>
+          <div class="resource-item">
+            <span class="resource-item-caption">Resource 4</span>
+            <a class="resource-item-close" href="#">
+              <i class="fa fa-times-circle"></i>
+            </a>
+          </div> -->
+        </div>
+      </div>
+
+      <!--/.Box - Resource-->
+      <!--Box - Tags-->
+      <div class="box-tags">
+        <div class="title-container">
+          <div class="title-icon">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+          <div class="title-caption">Tags</div>
+        </div>
+        <div class="tags-container">
+          <!-- <div class="box-tags-caption">TAGS</div>
+          <div class="tag-items">
+            <div class="tag-item">
+              <span class="tag-caption">This is a Tag...</span>
+              <a class="tag-close" href="#">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </div>
+            <div class="tag-item">
+              <span class="tag-caption">This is a Tag...</span>
+              <a class="tag-close" href="#">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </div>
+            <div class="tag-item">
+              <span class="tag-caption">This is a Tag...</span>
+              <a class="tag-close" href="#">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </div>
+            <div class="tag-item">
+              <span class="tag-caption">This is a Tag...</span>
+              <a class="tag-close" href="#">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </div>
+            <div class="tag-item">
+              <span class="tag-caption">This is a Tag...</span>
+              <a class="tag-close" href="#">
+                <i class="fa fa-times-circle"></i>
+              </a>
+            </div>
+          </div> -->
+
+          <!-- <form action="#" class="add-tag"> -->
+            <%= f.association :tags, input_html: { class: 'u-full-width chosen' } %>
+            <!-- <button class="btn btn-primary">Add Tag</button> -->
+          <!-- </form> -->
+
+        </div>
+      </div>
+      <!--/.Box - Tags-->
+    </div>
+    <!--Sidebar - Left -->
+
+    <!--Panel Content-->
+    <div class="panel-content">
+      <!--Panel - Green-->
+      <div class="panel-green" id="important-stuff">
+        <div class="panel-title-container">
+          <div class="panel-icon">
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div class="panel-title">The Important Stuff</div>
+        </div>
+        <div class="image-content">
+          <div class="image-content-caption">FEATURED IMAGE</div>
+          <!-- data-url attribute used to set ajax file upload path -->
+          <div class="image-container" id="important-stuff-upload">
+            <%= f.input :featured_image, as: :file, label: false, input_html: { class: 'hidden' } %>
+          </div>
+          <div class="image-options">
+            <div class="row">
+              <div id="filename" class="col-xs-6 text-left">Filename.ext</div>
+              <div class="col-xs-6 text-right action-links">
+                <a class="upload-trigger" href="javascript:void(0);">
+                  <i class="fa fa-cloud-upload"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-pencil"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-content form-horizontal">
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6  form-field">
+              <label>NAME OF PROBLEM</label>
+              <%= f.input :name, label: false, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6  form-field">
+              <label>TYPE OF PROBLEM</label>
+              <%= f.association :type, label: false, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6  form-field">
+              <label>CONTRIBUTOR NAME</label>
+              <%= f.input :author_name, label: false, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6  form-field">
+              <label>LINK TO AUTHOR’S PAGE</label>
+              <%= f.input :author_link, label: false, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6  form-field">
+              <label>PROBLEM STATEMENT</label>
+              <%= f.input :problem_statement, label: false, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-12 col-sm-6  form-field">
+              <label>HOOK</label>
+              <%= f.input :content, label: false, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/.Panel - Green-->
+      <div class="draggable-panel panel-sortable">
+        <!--Panel - Blue-->
+        <div class="panel-blue" data-moveid="0">
+          <div class="panel-title-container">
+            <div class="panel-icon">
+              <i class="fa fa-file-text-o"></i>
+            </div>
+            <div class="panel-title">The Details</div>
+            <div class="drag-icon">
+              <i class="fa fa-arrows"></i>
+            </div>
+          </div>
+          <div class="form-content form-horizontal">
+            <div class="form-group draggable-form-fields">
+              <%= f.simple_fields_for :project_fields do |builder| %>
+                <div class="col-xs-12 col-md-4 form-field">
+                  <label>
+                    <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden,input_html: { class: 'hidden' } %></span>
+                    <span class="inline-edit">
+                      <a href="#">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <a class="drag-icon-inner" href="javascript:void(0);">
+                        <i class="fa fa-arrows"></i>
+                      </a>
+                    </span>
+                  </label>
+                  <%= builder.input :position, as: :hidden,input_html: { class: 'position' } %>
+                  <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
+                  <i class="fa fa-plus-circle"></i><%= link_to_add_project_fields "ADD TOPIC", f, :project_fields %></a>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <!--/.Panel - Blue-->
+        <!--Panel - Yellow-->
+        <div class="panel-yellow" data-moveid="1">
+          <div class="panel-title-container">
+            <div class="panel-icon">
+              <i class="fa fa-file-text-o"></i>
+            </div>
+            <div class="panel-title">The Other Stuff</div>
+            <div class="drag-icon">
+              <i class="fa fa-arrows"></i>
+            </div>
+          </div>
+          <div class="form-content form-horizontal">
+            <div class="form-group draggable-form-fields">
+              <%= f.simple_fields_for :project_other_fields do |builder| %>
+                <div class="col-xs-12 col-md-4 form-field">
+                  <label>
+                    <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden, input_html: { class: 'hidden' } %></span>
+                    <span class="inline-edit">
+                      <a href="#">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <a class="drag-icon-inner" href="javascript:void(0);">
+                        <i class="fa fa-arrows"></i>
+                      </a>
+                    </span>
+                  </label>
+                  <%= builder.input :position, as: :hidden, input_html: { class: 'position' }%>
+                  <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
+                  <i class="fa fa-plus-circle"></i><%= link_to_add_project_fields "ADD TOPIC", f, :project_other_fields %></a>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <!--/.Panel - Yellow-->
+      </div>
+      <!--Panel - Grey-->
+      <div class="panel-grey">
+        <div class="panel-title-container">
+          <div class="panel-icon">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+          <div class="panel-title">The Slider</div>
+          <div class="drag-icon">
+            <i class="fa fa-arrows"></i>
+          </div>
+        </div>
+        <div class="form-content form-horizontal">
+          <% 5.times do |i| %>
+          <%= f.simple_fields_for :slider_objects do |builder| %>
+          <div class="slide-item">
+            <%= builder.input :resource, as: :hidden  %>
+            <div class="slide-image-caption">SLIDE
+              <%= i + 1 %></div>
+            <!-- data-url attribute used to set ajax file upload path -->
+            <div class="slide-image slide-upload">
+              <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+            </div>
+            <div class="slide-caption-text">CAPTION</div>
+            <div class="slide-caption-input">
+              <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <!--/.Panel - Grey-->
+    </div>
+    <!--/.Panel Content-->
+  </div>
+</div>
+<% end %>
