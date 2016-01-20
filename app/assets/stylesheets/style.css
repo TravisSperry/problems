@@ -1334,3 +1334,8 @@ textarea{
     text-align: center;
     font-style:italic;
 }
+
+.media-left img {
+  max-width: 65px;
+  height: auto;
+}
