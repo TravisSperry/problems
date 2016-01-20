@@ -32,56 +32,54 @@
           <ul class="list-unstyled fa-ul list-problems">
             <% @user.projects_published.each do |project| %>
             <li><%= link_to project do %>
-              <i class="fa-li fa fa-circle-o"><%= project.name %>
-                <% end %></li>
-              <% end %>
-            </ul>
-          </div>
+              <i class="fa-li fa fa-circle-o"></i><%= project.name %>
+              <% end %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
-    <!--/.Box - Problem Status-->
-    <% unless Project.pending_review.empty? %>
-    <div class="box-problem-description box-orange">
-      <div class="title-container">
-        <span class="title-icon">
-          <i class="fa fa-file-text-o"></i>
-        </span>
-        <h2 class="title-text">Pending Review</h2>
-      </div>
-      <div class="problem-description">
-        <div class="problem-description-content">
-          <div class="content-panel">
-            <ul class="list-unstyled fa-ul list-problems">
-              <% Project.pending_review.each do |project| %>
-              <li><%= link_to project do %>
-                <i class="fa-li fa fa-circle-o"><%= project.name %>
-                  <% end %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
+  </div>
+  <!--/.Box - Problem Status-->
+  <% unless Project.pending_review.empty? %>
+  <div class="box-problem-description box-orange">
+    <div class="title-container">
+      <span class="title-icon">
+        <i class="fa fa-file-text-o"></i>
+      </span>
+      <h2 class="title-text">Pending Review</h2>
+    </div>
+    <div class="problem-description">
+      <div class="problem-description-content">
+        <div class="content-panel">
+          <ul class="list-unstyled fa-ul list-problems">
+            <% Project.pending_review.each do |project| %>
+            <li><%= link_to project do %>
+              <i class="fa-li fa fa-circle-o"></i><%= project.name %>
+              <% end %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
-      <% end %>
-      <!--Box - Problem Status-->
-      <div class="box-problem-description box-blue">
-        <div class="title-container">
-          <span class="title-icon">
-            <i class="fa fa-file-text-o"></i>
-          </span>
-          <h2 class="title-text">Drafts</h2>
-        </div>
-        <div class="problem-description">
-          <div class="problem-description-content">
-            <div class="content-panel">
-              <ul class="list-unstyled fa-ul list-problems">
-                <% @user.projects_drafted.each do |project| %>
-                <li><%= link_to project.name, project %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
+    </div>
+  </div>
+  <% end %>
+  <!--Box - Problem Status-->
+  <div class="box-problem-description box-blue">
+    <div class="title-container">
+      <span class="title-icon">
+        <i class="fa fa-file-text-o"></i>
+      </span>
+      <h2 class="title-text">Drafts</h2>
+    </div>
+    <div class="problem-description">
+      <div class="problem-description-content">
+        <div class="content-panel">
+          <ul class="list-unstyled fa-ul list-problems">
+            <% @user.projects_drafted.each do |project| %>
+            <li><%= link_to project.name, project %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
