@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
+    @isgrey = true;
     @project = Project.new
     @project_attachment = @project.project_attachments.build
     @slider_object = @project.slider_objects.build

@@ -32,7 +32,11 @@
     </div>
   <% end %>
 
-  <div class="content-wrapper content-wrapper-white wrapper">
+  <% if @isgrey %>
+    <div class="content-wrapper content-wrapper-grey wrapper">
+  <% else %>
+    <div class="content-wrapper content-wrapper-white wrapper">
+  <% end %>
     <div class="container">
       <%= yield %>
     </div>
@@ -45,8 +49,12 @@
   <% end %>
 
   <%= javascript_include_tag 'application' %>
+  <% if @isgrey %>
+  <footer class="content-wrapper-grey wrapper">
+  <% else %>
+  <footer>
+  <% end %>
+    <%= render 'layouts/footer' %>
+  </footer>
 </body>
-<footer>
-  <%= render 'layouts/footer' %>
-</footer>
 </html>
