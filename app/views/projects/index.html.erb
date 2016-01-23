@@ -1,63 +1,59 @@
-<div class="content-wrapper content-wrapper-white wrapper">
-  <div class="container">
-    <div class="content listing-page-content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="search-box">
-            <form action="#">
-              <div class="form-group has-feedback">
-                <input type="text" class="form-control" id="inputValidation" placeholder="Search"/>
-                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-              </div>
-            </form>
+<div class="content listing-page-content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="search-box">
+        <form action="#">
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" id="inputValidation" placeholder="Search"/>
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
           </div>
-        </div>
+        </form>
       </div>
-      <div class="listing-page">
-        <h1 class="page-title">The List</h1>
-        <div class="listing-panel listing-panel-green">
-          <div class="title-container">Published Problems</div>
-          <div class="problems-list">
-            <% @projects.publications.each do |project| %>
-            <div class="problem">
-              <div class="media">
-                <div class="media-left">
-                  <%= link_to project do %>
-                  <%= image_tag(project.featured_image_url) %>
-                  <% end %>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading"><%= link_to project.name, project %></h4>
-                  <p>project.content</p>
-                </div>
-              </div>
+    </div>
+  </div>
+  <div class="listing-page">
+    <h1 class="page-title">The List</h1>
+    <div class="listing-panel listing-panel-green">
+      <div class="title-container">Published Problems</div>
+      <div class="problems-list">
+        <% @projects.publications.each do |project| %>
+        <div class="problem">
+          <div class="media">
+            <div class="media-left">
+              <%= link_to project do %>
+              <%= image_tag(project.featured_image_url) %>
+              <% end %>
             </div>
-            <% end %>
-            <a href="#" class="down-arrow"></a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to project.name, project %></h4>
+              <p>project.content</p>
+            </div>
           </div>
         </div>
-        <div class="listing-panel listing-panel-blue">
-          <div class="title-container">Problem Drafts</div>
-          <div class="problems-list">
+        <% end %>
+        <a href="#" class="down-arrow"></a>
+      </div>
+    </div>
+    <div class="listing-panel listing-panel-blue">
+      <div class="title-container">Problem Drafts</div>
+      <div class="problems-list">
 
-            <% @projects.drafts.each do |project| %>
-            <div class="problem">
-              <div class="media">
-                <div class="media-left">
-                  <%= link_to project do %>
-                  <%= image_tag(project.featured_image_url) %>
-                  <% end %>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading"><%= link_to project.name, project %></h4>
-                  <p>project.content</p>
-                </div>
-              </div>
+        <% @projects.drafts.each do |project| %>
+        <div class="problem">
+          <div class="media">
+            <div class="media-left">
+              <%= link_to project do %>
+              <%= image_tag(project.featured_image_url) %>
+              <% end %>
             </div>
-            <% end %>
-            <a href="#" class="down-arrow"></a>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to project.name, project %></h4>
+              <p>project.content</p>
+            </div>
           </div>
         </div>
+        <% end %>
+        <a href="#" class="down-arrow"></a>
       </div>
     </div>
   </div>
