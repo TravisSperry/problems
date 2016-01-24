@@ -8,6 +8,7 @@ class StandardsController < ApplicationController
   respond_to :html
 
   def index
+    @current_page = "STANDARDS"
     @standards = Standard.all
 
     respond_to do |format|
@@ -22,11 +23,13 @@ class StandardsController < ApplicationController
   end
 
   def new
+    @current_page = "ADD STANDARD"
     @standard = Standard.new
     respond_with(@standard)
   end
 
   def edit
+    @current_page = "EDIT STANDARD"
   end
 
   def create

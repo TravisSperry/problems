@@ -8,7 +8,7 @@
             <%= f.input :form_order, as: :hidden, input_html: {id: "form-order", value: f.object.form_order || "01"} %>
             <%= f.input :status, label: 'Status', collection: Project::STATUSES.zip((0..2).to_a), input_html: { class: 'form-control input-sm' } %>
             <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} unless @edit %>
-            <%= f.button :submit, 'SAVE', class: 'btn btn-primary', id: 'project-button' unless @edit %>
+            <%= f.button :submit, 'SAVE', class: 'btn btn-primary', id: 'project-button' %>
           </div>
       </div>
       <!--/.Box Status-->
@@ -136,12 +136,13 @@
                 <a class="upload-trigger" href="javascript:void(0);">
                   <i class="fa fa-cloud-upload"></i>
                 </a>
-                <a href="#">
+                <a class="upload-trigger" href="javascript:void(0);">
                   <i class="fa fa-pencil"></i>
                 </a>
                 <a href="#">
                   <i class="fa fa-trash-o"></i>
                 </a>
+                <%= f.input :_destroy, as: :hidden %>
               </div>
             </div>
           </div>
@@ -260,22 +261,60 @@
           </div>
         </div>
         <div class="form-content form-horizontal">
+
+          <% if @edit %>
+          <% @count = 0 %>
+          <%= f.simple_fields_for :slider_objects do |builder| %>
+          <div class="slide-item">
+            <%= builder.input :resource, as: :hidden  %>
+            <div class="slide-image-caption">SLIDE
+              <%= @count = @count + 1 %></div>
+              <!-- data-url attribute used to set ajax file upload path -->
+              <div class="slide-image slide-upload">
+                <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+              </div>
+              <div class="slide-caption-text">CAPTION</div>
+              <div class="slide-caption-input">
+                <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
+              </div>
+            </div>
+            <% end %>
+            <% (5 - @project.slider_objects.length).times do |i| %>
+            <%= f.simple_fields_for :slider_objects do |builder| %>
+            <div class="slide-item">
+              <%= builder.input :resource, as: :hidden  %>
+              <div class="slide-image-caption">SLIDE
+                <%= @count = @count + 1 %></div>
+                <!-- data-url attribute used to set ajax file upload path -->
+                <div class="slide-image slide-upload">
+                  <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+                </div>
+                <div class="slide-caption-text">CAPTION</div>
+                <div class="slide-caption-input">
+                  <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+
+          <% else %>
           <% 5.times do |i| %>
           <%= f.simple_fields_for :slider_objects do |builder| %>
           <div class="slide-item">
             <%= builder.input :resource, as: :hidden  %>
             <div class="slide-image-caption">SLIDE
               <%= i + 1 %></div>
-            <!-- data-url attribute used to set ajax file upload path -->
-            <div class="slide-image slide-upload">
-              <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+              <!-- data-url attribute used to set ajax file upload path -->
+              <div class="slide-image slide-upload">
+                <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+              </div>
+              <div class="slide-caption-text">CAPTION</div>
+              <div class="slide-caption-input">
+                <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
+              </div>
             </div>
-            <div class="slide-caption-text">CAPTION</div>
-            <div class="slide-caption-input">
-              <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <% end %>
+            <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
