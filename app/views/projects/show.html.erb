@@ -3,7 +3,7 @@
     <div class="content view-page-content">
       <div class="box-problem-information">
         <div class="image-box">
-          <img src="images/view-problem-image.png" class="image-responsive" alt="" />
+          <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
         </div>
         <div class="content-box">
           <h2 class="problem-caption"><%= @project.name %> [<%= Project::STATUSES[@project.status] %>]</h2>
