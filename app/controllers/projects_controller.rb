@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    @current_page = "PROJECTS"
     @projects = Project.all
     @new_nav = true;
 
@@ -28,6 +29,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @isgrey = true;
+    @current_page = "ADD PROJECT"
     @project = Project.new
     @project_attachment = @project.project_attachments.build
     @slider_object = @project.slider_objects.build
@@ -45,6 +47,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @current_page = "EDIT PROJECT"
+    @isgrey = true;
     @new_nav = true;
     @edit = true
     @project = Project.includes(:project_attachments).find(params[:id])

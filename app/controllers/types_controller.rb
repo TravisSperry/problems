@@ -13,11 +13,13 @@ class TypesController < ApplicationController
   end
 
   def new
+    @current_page = "ADD TYPE"
     @type = Type.new
     respond_with(@type)
   end
 
   def edit
+    @current_page = "EDIT TYPE"
   end
 
   def create

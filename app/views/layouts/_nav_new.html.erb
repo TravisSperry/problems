@@ -43,9 +43,13 @@
 <div class="breadcrumb-wrapper wrapper">
   <div class="container">
     <div class="breadcrumb-container">
-      <a href="#"><i class="fa fa-home"></i> DASHBOARD</a>
+      <%= link_to user_path(current_user) do %>
+      <i class="fa fa-home"></i> DASHBOARD
+      <% end %>
+      <% if @current_page %>
       <span>/</span>
-      <a href="#">LIST PROBLEM</a>
+      <%= link_to @current_page, params.merge(:c => "e") %>
+      <% end %>
     </div>
   </div>
 </div>
