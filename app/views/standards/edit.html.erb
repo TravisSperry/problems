@@ -1,6 +1,18 @@
-<h1>Editing standard</h1>
+<div class="content">
+  <!--Panel Content-->
+  <div class="page-content">
+    <h1 class="page-title">Edit standard</h1>
+    <div class="clearfix"></div>
+    <div class="edit-standard-panel">
+        <div class="row">
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @standard %> |
-<%= link_to 'Back', standards_path %>
+          <%= render 'form' %>
+          <div class="col-xs-12 button-navigation">
+            <%= link_to 'SHOW', @standard, {class: "btn btn-info"} %>
+            <%= link_to 'BACK', standards_path, {class: "btn btn-warning"} %>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!--/.Panel Content-->
+</div>
