@@ -1145,7 +1145,7 @@ textarea{
 .profile-page{
     float:left;
     width:100%;
-    padding:0 10%;
+    padding: 0 10% !important;
 }
 .profile-page .content-box .btn{
     float: left;
@@ -1333,4 +1333,9 @@ textarea{
     margin-top:0;
     text-align: center;
     font-style:italic;
+}
+
+.media-left img {
+  max-width: 65px;
+  height: auto;
 }

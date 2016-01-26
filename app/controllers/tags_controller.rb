@@ -4,6 +4,7 @@ class TagsController < ApplicationController
   respond_to :html
 
   def index
+    @current_page = "TAGS"
     @tags = Tag.all
     respond_with(@tags)
   end
@@ -13,11 +14,13 @@ class TagsController < ApplicationController
   end
 
   def new
+    @current_page = "ADD TAG"
     @tag = Tag.new
     respond_with(@tag)
   end
 
   def edit
+    @current_page = "ADD TAG"
   end
 
   def create

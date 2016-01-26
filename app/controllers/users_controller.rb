@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @current_page = "ADD USER"
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @current_page = "EDIT USER"
     @user = User.find(params[:id])
 
     redirect_to root_url, error: 'You can only edit your page.' unless user_admin_auth ||current_user == @user

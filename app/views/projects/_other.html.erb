@@ -8,7 +8,8 @@
     <% @project.project_other_fields.each do |field| %>
     <div class="problem-description-content">
       <h3 class="problem-description-caption"><%= field.name %></h3>
-      <div class="image-panel"></div>
+      <div class="image-panel">
+      </div>
       <div class="content-panel">
         <%= simple_format(field.content, wrapper_tag: "p", sanitize: false) %>
       </div>

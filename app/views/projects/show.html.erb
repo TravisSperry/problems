@@ -1,27 +1,15 @@
-
-<!--Main Content-->
 <div class="content-wrapper content-wrapper-white wrapper">
   <div class="container">
-    <!--Panel Content-->
     <div class="content view-page-content">
-      <!--Box - Problem Info-->
       <div class="box-problem-information">
         <div class="image-box">
-          <%= image_tag(@project.featured_image_url, class: 'image-responsive') %>
+          <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
         </div>
         <div class="content-box">
           <h2 class="problem-caption"><%= @project.name %> [<%= Project::STATUSES[@project.status] %>]</h2>
-          <div class="problem-contributor">
-            <span>CONTRIBUTOR:</span>
-            <span><%= link_to @project.author_name, @project.author_link if @project.author_link %></span>
-          </div>
-          <div class="problem-type">
-            <span>TYPE:</span>
-            <span><%= Type.where(project_id: @project.id).name %></span>
-          </div>
-          <% if current_user && (current_user == @project.user || current_user.admin?) %>
-            <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-sm btn-grey' %>
-          <% end %>
+          <div class="problem-contributor"><span>CONTRIBUTOR:</span> <span><%= link_to @project.author_name, @project.author_link if @project.author_link %></span></div>
+          <div class="problem-type"><span>TYPE:</span> <span><%= Type.where(project_id: @project.id).name %></span></div>
+          <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-sm btn-primary btn-grey' %>
           <div class="clearfix"></div>
           <div class="tags-box">
             <div class="tags-box-caption">Tags</div>
@@ -39,34 +27,27 @@
           </div>
         </div>
       </div>
-      <!--/.Box - Problem Info-->
-      <!--Box - Problem Slideshow-->
       <% if @project.slider_objects.length > 0 %>
       <div class="box-problem-slideshow">
         <div class="problem-slideshow">
-          <!--SLIDE LOOP-->
           <% @project.slider_objects.each do |slider_object| %>
-            <div class="problem-slide">
-              <div class="image-panel">
-                <%= image_tag(slider_object.resource_url) %>
-              </div>
-              <div class="content-panel">
-                <div>
-                  <%= simple_format(slider_object.description, wrapper_tag: "p", sanitize: false) %>
-                </div>
+          <div class="problem-slide">
+            <div class="image-panel">
+              <%= image_tag(slider_object.resource_url) %>
+            </div>
+            <div class="content-panel">
+              <div>
+                <%= simple_format(slider_object.description, wrapper_tag: "p", sanitize: false) %>
               </div>
             </div>
-            <% end %>
+          </div>
+          <% end %>
         </div>
-        <!--Slideshow Pager-->
         <div class="pager-container">
           <div id="problem-slideshow-pager"></div>
         </div>
-        <!--Slideshow Pager-->
       </div>
       <% end %>
-      <!--/.Box - Problem Slideshow-->
-      <!--Box - Problem Description-->
       <div class="box-problem-description box-green">
         <div class="title-container">
           <span class="title-icon"><i class="fa fa-star-o"></i></span>
@@ -81,10 +62,17 @@
             </div>
           </div>
         </div>
-        <!--  -->
+        <div class="problem-description">
+          <h3 class="problem-description-caption">Hook</h3>
+          <div class="problem-description-content">
+            <div class="image-panel"></div>
+            <div class="content-panel">
+              <%= simple_format(@project.content, wrapper_tag: "p", sanitize: false)
+              %>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--/.Box - Problem Description-->
-      <!--Box - DETAILS-->
       <% if @project.form_order && @project.form_order.chars[0] == '0' %>
         <%= render 'details' , local: { :project => @project } %>
         <%= render 'other' , local: { :project => @project } %>
@@ -92,8 +80,6 @@
         <%= render 'other' , local: { :project => @project } %>
         <%= render 'details' , local: { :project => @project } %>
       <% end %>
-      <!--/.Box - Problem Description-->
     </div>
-    <!--/.Panel Content-->
   </div>
 </div>
