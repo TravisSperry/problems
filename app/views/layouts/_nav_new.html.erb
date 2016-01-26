@@ -5,10 +5,15 @@
       <!-- <a href="#" class="brand">Problems</a> -->
       <div class="header-navigation">
         <div class="user-profile">
-
           <span>
-            <%= link_to user_path(current_user) do%>
-            <i style="color: white" class="fa fa-user"></i>
+            <% if current_user %>
+              <%= link_to user_path(current_user) do %>
+              <i style="color: white" class="fa fa-user"></i>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+              <i style="color: white" class="fa fa-user"></i>
+              <% end %>
             <% end %>
           </span>
         </div>
@@ -43,8 +48,14 @@
 <div class="breadcrumb-wrapper wrapper">
   <div class="container">
     <div class="breadcrumb-container">
-      <%= link_to user_path(current_user) do %>
-      <i class="fa fa-home"></i> DASHBOARD
+      <% if current_user %>
+        <%= link_to user_path(current_user) do %>
+        <i class="fa fa-home"></i> DASHBOARD
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+        <i class="fa fa-home"></i> DASHBOARD
+        <% end %>
       <% end %>
       <% if @current_page %>
       <span>/</span>
