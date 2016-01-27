@@ -265,37 +265,26 @@
           <% if @edit %>
           <% @count = 0 %>
           <%= f.simple_fields_for :slider_objects do |builder| %>
-          <div class="slide-item">
-            <%= builder.input :resource, as: :hidden  %>
-            <div class="slide-image-caption">SLIDE
-              <%= @count = @count + 1 %></div>
+            <div class="slide-item">
+              <%= builder.input :resource, as: :hidden  %>
+              <div class="slide-image-caption">SLIDE
+                <%= @count = @count + 1 %>
+              </div>
               <!-- data-url attribute used to set ajax file upload path -->
               <div class="slide-image slide-upload">
-                <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+                <% if builder.object.resource_url %>
+                  <%= image_tag builder.object.resource_url(:thumb) %>
+                <% else %>
+                  <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+                <% end %>
               </div>
               <div class="slide-caption-text">CAPTION</div>
               <div class="slide-caption-input">
                 <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
               </div>
             </div>
-            <% end %>
-            <% (5 - @project.slider_objects.length).times do |i| %>
-            <%= f.simple_fields_for :slider_objects do |builder| %>
-            <div class="slide-item">
-              <%= builder.input :resource, as: :hidden  %>
-              <div class="slide-image-caption">SLIDE
-                <%= @count = @count + 1 %></div>
-                <!-- data-url attribute used to set ajax file upload path -->
-                <div class="slide-image slide-upload">
-                  <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
-                </div>
-                <div class="slide-caption-text">CAPTION</div>
-                <div class="slide-caption-input">
-                  <%= builder.input :description, label: false, input_html: { class: 'form-control' } %>
-                </div>
-              </div>
-              <% end %>
-            <% end %>
+          <% end %>
+
 
           <% else %>
           <% 5.times do |i| %>
