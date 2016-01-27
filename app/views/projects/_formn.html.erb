@@ -117,13 +117,13 @@
         <div class="form-content form-horizontal">
           <div class="form-group draggable-form-fields">
             <%= f.simple_fields_for :project_fields do |builder| %>
-            <div class="col-xs-12 col-md-4 form-field">
+            <div class="col-xs-12 col-md-4 form-field full">
               <label>
                 <span class="field-name">STANDARDS</span>
               </label>
-              <%= f.association :standards, label: false, label_method: :code_and_category, input_html: { class: 'form-control' } %>
+              <%= f.association :standards, label: false, label_method: :code_and_category, input_html: { class: 'form-control-full' } %>
             </div>
-            <div class="col-xs-12 col-md-4 form-field">
+            <div class="col-xs-12 col-md-4 form-field full">
               <label>
                 <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden,input_html: { class: 'hidden' } %></span>
                 <span class="inline-edit">
@@ -136,7 +136,7 @@
                 </span>
               </label>
               <%= builder.input :position, as: :hidden,input_html: { class: 'position' } %>
-              <%= builder.input :content, label: false ,input_html: { class: 'form-control' }%>
+              <%= builder.input :content, label: false ,input_html: { class: 'form-control-full' }%>
               <i class="fa fa-plus-circle"></i><%= link_to_add_project_fields "ADD TOPIC", f, :project_fields %></a>
           </div>
           <% end %>

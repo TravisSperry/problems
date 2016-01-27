@@ -72,12 +72,27 @@ input[type='text'].form-control{
     border:solid 1px #89939F;
     border-radius:2px;
 }
+
+.form-control-full {
+    border:solid 1px #89939F;
+    border-radius:2px;
+    width: 100%;
+}
+
+.full {
+  width: 100%;
+}
+
 .form-control:focus {
     border-color: #3AA7EC;
     box-shadow: none;
 }
 label{
     font-weight: normal;
+}
+
+select {
+  max-height: 55px;
 }
 .row.no-gutter {
     margin-left: 0;
