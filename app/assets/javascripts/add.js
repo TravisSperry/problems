@@ -36,6 +36,7 @@
           var reader = new FileReader();
           reader.onload = function(event) {
             var url = "url(" + event.target.result + ")"
+            $(".image-container img").hide();
             $(holder).css("background-image", url);
           }
           reader.readAsDataURL(this.files[0]);
@@ -56,25 +57,30 @@
 
 
     /** The Slider section - Fileupload Plugin Initialization**/
-    $('.slide-upload').on("click", function (e) {
-      if ($(e.target).is('.slide-upload')) {
-        var input = $(this).find('input[type="file"]');
-        input.click(); // Simulate a click on the file input button to show the file browser dialog
+    function doSlideUploads() {
+      $('.slide-upload').off();
+      $('.slide-upload').on("click", function (e) {
+        if ($(e.target).is('.slide-upload')) {
+          var input = $(this).find('input[type="file"]');
+          input.click(); // Simulate a click on the file input button to show the file browser dialog
 
-        input.change(function() {
-          if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(event) {
-              var url = "url(" + event.target.result + ")"
-              input.parent().parent().css("background-image", url);
+          input.change(function() {
+            if (this.files && this.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function(event) {
+                var url = "url(" + event.target.result + ")"
+                input.parent().parent().css("background-image", url);
+                input.parent().parent().find("img").hide();
+              }
+              reader.readAsDataURL(this.files[0]);
             }
-            reader.readAsDataURL(this.files[0]);
-          }
-        });
+          });
 
-      } else console.log("wrong")
-    });
+        } else console.log("wrong")
+      });
+    }
 
+    doSlideUploads();
 
     // Prevent the default action when a file is dropped on the window
     $(document).on('drop dragover', function (e) {
@@ -103,13 +109,6 @@
 
     function draggableFormFields() {
 
-      $(".field-name").off("input");
-      $(".field-name").on("input", function(e) {
-        var content = $(this).text();
-        console.log(content)
-        $(this).find("input").val(content)
-      })
-
       $('.draggable-form-fields').sortable({
         forcePlaceholderSize: true, items: ':not(.sort-disabled)', //  to specifiy which items inside the element should be sortable:
         placeholderClass: 'placeholde-class',
@@ -133,7 +132,13 @@
       draggableFormFields(); // re-initialize draggable formfields
     });
 
-
+    $('body').on('click', 'a.add-slider', function (e) {
+      var time = new Date().getTime()
+      var regexp = new RegExp($(this).data('id'), 'g')
+      $(this).before($(this).data('fields').replace(regexp, time));
+      doSlideUploads();
+      e.preventDefault()
+    });
 
     /** Problem Slidshow Initialization **/
     $('.problem-slideshow').cycle({

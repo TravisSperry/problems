@@ -19,19 +19,19 @@
               <label>EMAIL</label>
               <%= f.input :email, label: false, input_html: { class: 'form-control'} %>
             </div>
+            <div class="form-group">
+              <label>PHOTO</label>
+              <%= f.input :featured_image, as: :file , label: false %>
+            </div>
           </div>
           <div class="col-xs-12 col-md-6 form-right">
-            <!-- <div class="form-group">
-              <label for=""></label>
-              <p class="form-control-static text-danger text- ">You must log in after changing password</p>
-            </div> -->
             <div class="form-group">
               <label>PASSWORD</label>
-              <%= f.input :password, placeholder: 'leave blank if not changing', input_html: { class: 'form-control'} %>
+              <%= f.input :password, label: false, placeholder: 'leave blank if not changing', input_html: { class: 'form-control'} %>
             </div>
             <div class="form-group">
               <label>PASSWORD CONFIRMATION</label>
-              <%= f.input :password_confirmation, placeholder: 'leave blank if not changing', input_html: { class: 'form-control'} %>
+              <%= f.input :password_confirmation, label: false, placeholder: 'leave blank if not changing', input_html: { class: 'form-control'} %>
             </div>
           </div>
           <div class="col-xs-12">
