@@ -563,9 +563,8 @@ textarea{
     background:url("../images/featured-image-placeholder.png") center center no-repeat #eaeaea;
 }
 .panel-green .image-content .image-container img{
-    position: relative;
-    top:50%;
-    transform:translateY(-50%);
+    width: 100%;
+    height: 100%;
 }
 .panel-green .image-content .image-options .action-links a{
     margin-left: 10px;
@@ -732,6 +731,17 @@ textarea{
     margin-bottom: 10px;
     cursor: pointer;
 }
+
+.slide-upload {
+  overflow: hidden;
+}
+
+.slide-image img {
+  width: 100%;
+  top: 100%;
+  pointer-events: none;
+}
+
 .panel-grey .slide-item .slide-caption-text{
     float:left;
     width:100%;
@@ -1357,5 +1367,5 @@ textarea{
 
 .field-name {
   border: 0;
-  
+
 }

@@ -36,6 +36,7 @@
           var reader = new FileReader();
           reader.onload = function(event) {
             var url = "url(" + event.target.result + ")"
+            $(".image-container img").hide();
             $(holder).css("background-image", url);
           }
           reader.readAsDataURL(this.files[0]);
@@ -69,6 +70,7 @@
               reader.onload = function(event) {
                 var url = "url(" + event.target.result + ")"
                 input.parent().parent().css("background-image", url);
+                input.parent().parent().find("img").hide();
               }
               reader.readAsDataURL(this.files[0]);
             }

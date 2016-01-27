@@ -52,7 +52,10 @@
         <div class="image-content-caption">FEATURED IMAGE</div>
 
         <div class="image-container" id="important-stuff-upload">
-          <%= f.input :featured_image, as: :file, label: false, input_html: { class: 'hidden' } %>
+          <% if f.object.featured_image_url %>
+            <%= image_tag(@project.featured_image_url) %>
+          <% end %>
+            <%= f.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
         </div>
         <div class="image-options">
           <div class="row">
@@ -61,13 +64,9 @@
               <a class="upload-trigger" href="javascript:void(0);">
                 <i class="fa fa-cloud-upload"></i>
               </a>
-              <a class="upload-trigger" href="javascript:void(0);">
-
-              </a>
-              <a href="#">
-                <i class="fa fa-trash-o"></i>
-              </a>
-              <%= f.input :_destroy, as: :hidden %>
+              <% if @edit %>
+              REMOVE <%= f.check_box :_destroy %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -193,6 +192,9 @@
       <div class="slide-image-caption">SLIDE</div>
 
       <div class="slide-image slide-upload">
+        <% if builder.object.resource_url %>
+          <%= image_tag builder.object.resource_url(:thumb) %>
+        <% end %>
         <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
       </div>
       <div class="slide-caption-text">CAPTION</div>
