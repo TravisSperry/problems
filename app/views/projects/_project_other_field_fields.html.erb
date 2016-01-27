@@ -1,10 +1,7 @@
 <div class="col-xs-12 col-md-4 form-field">
   <label>
-    <span class="field-name" contenteditable="true"><%= f.object.name ? f.object.name : "NEW TOPIC" %><%= f.input :name, as: :hidden,input_html: { class: 'hidden' } %></span>
+    <span class="field-name" ><%= f.input :name, label: false, input_html: { class: 'field-name', placeholder: "NEW TOPIC" },wrapper_html: { style: "display: inline"} %></span>
     <span class="inline-edit">
-      <a href="#">
-        <i class="fa fa-pencil"></i>
-      </a>
       <a class="drag-icon-inner" href="javascript:void(0);">
         <i class="fa fa-arrows"></i>
       </a>
