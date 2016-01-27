@@ -1354,3 +1354,8 @@ textarea{
   max-width: 65px;
   height: auto;
 }
+
+.field-name {
+  border: 0;
+  
+}

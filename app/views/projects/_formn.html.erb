@@ -121,11 +121,11 @@
               <label>
                 <span class="field-name">STANDARDS</span>
               </label>
-              <%= f.association :standards, label: false, label_method: :code_and_category, input_html: { class: 'form-control-full' } %>
+              <%= f.association :standards, label: false, label_method: :code_and_category, input_html: { class: 'form-control-full'} %>
             </div>
             <div class="col-xs-12 col-md-4 form-field full">
               <label>
-                <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden,input_html: { class: 'hidden' } %></span>
+                <span class="field-name" ><%= builder.input :name, label: false, input_html: { class: 'field-name', placeholder: "NEW TOPIC" },wrapper_html: { style: "display: inline"} %></span>
                 <span class="inline-edit">
                   <a href="#">
 
@@ -159,7 +159,7 @@
           <%= f.simple_fields_for :project_other_fields do |builder| %>
           <div class="col-xs-12 col-md-4 form-field">
             <label>
-              <span class="field-name" contenteditable="true"><%= builder.object.name ? builder.object.name : "NEW TOPIC" %><%= builder.input :name, as: :hidden, input_html: { class: 'hidden' } %></span>
+              <span class="field-name" ><%= builder.input :name, label: false, input_html: { class: 'field-name', placeholder: "NEW TOPIC" },wrapper_html: { style: "display: inline"} %></span>
               <span class="inline-edit">
                 <a href="#">
 

@@ -103,13 +103,6 @@
 
     function draggableFormFields() {
 
-      $(".field-name").off("input");
-      $(".field-name").on("input", function(e) {
-        var content = $(this).text();
-        console.log(content)
-        $(this).find("input").val(content)
-      })
-
       $('.draggable-form-fields').sortable({
         forcePlaceholderSize: true, items: ':not(.sort-disabled)', //  to specifiy which items inside the element should be sortable:
         placeholderClass: 'placeholde-class',
