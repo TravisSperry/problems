@@ -9,5 +9,5 @@ jQuery ->
 
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
-    $(this).closest('.attachment_fields').hide()
+    $(this).closest('.slide-item').hide()
     event.preventDefault()
