@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
 
+  mount_uploader :featured_image, ResourceUploader
   has_many :projects
 
   def full_name

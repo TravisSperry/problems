@@ -1,0 +1,17 @@
+<div class="slide-item">
+  <%= f.input :resource, as: :hidden  %>
+  <div class="slide-image-caption">SLIDE</div>
+
+  <div class="slide-image slide-upload">
+    <%= f.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+  </div>
+  <div class="slide-caption-text">CAPTION</div>
+  <div class="slide-caption-input">
+    <%= f.input :description, label: false, input_html: { class: 'form-control' } %>
+  </div>
+  <div class="slide-caption-input">
+    <%= link_to '#', class: "remove_fields resource-item-close" do %>
+      <i class="fa fa-times-circle"></i>REMOVE
+    <% end %>
+  </div>
+</div>
