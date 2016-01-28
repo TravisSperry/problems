@@ -176,13 +176,13 @@ class ProjectsController < ApplicationController
       :remove_featured_image,
       :featured_image_cache,
       { project_attachments_attributes:
-        [:project_attachment_type_id, :resource, :_delete, :id, :title]},
+        [:project_attachment_type_id, :resource, :_destroy, :id, :title]},
       { project_fields_attributes:
-        [:name, :position, :content, :id, :_delete]},
+        [:name, :position, :content, :id, :_destroy]},
       { project_other_fields_attributes:
-        [:name, :position, :content, :id, :_delete]},
+        [:name, :position, :content, :id, :_destroy]},
       { slider_objects_attributes:
-        [:description, :resource, :id, :_delete]}
+        [:description, :resource, :id, :_destroy]}
       )
     end
 end

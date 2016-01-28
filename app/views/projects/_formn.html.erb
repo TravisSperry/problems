@@ -64,9 +64,9 @@
               <a class="upload-trigger" href="javascript:void(0);">
                 <i class="fa fa-cloud-upload"></i>
               </a>
-              <% if @edit %>
-              REMOVE <%= f.check_box :_destroy %>
-              <% end %>
+              <% if @edit && @project.featured_image_url %>
+              REMOVE <%= f.check_box :remove_featured_image %>
+             <% end %>
             </div>
           </div>
         </div>
@@ -184,8 +184,6 @@
     </div>
   </div>
   <div class="form-content form-horizontal">
-
-    <% @count = 0 %>
     <%= f.simple_fields_for :slider_objects do |builder| %>
     <div class="slide-item">
       <%= builder.input :resource, as: :hidden  %>
