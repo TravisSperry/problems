@@ -14,7 +14,7 @@
           <div class="tags-box">
             <div class="tags-box-caption">Tags</div>
             <% @project.tags.each do |tag| %>
-              <a href="#" class="tags-box-item">tag.name</a>
+              <a href="#" class="tags-box-item"><%= tag.name %></a>
             <% end %>
           </div>
           <div class="resource-box">

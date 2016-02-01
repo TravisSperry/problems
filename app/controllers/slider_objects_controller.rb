@@ -43,5 +43,6 @@ class SliderObjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def slider_object_params
       params[:slider_object]
+      params.require(:slider_objects).permit(:project_id, :resource, :position, :_destroy, :description)
     end
 end
