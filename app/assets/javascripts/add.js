@@ -152,7 +152,7 @@
       'pager-template': '<span></span>'
     });
 
-    $('.problem-slideshow').cycle('stop'); // stop auto slideshow
+    //$('.problem-slideshow').cycle('stop'); // stop auto slideshow
 
     $('.resource-item').on('click', function() {
       console.log("boom");

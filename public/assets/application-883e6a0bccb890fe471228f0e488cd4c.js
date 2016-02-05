@@ -14873,7 +14873,7 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
       'pager-template': '<span></span>'
     });
 
-    $('.problem-slideshow').cycle('stop'); // stop auto slideshow
+    //$('.problem-slideshow').cycle('stop'); // stop auto slideshow
 
     $('.resource-item').on('click', function() {
       console.log("boom");
