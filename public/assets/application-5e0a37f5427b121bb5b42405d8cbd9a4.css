@@ -7849,9 +7849,12 @@ textarea{
 .problem-slideshow .problem-slide .image-panel{
     float:left;
     width:65%;
+    height:100%;
+    tex-align:center;
 }
 .problem-slideshow .problem-slide .image-panel img{
     max-width: 100%;
+    max-height: 100%;
 }
 .problem-slideshow .problem-slide .content-panel{
     float:left;
@@ -10482,4 +10485,3 @@ textarea{
 
 
  */
-
