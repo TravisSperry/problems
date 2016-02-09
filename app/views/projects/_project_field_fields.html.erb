@@ -2,9 +2,9 @@
   <label>
     <span class="field-name" ><%= f.input :name, label: false, input_html: { class: 'field-name', placeholder: "NEW TOPIC" },wrapper_html: { style: "display: inline"} %></span>
     <span class="inline-edit">
-      <a class="drag-icon-inner" href="javascript:void(0);">
+      <div class="drag-icon-inner">
         <i class="fa fa-arrows"></i>
-      </a>
+      </div>
     </span>
   </label>
   <%= f.input :position, as: :hidden,input_html: { class: 'position' } %>
