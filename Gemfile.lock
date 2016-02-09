@@ -292,6 +292,7 @@ DEPENDENCIES
   simple_form
   skeleton-rails
   spring
+  sprockets-rails
   sqlite3
   sunspot_rails
   sunspot_solr

@@ -23,6 +23,7 @@ gem 'spring',      group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem "devise"
 gem "jquery-rails"
 gem 'turbolinks'
