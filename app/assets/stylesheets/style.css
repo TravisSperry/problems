@@ -712,9 +712,9 @@ textarea{
 }
 .panel-grey .slide-item{
     float:left;
-    width:calc(20% - 10px);
-    width:-moz-calc(20% - 10px);
-    width:-webkit-calc(20% - 10px);
+    width:calc(80% - 10px);
+    width:-moz-calc(80% - 10px);
+    width:-webkit-calc(80% - 10px);
     margin-right: 12px;
 }
 .panel-grey .slide-item:last-child{
@@ -727,7 +727,7 @@ textarea{
 }
 .panel-grey .slide-item .slide-image{
     float:left;
-    width:100%;
+    width:25%;
     height: 100px;
     border:dashed 1px #89939F;
     background: url(../images/slide-image-placeholder.png) center center no-repeat;
