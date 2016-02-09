@@ -39,26 +39,28 @@
         <% end %>
       </div>
     </div>
-    <div class="listing-panel listing-panel-blue">
-      <div class="title-container">Problem Drafts</div>
-      <div class="problems-list">
+    <% if current_user && current_user.signed_in? %>
+      <div class="listing-panel listing-panel-blue">
+        <div class="title-container">Problem Drafts</div>
+        <div class="problems-list">
 
-        <% @projects.drafts.each do |project| %>
-        <div class="problem">
-          <div class="media">
-            <div class="media-left">
-              <%= link_to project do %>
-              <%= image_tag(project.featured_image_url) %>
-              <% end %>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading"><%= link_to project.name, project %></h4>
-              <p><%= project.content %></p>
+          <% @projects.drafts.each do |project| %>
+          <div class="problem">
+            <div class="media">
+              <div class="media-left">
+                <%= link_to project do %>
+                <%= image_tag(project.featured_image_url) %>
+                <% end %>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= link_to project.name, project %></h4>
+                <p><%= project.content %></p>
+              </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

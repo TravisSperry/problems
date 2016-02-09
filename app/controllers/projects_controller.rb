@@ -55,6 +55,7 @@ class ProjectsController < ApplicationController
     @project_attachment = @project.project_attachments.build
     @slider_object = @project.slider_objects.build
     @project_field = @project.project_fields.build
+    @project_other_field = @project.project_other_fields.build
 
   end
 

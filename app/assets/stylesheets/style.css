@@ -341,6 +341,9 @@ textarea{
     color:#FFF;
 }
 /** Page - Add Problem **/
+.resize-vertical{
+  resize: vertical;
+}
 .content-wrapper{
     float:left;
     width:100%;

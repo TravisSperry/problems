@@ -6,7 +6,7 @@ class SliderObject < ActiveRecord::Base
   before_save :default_name
 
   def default_name
-    self.file_name = File.basename(resource.file.path, '.*').gsub("_", " ")
+    self.file_name = File.basename(resource.file.path, '.*').gsub("_", " ") if resource.file
   end
 
   def mark_for_removal
