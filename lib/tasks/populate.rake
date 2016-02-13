@@ -34,3 +34,10 @@ def make_admin
   user.toggle(:admin)
   user.save!
 end
+
+
+  user = User.create!(first_name:        'Gary',
+                      last_name:         'Antonick',
+                      email:             'gantonick@gmail.com',
+                      password:          'password')
+  user.save!

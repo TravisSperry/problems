@@ -8,7 +8,6 @@ body {
     color:#89939F;
 }
 .wrapper{
-    float:left;
     width:100%;
 }
 textarea{
@@ -323,7 +322,6 @@ textarea{
 }
 
 .breadcrumb-wrapper{
-    float:left;
     width:100%;
     background-color:#89939F;
 }
