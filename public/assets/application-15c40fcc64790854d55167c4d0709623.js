@@ -14865,10 +14865,12 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
     $('.problem-slideshow').cycle({
       slides: '> div',
       swipe: true,
-      fx: 'scrollHorz', //  fade, fadeout, none, and scrollHorz.
-      timeout: 5000,
+      fx: 'fade', //  fade, fadeout, none, and scrollHorz.
+      timeout: 0,
       speed: 500,
       log: false,
+      next: '#next',
+      prev: '#prev',
       pager: '#problem-slideshow-pager',
       'pager-template': '<span></span>'
     });

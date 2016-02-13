@@ -8175,7 +8175,14 @@ textarea{
 
 .field-name {
   border: 0;
+}
 
+.slider-nav > a{
+  color:#89939F;
+}
+
+.problem-slideshow-pager{
+  margin-bottom:4px;
 }
 /*!
 * Style - Responsive - Media Queries (Desktop First Method)
