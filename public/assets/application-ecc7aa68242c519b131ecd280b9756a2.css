@@ -5073,9 +5073,8 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border: 1px solid transparent;
-  border-radius: 4px;
 }
 .alert h4 {
   margin-top: 0;
@@ -6809,7 +6808,6 @@ body {
     color:#89939F;
 }
 .wrapper{
-    float:left;
     width:100%;
 }
 textarea{
@@ -7124,7 +7122,6 @@ textarea{
 }
 
 .breadcrumb-wrapper{
-    float:left;
     width:100%;
     background-color:#89939F;
 }
