@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   def index
     @current_page = "PROJECTS"
     @projects = Project.all
+    @projects_for_review = Project.pending_review if current_user
     @new_nav = true;
 
     respond_to do |format|
