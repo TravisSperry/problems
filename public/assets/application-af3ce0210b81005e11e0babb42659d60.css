@@ -7776,6 +7776,9 @@ textarea{
 .box-orange.box-problem-description .title-container{
     background-color:#FFDB00;
 }
+.box-orange.title-container{
+    background-color:#FFDB00;
+}
 .box-problem-description .title-container .title-icon{
     border: 1px solid #414042;
     border-radius: 25px;
