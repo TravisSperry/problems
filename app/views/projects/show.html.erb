@@ -6,7 +6,7 @@
           <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
         </div>
         <div class="content-box">
-          <h2 class="problem-caption"><%= @project.name %> [<%= Project::STATUSES[@project.status] %>]</h2>
+          <h2 class="problem-caption"><%= @project.name %> <%= "[#{Project::STATUSES[@project.status]}]" if current_user%></h2>
           <div class="problem-contributor"><span>CONTRIBUTOR:</span> <span><%= link_to @project.author_name, @project.author_link if @project.author_link %></span></div>
           <div class="problem-type"><span>TYPE:</span> <span><%= Type.where(project_id: @project.id).name %></span></div>
           <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-sm btn-primary btn-grey' %>
@@ -43,13 +43,14 @@
           </div>
           <% end %>
         </div>
+        <% if @project.slider_objects.length > 1 %>
         <div class="pager-container">
           <div class='center slider-nav'>
             <a href=# id='prev' style='text-decoration:none;right:4;'><i class="fa fa-2x fa-chevron-left"></i></a>
-            <span class='problem-slideshow-pager' id="problem-slideshow-pager"></span>
             <a href=# id='next'><i class="fa fa-2x fa-chevron-right"></i></a>
           </div>
         </div>
+        <% end %>
       </div>
       <% end %>
       <div class="box-problem-description box-green">
