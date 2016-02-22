@@ -3,7 +3,7 @@
     <div class="content view-page-content">
       <div class="box-problem-information">
         <div class="image-box">
-          <%= image_tag(@project.featured_image_url, class: 'u-pull-right', height: '150') %>
+          <%= image_tag(@project.featured_image_url, class: 'u-pull-right', width: '100%') %>
         </div>
         <div class="content-box">
           <h2 class="problem-caption"><%= @project.name %> <%= "[#{Project::STATUSES[@project.status]}]" if current_user%></h2>
@@ -30,7 +30,7 @@
       <% if @project.slider_objects.length > 0 %>
       <div class="box-problem-slideshow">
         <div class="problem-slideshow">
-          <% @project.slider_objects.each do |slider_object| %>
+          <% @project.slider_objects.each_with_index do |slider_object, i| %>
           <div class="problem-slide">
             <div class="image-panel">
               <%= image_tag(slider_object.resource_url) %>
@@ -38,6 +38,9 @@
             <div class="content-panel">
               <div>
                 <%= simple_format(slider_object.description, wrapper_tag: "p", sanitize: false) %>
+              </div>
+              <div style="text-align:right;">
+                <%= "Page #{i+1} of #{@project.slider_objects.length}" %>
               </div>
             </div>
           </div>
