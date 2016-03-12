@@ -188,16 +188,21 @@
     <div class="slide-item">
       <%= builder.input :resource, as: :hidden  %>
       <div class="slide-image-caption">SLIDE</div>
-
       <div class="slide-image slide-upload">
         <% if builder.object.resource_url %>
           <%= image_tag builder.object.resource_url(:thumb) %>
         <% end %>
         <%= builder.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
       </div>
+
       <div class="slide-caption-text">CAPTION</div>
       <div class="slide-caption-input">
         <%= builder.input :description, label: false, input_html: { class: 'form-control resize-vertical' } %>
+      </div>
+
+      <div class="slide-caption-text">ORDER</div>
+      <div class="slide-caption-input">
+        <%= builder.input :order, label: false %>
       </div>
       <% if @edit %>
       <div class="slide-caption-input">

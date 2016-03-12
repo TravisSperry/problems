@@ -1,5 +1,5 @@
 class AddOrderToSliderObjects < ActiveRecord::Migration
   def change
-    add_column :order, :slider_objects, :integer
+    add_column :slider_objects, :order, :integer
   end
 end

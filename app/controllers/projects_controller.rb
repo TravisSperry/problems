@@ -184,7 +184,7 @@ class ProjectsController < ApplicationController
       { project_other_fields_attributes:
         [:name, :position, :content, :id, :_destroy]},
       { slider_objects_attributes:
-        [:description, :resource, :id, :_destroy]}
+        [:description, :resource, :id, :_destroy, :order]}
       )
     end
 end

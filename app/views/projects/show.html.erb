@@ -30,7 +30,7 @@
       <% if @project.slider_objects.length > 0 %>
       <div class="box-problem-slideshow">
         <div class="problem-slideshow">
-          <% @project.slider_objects.each_with_index do |slider_object, i| %>
+          <% @project.slider_objects.order(order: :asc).each_with_index do |slider_object, i| %>
           <div class="problem-slide">
             <div class="image-panel">
               <%= image_tag(slider_object.resource_url) %>
