@@ -55,7 +55,7 @@
           <% if f.object.featured_image_url %>
             <%= image_tag(@project.featured_image_url) %>
           <% end %>
-            <%= f.input :resource, as: :file, label: false, input_html: { class: 'hidden' } %>
+            <%= f.input :featured_image, as: :file, label: false, input_html: { class: 'hidden' } %>
         </div>
         <div class="image-options">
           <div class="row">

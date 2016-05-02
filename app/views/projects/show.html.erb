@@ -30,6 +30,13 @@
       <% if @project.slider_objects.length > 0 %>
       <div class="box-problem-slideshow">
         <div class="problem-slideshow">
+          <% if @project.featured_image %>
+            <div class="problem-slide">
+              <div class="image-panel text-center" style="float:none;width:100%;">
+                <%= image_tag(@project.featured_image_url, height: '100%') %>
+              </div>
+            </div>
+          <% end %>
           <% @project.slider_objects.order(order: :asc).each_with_index do |slider_object, i| %>
           <div class="problem-slide">
             <div class="image-panel">
@@ -39,7 +46,7 @@
               <div>
                 <%= simple_format(slider_object.description, wrapper_tag: "p", sanitize: false) %>
                 <div style="text-align:right;">
-                  <%= "Page #{i+1} of #{@project.slider_objects.length}" %>
+                  <%= "Page #{i+2} of #{@project.slider_objects.length}" %>
                 </div>
               </div>
             </div>
