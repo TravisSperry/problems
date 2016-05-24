@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     @edit = true
     @project = Project.includes(:project_attachments).find(params[:id])
     @project_attachment = @project.project_attachments.build
-    @slider_object = @project.slider_objects.build
+    @slider_object = @project.slider_objects.order(:order).build
     @project_field = @project.project_fields.build
     @project_other_field = @project.project_other_fields.build
 
