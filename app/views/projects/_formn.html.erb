@@ -184,7 +184,7 @@
     </div>
   </div>
   <div class="form-content form-horizontal">
-    <%= f.simple_fields_for :slider_objects do |builder| %>
+    <%= f.simple_fields_for :slider_objects, @current_slider_objects do |builder| %>
     <div class="slide-item">
       <%= builder.input :resource, as: :hidden  %>
       <div class="slide-image-caption">SLIDE</div>

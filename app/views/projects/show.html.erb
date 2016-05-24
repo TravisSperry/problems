@@ -46,7 +46,11 @@
               <div>
                 <%= simple_format(slider_object.description, wrapper_tag: "p", sanitize: false) %>
                 <div style="text-align:right;">
-                  <%= "Page #{i+2} of #{@project.slider_objects.length}" %>
+                  <% if @project.featured_image %>
+                    <%= "Page #{i+2} of #{@project.slider_objects.length + 1}" %>
+                  <% else %>
+                    <%= "Page #{i+1} of #{@project.slider_objects.length}" %>
+                  <% end %>
                 </div>
               </div>
             </div>
