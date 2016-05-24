@@ -14,7 +14,7 @@
           var reader = new FileReader();
           reader.onload = function(event) {
             var url = "url(" + event.target.result + ")"
-            $(holder).css("background-image", url);
+            $(holder).css({"background-image": url, "background-size": "100%"});
           }
           reader.readAsDataURL(this.files[0]);
         }
@@ -37,7 +37,7 @@
           reader.onload = function(event) {
             var url = "url(" + event.target.result + ")"
             $(".image-container img").hide();
-            $(holder).css("background-image", url);
+            $(holder).css({"background-image": url, "background-size": "100%"});
           }
           reader.readAsDataURL(this.files[0]);
         }
@@ -69,7 +69,7 @@
               var reader = new FileReader();
               reader.onload = function(event) {
                 var url = "url(" + event.target.result + ")"
-                input.parent().parent().css("background-image", url);
+                input.parent().parent().css({"background-image": url, "background-size": "100%"});
                 input.parent().parent().find("img").hide();
               }
               reader.readAsDataURL(this.files[0]);
